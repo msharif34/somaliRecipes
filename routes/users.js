@@ -9,6 +9,22 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// Get User favorites from server
+router.post('/favorites', function(req, res, next) {
+res.header('Access-Control-Allow-Origin', '*'); 
+console.log(req.body)
+db.user.find({where:{firebaseId: req.body.firebaseId}}).then(function(user){
+		var userId = user.id;
+	  db.favorite.find({where:{userId:userId, foodName: req.body.foodName}}).then(function(data,created){
+		   if(data === null){
+		   	res.send(false)
+		   }else{
+		   	res.send(true)
+		   }
+		 })
+	});
+});
+
 router.post('/create', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*'); 
 	db.user.create({ email: req.body.email, firebaseId: req.body.firebaseId}).then(function(data) {
@@ -23,13 +39,16 @@ router.post('/create', function(req, res, next) {
 //Add user favorite
 router.post('/add/favorites', function(req, res, next) {
 	db.user.find({where:{firebaseId: req.body.firebaseId}}).then(function(user){
-	  user.createFavorite({
-	    foodName: req.body.foodName
-	  }).then(function(post){
-	    console.log('favorite created');
-	  })
+		var userId = user.id;
+		console.log('USER =------' + userId, req.body.foodName)
+	  db.favorite.findOrCreate({where:{userId:userId, foodName: req.body.foodName}}).spread(function(data,created){
+		   res.send('Creating favorite')
+		   if(data.foodName != req.body.foodName){
+		    	res.send('Creating favorite')
+		    }
+		  })
 	});
-  res.send('user added favorite');
+  // res.send('user added favorite');
 });
 
 router.delete('/remove/favorites', function(req, res, next) {
