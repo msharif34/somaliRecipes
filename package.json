@@ -1,5 +1,5 @@
 {
-  "name": "RecipesServer",
+  "name": "recipesserver",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,22 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "morgan": "~1.6.1",
+    "pg": "^4.5.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.19.3",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msharif34/somaliRecipes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msharif34/somaliRecipes/issues"
+  },
+  "homepage": "https://github.com/msharif34/somaliRecipes#readme",
+  "description": ""
 }
