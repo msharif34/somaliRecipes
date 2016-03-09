@@ -4,9 +4,10 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-   db.user.findAll().then(function(users){
-  	res.send(users);
-  });
+  //  db.user.findAll().then(function(users){
+  // 	res.send(users);
+  // });
+  //  res.send('test')
 });
 
 // Get User favorites from server
