@@ -926,55 +926,54 @@ router.get('/recipes', function(req, res, next) {
 ]
 
 var newData = [];
-  for(var i = 0; i < data.length; i++){
-    if(data[i].Category === "Appetizers"){
-      data[i]['CategoryImg'] = "https://i.ytimg.com/vi/OWkzaLWtAhw/maxresdefault.jpg"
-      newData.push(data[i])
-    }
+        for(var i = 0; i < data.length; i++){
+          if(data[i].Category === "Appetizers"){
+            data[i]['CategoryImg'] = "https://i.ytimg.com/vi/OWkzaLWtAhw/maxresdefault.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Breakfast"){
-      data[i]['CategoryImg'] = "https://kitchenkemistry.files.wordpress.com/2012/02/chapati.jpg"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Breakfast"){
+            data[i]['CategoryImg'] = "https://kitchenkemistry.files.wordpress.com/2012/02/chapati.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Desserts"){
-      data[i]['CategoryImg'] = "http://www.mysomalifood.com/wp-content/uploads/2014/12/bundtcake1.jpg"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Desserts"){
+            data[i]['CategoryImg'] = "http://www.mysomalifood.com/wp-content/uploads/2014/12/bundtcake1.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Desserts"){
-      data[i]['CategoryImg'] = "http://i0.wp.com/www.treatswithatwist.com/wp/wp-content/uploads/2014/02/Creamy-Millet-Porridge-4.jpg?resize=586%2C391"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Grains & Legumes"){
+            data[i]['CategoryImg'] = "http://i0.wp.com/www.treatswithatwist.com/wp/wp-content/uploads/2014/02/Creamy-Millet-Porridge-4.jpg?resize=586%2C391"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Main Courses"){
-      data[i]['CategoryImg'] = "https://c2.staticflickr.com/8/7126/6936775300_dfd376ca10_b.jpg"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Main Courses"){
+            data[i]['CategoryImg'] = "https://c2.staticflickr.com/8/7126/6936775300_dfd376ca10_b.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Salads"){
-      data[i]['CategoryImg'] = "http://www.sequentgroups.com/wp-content/uploads/2015/12/Chopped-Salad_550x310.jpg"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Salads"){
+            data[i]['CategoryImg'] = "http://www.sequentgroups.com/wp-content/uploads/2015/12/Chopped-Salad_550x310.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Soups"){
-      data[i]['CategoryImg'] = "http://restaurant-atlantic.com/en/wp-content/uploads/2015/04/soups.jpg"
-      newData.push(data[i])
-    }
+          if(data[i].Category === "Soups"){
+            data[i]['CategoryImg'] = "http://restaurant-atlantic.com/en/wp-content/uploads/2015/04/soups.jpg"
+            newData.push(data[i])
+          }
 
-    if(data[i].Category === "Soups"){
-      data[i]['CategoryImg'] = "https://akkiskitchen.files.wordpress.com/2013/10/hp1b9131.jpg"
-      newData.push(data[i])
-    }
-}
+          if(data[i].Category === "Vegetables"){
+            data[i]['CategoryImg'] = "https://akkiskitchen.files.wordpress.com/2013/10/hp1b9131.jpg"
+            newData.push(data[i])
+          }
 
-  res.send(data)
+          if(data[i].Category === "Side-Dishes"){
+            data[i]['CategoryImg'] = "http://www.bonappetit.com/wp-content/uploads/2012/01/duck-confit-casserole-646.jpg"
+            newData.push(data[i])
+          }
+      }
 
-
-
-
-
-
+  res.send(newData)
 
 });
 
