@@ -4,10 +4,9 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  //  db.user.findAll().then(function(users){
-  // 	res.send(users);
-  // });
-  //  res.send('test')
+   db.user.findAll().then(function(users){
+  	res.send(users);
+  });
 });
 
 // Get User favorites from server
@@ -15,6 +14,7 @@ router.post('/favorites', function(req, res, next) {
 res.header('Access-Control-Allow-Origin', '*'); 
 console.log(req.body)
 db.user.find({where:{firebaseId: req.body.firebaseId}}).then(function(user){
+	console.log(user)
 		var userId = user.id;
 	  db.favorite.find({where:{userId:userId, foodName: req.body.foodName}}).then(function(data,created){
 		   if(data === null){
