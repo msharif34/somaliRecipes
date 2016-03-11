@@ -64,4 +64,18 @@ router.delete('/remove/favorites', function(req, res, next) {
 	});
 });
 
+router.post('/favorites/all', function(req, res, next) {
+	db.user.find({where:{firebaseId: req.body.firebaseId}}).then(function(user){
+		var userId = user.id
+		db.favorite.findAll({where:{userId:userId}}).then(function(data){
+		    console.log(data);
+
+		    res.send(data);
+		  })
+	});
+});
+
+
+
+
 module.exports = router;
