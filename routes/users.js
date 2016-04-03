@@ -31,7 +31,17 @@ router.post('/create', function(req, res, next) {
 	db.user.create({ email: req.body.email, firebaseId: req.body.firebaseId}).then(function(data) {
 	  // you can now access the newly created task via the variable data
 	  console.log(data)
-  		res.send('user created');
+  		res.send('firebase login');
+	}, function(err){
+		res.send(err);
+	});
+});
+
+router.post('/facebook', function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*'); 
+	console.log(req.body)
+	db.user.findOrCreate({where: {firebaseId: req.body.firebaseId}}).spread(function(user, created) {
+  	res.send('facebook user created or found');
 	}, function(err){
 		res.send(err);
 	});

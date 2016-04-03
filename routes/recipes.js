@@ -2,889 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/recipes', function(req, res, next) {
+router.get('/newrecipes', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*'); 
 
-
 var data = [
-  {
-    "Name": "Muufo",
-    "NameLink": "http://www.mysomalifood.com/muufo/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/11/muufo.jpg",
-    "Ingredients": "1 cup cornmeal (precooked, \"PAN\")\t\t\t\t1 cup plain flour\t\t\t\t1 teaspoon baking powder\t\t\t\t2 teaspoons sugar\t\t\t\t1 teaspoon salt\t\t\t\t1 tablespoon of oil, and more for cooking the muufo",
-    "Instructions": "In a mixing bowl add cornmeal, plain flour, baking powder, sugar and salt, add just enough water to make a\t\t\t\tsoft dough, add about 2 1/4 cups of  warm water,  more flour if sticky and more water if too dry.\t\t\t\tYou can use the dough right away or let it rest for 20 minutes to overnight.\t\t\t\tHeat a non-stick fry pan on a medium heat.\t\t\t\tDivide the dough into 6 equal pieces then leave them covered.\t\t\t\tUsing your hands flatten each piece in to a 4 inch/ 10 cm  diameter.\t\t\t\tUse little bit of water to wet your hand, so the dough won't stick.\t\t\t\tFry each bread until golden brown 4 to 5 minutes on each side.\t\t\t\tAlternatively use a griddle and brush each muufo with some oil  and\t\t\t\tturnover when the bread comes of the griddle about 4-5 minutes.\t\t\t\tServe with your favorite stew.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Cambaabur (ambaabur) : Eid Bread",
-    "NameLink": "http://www.mysomalifood.com/cambaabur-eid-bread/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/08/cambaabur1.jpg",
-    "Ingredients": "1 ï¿½ cups all purpose flour\t\t\t\tï¿½ cup wheat flour\t\t\t\tï¿½ cup millet flour\t\t\t\t3 cups water\t\t\t\t1 ï¿½ teaspoon yeast\t\t\t\t1 ï¿½ teaspoon sugar\t\t\t\t1 teaspoon salt\t\t\t\t1 small onion chopped\t\t\t\t1 clove of garlic chopped\t\t\t\t1/2 teaspoon to 1 teaspoon of turmeric\t\t\t\t1 teaspoon fennel seeds (caraway)\t\t\t\t1 teaspoon habba sauda (nigella seeds)",
-    "Instructions": "In a blender add the onion and garlic, cumin, turmeric and some water and blend until smooth paste.\t\t\t\tAdd all the other ingredients to the blender and blend again until combined. It should be like a pancake batter.\t\t\t\tCover the mixture and keep it in a warm place for about 4-6 hours or until it doubles in size.\t\t\t\tScoop the batter by 1/4 cup on a fry pan with a little oil, sprinkle with custard sugar on top to taste. repeat this until you have finished all the batter.\t\t\t\tServe with Yogurt.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Injera: Ethiopia Sourdough FlatBread with Chicken Stew",
-    "NameLink": "http://www.mysomalifood.com/injera-ethiopia-sourdough-flatbread-with-chicken-stew/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/injera.jpg",
-    "Ingredients": "2 cup all-purposeflour\t\t\t\tï¿½ cup cornmeal flour\t\t\t\tï¿½ cup teff flour\t\t\t\t2 teaspoon yeast\t\t\t\t1/2 cup sourdough starter\t\t\t\t3 1/4 cups lukewarm water",
-    "Instructions": "In a mixer or a blender combine all the ingredient and mix or blend until there are no lumps.\t\t\t\tCover and set aside to rest at a warm place for 2 hours.\t\t\t\tHeat a nonstick skillet on a medium heat.\t\t\t\tTake about ï¿½ cup of the batter and pour it in the skillet tilting to coat most of the bottom.\t\t\t\tCook, until moisture has evaporated and when lots of holes form in the injera and the edges lift from the pan.\t\t\t\tRemove and let cool each injera before stacking them as you go along.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Mini Muufo",
-    "NameLink": "http://www.mysomalifood.com/mini-muufo/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/08/mini-muufo.jpg",
-    "Ingredients": "21/4 cups/350g semolina flour\t\t\t\t1 tablespoon sugar\t\t\t\t1  teaspoon salt\t\t\t\t2 teaspoons baking powder\t\t\t\t1/4 cup/50ml oil\t\t\t\t1/2 cup/100ml  milk\t\t\t\t1 egg, beaten",
-    "Instructions": "In a bowl mix all the dry ingredients.\t\t\t\tadd the egg milk and oil and stir until combined.\t\t\t\tKnead for few minutes until soft dough but not sticky.\t\t\t\tAdd more flour if needed.\t\t\t\tLet it sit for 30 minutes.\t\t\t\tRoll the dough on a floured surface.\t\t\t\tCut with a cookie cutter or a glass.\t\t\t\tHeat a nonstick pan on a medium heat.\t\t\t\tPlace the cakes to cook each side for about 4 minutes.\t\t\t\tServe warm with stew.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Sourdough Lahooh",
-    "NameLink": "http://www.mysomalifood.com/sourdough-lahooh/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/01/Lohooh.jpg",
-    "Ingredients": "1/2 cup millet\t\t\t\t1/2 cup cornmeal\t\t\t\t1 cup plain flour\t\t\t\t1 cup starter\t\t\t\t3  cups water\t\t\t\t1 teaspoon baking soda",
-    "Instructions": "Mix all the ingredient in a bowl and leave it to sit for 30 minutes to overnight, the longer you leave it the more sour it will become.\t\t\t\tDepending how thick or thin your starter is, add more water if the batter is too tick and more flour if too thin\t\t\t\tWhen ready, stir the batter until incorporated.\t\t\t\tHeat a non stick pan on a medium heat.\t\t\t\tSpread ï¿½ cup of the batter gently, in a circular motion with the back of a ladle starting in the middle and then working clockwise.\t\t\t\tJust cook one side until golden brown. You should have nice bubbles on top.\t\t\t\tMake sure you start with a clean skillet, by wiping it off with a kitchen paper .\t\t\t\tRepeat using all batter.\t\t\t\tServe warm.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Sweet Fried Bread",
-    "NameLink": "http://www.mysomalifood.com/sweet-fried-bread/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/07/sweetfriedbread1.jpg",
-    "Ingredients": "2 cups all-purpose flour\t\t\t\t1/4 cup sugar\t\t\t\t2 tablespoon oil\t\t\t\t1 teaspoon cardamom powder\t\t\t\t2 teaspoon baking powder\t\t\t\t1/2 cup lukewarm milk\t\t\t\t1 egg, beaten\t\t\t\tOil for frying",
-    "Instructions": "In a bowl combine all the ingredient.\t\t\t\tKneed the dough lightly don't over work it.\t\t\t\tLeave it to rest for 30 min.\t\t\t\tRoll the though on a lightly floured surface.\t\t\t\tCut in to desired shapes.\t\t\t\tDeep fry until golden brown on both sides.\t\t\t\tDrain on a paper towel and serve.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Coconut Filed Sabaayad",
-    "NameLink": "http://www.mysomalifood.com/coconut-sabaayad/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/01/coconutSabaayad.jpg",
-    "Ingredients": "2 cups all-purpose flour\t\t\t\t1 cup all-purpose wholewheat flour\t\t\t\t1 teaspoon salt\t\t\t\t2 tablespoons oil\t\t\t\tshredded coconut\t\t\t\tsugar\t\t\t\textra oil and flour",
-    "Instructions": "Combine flour, salt and oil in deep bowl; add one cup of water gently using your fingers Knead the dough  add more water a table spoon at a time and kneed the dough if it gets sticky add tablespoon of flour each time.\t\t\t\tkneed the dough until it turns very soft ad  smooth for 5 to 10 minutes.\t\t\t\tCover and set aside for half an hour.\t\t\t\tDivide the dough into 8 large balls.\t\t\t\tOn a lightly floured surface, roll each piece into a rough circle about 8 inches in diameter.\t\t\t\tBrush with oil then sprinkle with the sugar and the coconut spread evenly fold the edges to meet center fold, in the four ends over each other, to make a square fold. set a side and apply the same method to all the pieces.\t\t\t\tRoll each piece lightly and place it a circle about 8 inch and place it on a  hot griddle over medium heat.\t\t\t\tFry the sabaayad one at a time with little oil, turning them once each side is golden brown.\t\t\t\tFinish until you have applied the same method to all the pieces.\t\t\t\tDrain the sabaayad on paper towels and serve warm with cup of shaah.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Lahooh with Suqaar and Eggs",
-    "NameLink": "http://www.mysomalifood.com/lahooh-with-suqaar-and-eggs/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/suqaar-lahooh.jpg",
-    "Ingredients": "1 lb beef cubes, suqaar\t\t\t\t2 large tomatoes , chopped\t\t\t\t2 eggs\t\t\t\t1large onion chopped\t\t\t\t2 tablespoons Oil\t\t\t\t1 cloves garlic, chopped\t\t\t\t1 teaspoon coriander powder\t\t\t\t1 teaspoon paprika\t\t\t\tSalt and pepper\t\t\t\t2 green onion, chopped",
-    "Instructions": "In a deep skillet on high heat add the meat and stir until brown.\t\t\t\tAdd oil and stir for few minutes season with salt and pepper.\t\t\t\tAdd the onion and stir for few more minutes.\t\t\t\tAdd the tomatoes and the garlic, coriander and paprika. Cook for 5 minutes.\t\t\t\tMake two holes by spreading the meat then crack the eggs drop them in to the holes.\t\t\t\tCook covered until the eggs have cooked through. Alternatively bake it in the oven 15-20 min until the eggs are set.\t\t\t\tServe with lahooh.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Soft Buns",
-    "NameLink": "http://www.mysomalifood.com/soft-buns/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/buns.jpg",
-    "Ingredients": "4 1/2 koob daqiiq\t\t\t\t3 malqaacadood malab\t\t\t\t1 1/2 malqaacad yar milix\t\t\t\t5 malqaacadood saliid saytuun (olive oil)\t\t\t\t1 maqaacad yiist (yeast)\t\t\t\tDaqiiq iyo saliid dheeraad ah, oo loobaahanyahay marka laxashayo",
-    "Instructions": "Yiista iyo 1/4 (rubuc) koob biyo aha isku walaaq yara dhig\t\t\t\t5 mirir.\t\t\t\tKadib soo qaado Weel ama madiibad weyn oo aad ku xashto\t\t\t\tdhaqiiqda. Daqiiqda, malabka, milixda, saliida, caanaha iyo yiista\t\t\t\tkuwada shub oo walaaq badadeed xash oo marka hore way\t\t\t\tisku dhaqdhagi laakiin markaad xashtid ayuu kabi'i doonaa.\t\t\t\tInyar oo daqiiqa kudar hadii uu kaa jilco, hadii uu adkaadana\t\t\t\tbiyo yar kudar.\t\t\t\tDaqiiqdu waa in ay jilicsanaataa, hadhow markaa roodhida\t\t\t\tayaa noqonaysa roodhi khafiif ah oo jilicsan.\t\t\t\tDabool oo meel dhig si ay ufaxdo ilaa saacad saacad iyo badh\t\t\t\twaa in ay is laba laabtaa, kolba kii soo horeeya.\t\t\t\tKadib u qaybi daqiiqda 12 xabadood.\t\t\t\tSidii kubada oo kale uyara xash markaa, weel balaadhan\t\t\t\tsoo qaado oo kuwadarid. Meel yara kulul dhig oo sug ilaa saacad inta ay faxayaan.\t\t\t\tOfinka sii diiri oo ka dhig 425f ama 220c\t\t\t\tWaxay qaadanaysaa ilaa 20 mirir markaad aragto oo ay dusha\t\t\t\tkashaaxido kasaar ofinka oo yara daa ilaa ay qaboobayso.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Quick Lahooh",
-    "NameLink": "http://www.mysomalifood.com/lahoohanjero-flat-bread/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/01/lohooh.jpg",
-    "Ingredients": "1 cup all-purpose plain flour\t\t\t\t1/2 cup wholewheat flour\t\t\t\t1/2 cup cornmeal flour, fine\t\t\t\t3 teaspoon baking powder\t\t\t\t1/2 teaspoon salt\t\t\t\t2 cups of milk or more\t\t\t\t1 tablespoon sugar\t\t\t\t1 egg\t\t\t\tButter and honey for serving",
-    "Instructions": "Mix all the ingredient in a blender to form a smooth batter with no lumps.\t\t\t\tAdd more milk if you need the batter should be like a pancake like consistency.\t\t\t\tHeat a cast iron skillet or a non stick pan on a medium heat.\t\t\t\tSpread ï¿½ cup of the batter gently, in a circular motion by starting in the middle and then working clockwise.\t\t\t\tCook one side until golden brown.\t\t\t\tIf it sticks on the skillet add few drops of oil and wipe it off with a kitchen paper.\t\t\t\tRepeat using all batter.\t\t\t\tServe warm",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Lahooh with Eggs",
-    "NameLink": "http://www.mysomalifood.com/lahooh-with-eggs/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/beediyoloxoox.jpg",
-    "Ingedients": "2 lahooh link here\n1 small tomato, chopped\n1 small onion, chopped\n1 chili pepper, chopped\n1 green onion, chopped\n2 eggs\nsalt pepper to taste\nï¿½ cup green pepper, chopped\nï¿½ cup grated cheese\noil",
-    "Instructions": "Mix the flour, baking powder, salt, and cardamom. Mix in the egg, milk and the water and kneed to make a soft dough. Cover the dough and let it rest for 30-40 minutes Divide the dough into eight pieces then roll into a thin 5 inch round. Heat oil and fry the dough until golden. Dry on a kitchen paper. Serve with cardamom confectionery sugar.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "lahooh-spongy-pancake-like-bread",
-    "NameLink": "http://www.mysomalifood.com/lahooh-spongy-pancake-like-bread/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/lahooh.jpg",
-    "Ingedients": "1 ï¿½ cups all purpose flour ï¿½ cup wheat flour ï¿½ cup millet flour 3 cups water 1 ï¿½ teaspoon yeast 1 ï¿½ teaspoon sugar 1 teaspoon salt",
-    "Instructions": "Mix all the ingredient together to form a batter; Stir well to avoid lumps set aside to rise in a warm place until bubbly and doubled in size, about 1 to 1 1/2 hours. When ready, stir batter if liquid has settled on bottom. Heat a cast iron skillet or a non stick pan on a medium heat. Spread ï¿½ cup of the batter gently, in a circular motion by starting in the middle and then working clockwise. Just cook one side until golden brown. If it sticks on the skillet add few drops of oil and wipe it off with a kitchen paper. Repeat using all batter.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Khamiir: Fried Dough",
-    "NameLink": "http://www.mysomalifood.com/khamiir-fried-dough/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/khamiir.jpg",
-    "Ingedients": "2 cups flour\n2 teaspoon baking powder\n1 teaspoon salt\nï¿½ cup milk, warm\nï¿½ cup water, warm\n2 teaspoon oil\n1 teaspoon ground cardamom\n1 egg, beaten",
-    "Instructions": "Mix the flour, baking powder, salt, and cardamom.\nMix in the egg, milk and the water and kneed to make a soft dough.\nCover the dough and let it rest for 30-40 minutes\nDivide the dough into eight pieces then roll into a thin 5 inch round.\nHeat oil and fry the dough until golden.\nDry on a kitchen paper.\nServe with cardamom confectionery sugar.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Lahooh with Sweetened Eggs",
-    "NameLink": "http://www.mysomalifood.com/lahooh-with-sweet-eggs/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/lahoohbeed.jpg",
-    "Ingedients": "4 pieces of lahooh\n3 eggs\nsugar to taste\nï¿½ teaspoon ground cardamom\noil",
-    "Instructions": "Beet the eggs in a bowl, add the sugar, and cardamom.\nIn a skillet on a medium heat drizzle little oil then place one lahooh on the skillet.\nPour ï¿½ of the egg mixture over the lahooh covering most of it.\ncover with the another lahooh.\nLeave it to cook until the bottom has a nice brown color and the egg has set.\nDrizzle with little oil and flip over to the other side, and cook until brown.\nCook the other patch the same way.\nDrizzle honey or syrup and serve warm",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Sabaayad: Flatbread",
-    "NameLink": "http://www.mysomalifood.com/sabayad-flatbread/",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/Sabaayad.jpg",
-    "Ingedients": "3 cups of all-purpose plain 1 teaspoon salt 2 table spoons oil more oil for rolling and for the skillet more flour for rolling",
-    "Instructions": "\nInstructions\nCombine the flour, oil and salt in deep bowl add one cup of water gently using your fingers Knead the dough. Add more water a tablespoon to make a soft dough continue to knead if it sticks sprinkle with some flour. Kneed the dough until it turns very smooth for 5 to 10 minutes. Brush a bowl with oil, and leave dough to rest covered in a plastic and set aside for 30 minutes. Divide the dough into 8 large balls. On a lightly floured surface, roll each piece into a rough circle about 8 inches in diameter. Brush with oil on top spread evenly fold to edges in to meet center fold, fold the other edges in You should now have a square fold, set a side. Finish until you have applied the same method to all the pieces. Again on a floured surface roll each piece out into 8 inch and place it on a hot griddle over medium heat. Fry the sabaayad one at a time with little oil, turning them once each side is golden brown. The sabaayad will puff slightly and become crisp and brown. Drain the sabaayad on paper towels and serve warm.",
-    "Category": "Breakfast"
-  },
-  {
-    "Name": "Sorghum & Corn flour Hot Cereal",
-    "NameLink": "http://www.mysomalifood.com/shuurosoor/",
-    "Ingredients": "1/2 cup corn flour 1/2 cup sorghum flour pinch of salt 2 cups milk 2 cups water sugar/honey pinch of cinnamon",
-    "Instructions": "In a heavy pan bring the water and milk to a rolling boil.\t\t\t\tStir the corn and sorghum to the boiling water and milk, constantly stir.\t\t\t\tReduce the heat on a medium and let it simmer, stir occasionally .\t\t\t\tKeep stirring until it thickens add more water or milk to get softer consistency, according to your preference.\t\t\t\tServe hot with butter, milk, sugar, honey, buttermilk, or yogurt.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/07/photo.jpg"
-  },
-  {
-    "Name": "Farina: Hot Breakfast Cereal",
-    "NameLink": "http://www.mysomalifood.com/farina-hot-breakfast-cereal/",
-    "Ingredients": "3 cups of milk � cup Farina Salt to taste Sugar/honey to taste Butter (optional)",
-    "Instructions": "In a sauce pan bring milk to a boil.\t\t\t\tAdd Farina slowly, stirring constantly.\t\t\t\tLower the heat, continue to cook while stirring until it thickens.\t\t\t\tAdd honey/sugar and butter.\t\t\t\tAdd more milk on top if you like it.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/farina.jpg"
-  },
-  {
-    "Name": "Lahooh with Sweetened Eggs",
-    "NameLink": "http://www.mysomalifood.com/lahooh-with-sweet-eggs/",
-    "Ingredients": "4 pieces of lahooh\n3 eggs\nsugar to taste\n� teaspoon ground cardamom\noil",
-    "Instructions": "Beet the eggs in a bowl, add the sugar, and cardamom. In a skillet on a medium heat drizzle little oil then place one lahooh on the skillet. Pour � of the egg mixture over the lahooh covering most of it. cover with the another lahooh. Leave it to cook until the bottom has a nice brown color and the egg has set. Drizzle with little oil and flip over to the other side, and cook until brown. Cook the other patch the same way. Drizzle honey or syrup and serve warm",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/lahoohbeed.jpg"
-  },
-  {
-    "Name": "Easy Pancake",
-    "NameLink": "http://www.mysomalifood.com/easy-pancake/",
-    "Ingredients": "1 cup milk\n2 eggs\n2 tablespoon dry milk\n2 tablespoon sugar\n1 tablespoon oil\n1 cup flour\n1 teaspoon cardamom\n1 teaspoon vanilla\n1 teaspoon baking powder\n oil for frying",
-    "Instructions": "Combine all the ingredients in a blender and blend briefly. Then cover and let it rest for 20 minutes to one hour. Over a medium heat, heat 2 tablespoons of oil in griddle. Fry 1/4 cup of the mixture at a time, for 2 minutes or until bubbles start to form . Flip with a spatula and cook until both sides are golden. Serve hot with honey and yogurt or maple syrup.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/02/pancake.jpg"
-  },
-  {
-    "Name": "Haricot Beans",
-    "NameLink": "http://www.mysomalifood.com/haricot-beans/",
-    "Ingredients": "1 pound haricot beans\n4 table spoon oil\n1 red/green pepper\n2 cloves of garlic, chopped\n1 large onion chopped\n1 (15-ounce) can chopped tomatoes\n2 tablespoons tomato paste\n2 teaspoon cayenne pepper\n� cup cilantro, chopped\n1 Maggi bouillon\nSalt and pepper, to taste",
-    "Instructions": "Put the haricot beans in a bowl, cover with water and soak overnight. Heat the oil in a large pan over medium heat and cook the onions until soft, add garlic and cook briefly season with salt and pepper. Add the tomato paste, tomato, pepper and cayenne, cook for 5 minutes. Stir in the cilantro. Drain the beans and add to the pan with 3 cups of hot water and the Maggi. Bring it to a boil, cover and simmer for 1 to 1 � hours until the beans are tender, add more water if necessary.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/beans.jpg"
-  },
-  {
-    "Name": "Spinach and Potato Frittata",
-    "NameLink": "http://www.mysomalifood.com/spinach-and-potato-frittata/",
-    "Ingredients": "3 potatoes, sliced 1/8 thick\n6 eggs beaten\n1 lb fresh spinach\n1 tomato, chopped\n1 clove of garlic minced\nSalt and pepper to taste\nAbout � cup shredded cheese\n3-4 tablespoon olive oil",
-    "Instructions": "Wash and chop spinach finely, drain and place the spinach in a fry pan over medium heat. Stir for one minute until soft. Transfer the spinach to a colander and press out the moisture. Chop finely. Sautee the onions on a large fry pan over medium heat until soft, add the garlic and stir. Add the potato and cook for few minutes add the tomato and season. Stir in the spinach. Fold together the beaten eggs and the cheese and pour over the egg mixture and fold until just blended. Transfer in the oven and bake until just set.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/beedspinach.jpg"
-  },
-  {
-    "Name": "Bulgur with strawberries, raisins and honey",
-    "NameLink": "http://www.mysomalifood.com/bulgur-with-strawberries-raisins-and-honey/",
-    "Ingredients": "1 cup Bulgur\n2 cups of water\n1/2 teaspoon salt\nhoney to taste\n1/2 cup raisins\n1 cup yogurt\n 1 cup chopped strawberries",
-    "Instructions": "In a sauce pan add the water and salt bring it to a boil. wash the bulgur and drain ad to the boiling water. Remove from the heat and cover for 20 minutes. Bulgur comes in different sizes of coarseness, add more water if you need to. Serve bulgur with yogurt on top and sprinkle raisin, strawberries, drizzle with honey.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/12/bu1.jpg"
-  },
-  {
-    "Name": "Somali Style Cooked Lamb Liver : Beer",
-    "NameLink": "http://www.mysomalifood.com/beer-somali-style-cooked-lamb-liver/",
-    "Ingredients": "Lamb liver, chopped into small pieces\n1 onion, diced\n1 tomato, chopped\n� cup green pepper\n1 green chili, chopped\nJuice of half of lime/lemon\n1 teaspoon coriander powder\n2 tablespoons cilantro\nSalt and pepper to taste",
-    "Instructions": "Heat oil in a skillet on a medium heat, add the onions and saut� until tender add the tomato, and cook few more minutes, season with salt and pepper. Stir in the green pepper, green chili, lemon, coriander, and cilantro. Add the liver and cook until tender. Serve with lahooh or pita bread and lemon wedges. It is great with shigni too, if you serve it during lunch or dinner time.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/beer.jpg"
-  },
-  {
-    "Name": "Sweet and Creamy Millet",
-    "NameLink": "http://www.mysomalifood.com/sweet-and-creamy-millet/",
-    "Ingredients": "1 cup millet 2 cups of water 2 cups of milk and more salt",
-    "Instructions": "In a dry saucepan toast the millet for few minutes for deeper flavor, stir continuously\t\t\t\tto avoid burning .\t\t\t\tAdd water, bring to a boil, then reduce heat and simmer for bout 20 minutes all the liquid will absorbed.\t\t\t\tAdd the milk, salt and butter to taste cook for 5-10 more minutes until desired consistency reached, for a creamier millet.\t\t\t\tServe with more milk, honey, dried or fresh fruits, nuts. Adding a dash of cinnamon will spice it up.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/11/millet.png"
-  },
-  {
-    "Name": "Creamy Pearled Barley Porridge",
-    "NameLink": "http://www.mysomalifood.com/creamy-pearled-barley-porridge/",
-    "Ingredients": "1 cup Pearl Barley\t\t\t\t6 cups of water\t\t\t\tsalt\t\t\t\tCinnamon\t\t\t\tbutter optional\t\t\t\tmilk",
-    "Instructions": "In a large saucepan bring the water to a boil, add salt to taste add the barley, simmer uncoverd utill tender for an hour. Add more milk and cook untill reached disired consistency for a creamier barley.\t\t\t\tServe with more milk, yogurt, buttermilk, butter and cinnamon to taste.",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/w1.jpg"
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Babaganoush",
-    "NameLink": "http://www.mysomalifood.com/babaganoush/",
-    "Ingredients": "1 large eggplant\t\t\t\t2 garlic cloves,chopped\t\t\t\t2 tablespoons extra virgin olive oil\t\t\t\t2 tablespoons fresh lemon juice\t\t\t\tsalt and pepper\t\t\t\tChopped fresh cilantro for garnishing(optional)",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/08/babaganoush.jpg",
-    "Instructions": "Preheat the oven to 400F/200C.\t\t\t\tCut the eggplant in half lengthwise and brush lightly with oil.\t\t\t\tPlace on a baking sheet, cut side down.\t\t\t\tRoast the eggplant for about 40 minutes or until tender. Let it cool.\t\t\t\tPlace the eggplant, garlic, oil, lemon, salt an peper in a food processor and process until fairly smooth but not completely pureed.\t\t\t\tTaste and add additional lemon juice and salt to taste.\t\t\t\tCover and refrigerate until needed.\t\t\t\tServe with pita."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Baked Beef Sambusa",
-    "NameLink": "http://www.mysomalifood.com/baked-beef-sambusa/",
-    "Ingredients": "2 cups flour, �plus extra\t\t\t\t2 teaspoons baking powder\t\t\t\t1 egg, beaten\t\t\t\t1/4 cup olive oil or butter melted\t\t\t\t1/2 teaspoon salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/baked-beef-sambusa.jpg",
-    "Instructions": "To make the pastry dough, in a bowl add the flour baking powder and salt egg and enough water to make a firm dough.\t\t\t\tknead until smooth and soft not sticky.\t\t\t\tCover the dough in a bowl and let it rest for 20 minutes.\t\t\t\tknead and divide the dough in to 16 pieces.\t\t\t\tFlour paste as a glue\t\t\t\tIn a small bowl, mix 1/4 cup flour and 1/4 cup�water to make a smooth paste.\t\t\t\tAssembly\t\t\t\tRoll one of the dough into 5 inch circle\t\t\t\tPick one the Sambusa wrappers with your hands and fold it into a cone shape seal it with flour paste.\t\t\t\tPlace a spoonful of the filling in the middle brush the edges with a flour paste or water and �shape it into a cone,\t\t\t\tclose the top with the paste if needed and shape like a triangle.\t\t\t\tPinch the edges so that it is completely sealed.\t\t\t\tContinue filling the rest of the Sambusas.\t\t\t\tBrush with the egg-wash on the top.\t\t\t\tBake 350f/180c for 25 minutes or until golden .\t\t\t\tIt is best served while warm."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Baked Sambusas with Chicken",
-    "NameLink": "http://www.mysomalifood.com/baked-sambusas-with-chicken/",
-    "Ingredients": "3 1/2 cups all plain flour\t\t\t\t2 tablespoon oil\t\t\t\t1 egg\t\t\t\t1 cup milK\t\t\t\t2 teaspoon yeast",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/06/baked-sambuusa.jpg",
-    "Instructions": "In a mixing bowl, mix together flour, yeast, salt,egg and oil and add the milk until combined.\t\t\t\tKnead the dough for 5 minutes until a soft dough is formed use more flour if sticky.\t\t\t\tPlace the dough in bowl and let it rise for 1 hour or until doubled in size."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Date Filled Sambusa",
-    "NameLink": "http://www.mysomalifood.com/date-filled-sambuuse/",
-    "Ingredients": "2 � cups flour � cup water warm � cup milk warm 1 teaspoons yeast � cup sugar � teaspoon salt 1 egg 4 tablespoons oil\n1 cup soft dates, pitted and finely chopped 3 tablespoon oil/butter or ghee 1/2 teaspoon cardamom 1/4 teaspoon nutmeg",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/datesam.jpg",
-    "Instructions": "Place the dates, butter, cardamom and nutmeg in a saucepan, over low heat, and stir occasionally until dates become a paste. Remove from the heat, and let it cool. In a bowl combine the yeast and the water leave it for 15 minutes. Stir in milk, sugar, salt, egg and the oil to the yeast mixture. Gradually stir in the flour to combine, kneed the dough to obtain soft dough. Cover and leave it to rise in a warm place. Divide the dough in to 2 equal portions and roll one on a lightly floured surface. Roll into a square 15�10 inch rectangle, divide into 9 equal squares. Spoon each square about 2 teaspoons of the filling in the center, then fold it into triangle. Brush the edges with water press with your fingers to seal it. Place on a baking sheet and repeat with the remaining ingredients. Preheat the oven 350f bake for 20 to 30 until golden"
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Easy Baajiya",
-    "NameLink": "http://www.mysomalifood.com/easy-baajiya/",
-    "Ingredients": "2 cups Blacked-eye beans, soaked overnight and drained\t\t\t\t1 onion, chopped\t\t\t\t2 cloves of garlic, chopped\t\t\t\t1 tablespoon cilantro, chopped\t\t\t\t1 teaspoon salt\t\t\t\t1 teaspoon coriander powder\t\t\t\t1 teaspoon cumi powder\t\t\t\t1 green chili, chopped optional",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/baajiye-sambusa.jpg",
-    "Instructions": "Put all the ingredients in a food processor and pulse in to a paste or place them mortal and pestle in batches and and grind them in to a paste.\t\t\t\tIf you have time let them sit in the fridge for 2 hours.\t\t\t\tHeat the oil in a pan on medium heat and fry spoonfuls of the mixture until golden brown.\t\t\t\tServe with green chilli sauce or what ever sauce you like."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Fried Fish",
-    "NameLink": "http://www.mysomalifood.com/fried-fish/",
-    "Ingredients": "1 lb haddock, cut into peaces 1 cup flour 1 teaspoon baking powder 1 egg Salt and pepper to taste 1 teaspoon chili powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/friedfish.jpg",
-    "Instructions": "Heat oil in a large pan In a bowl combine, flour, egg, baking powder, salt, pepper and mix well until smooth. Drop the fish in the batter to cote and then place in the hot oil. Fry fish until golden. Drain on a pepper towel."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Hummus: Chickpea Dip",
-    "NameLink": "http://www.mysomalifood.com/hummus-chickpea-dip/",
-    "Ingredients": "1 15 oz can chickpea, washed, drained 1 clove garlic 1/2 cup yogurt 2 tablespoon tahini 1 teaspoon salt 2 tablespoon lemon 2 tablespoon olive oil",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/hummus.jpg",
-    "Instructions": "Place all the ingredient in a blender and process untill smooth, drizzle with more olive oil serve with pita. Garnish with olives."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Khamiir with nigella seeds",
-    "NameLink": "http://www.mysomalifood.com/khamiir-with-nigella-seeds/",
-    "Ingredients": "2 1/2 cups of all-purpose plain flour\t\t\t\t1 cup milk/water\t\t\t\t2 tablespoons of butter/oil/ghee\t\t\t\t1 teaspoon yeast\t\t\t\t1 tablespoon sugar\t\t\t\t1 teaspoon nigella seeds\t\t\t\t1/2 teaspoon salt\t\t\t\toil for frying\t\t\t\tmore flour for kneeding",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/05/khamiir.jpg",
-    "Instructions": "In a bowl add the flour yeast, sugar, nigella seeds and salt, rub the butter untill the mixture resembles bread cumbs, Gradually add enough water or milk to form a dough.\t\t\t\tWrap the dough in plastic wrap and leave in a warm place until it doubled in size.\t\t\t\tKnead the dough and roll on a floured surface, cut the dough in to various shapes with a sharp knife.\t\t\t\tDeep-fry in batches until golden on both sides, turning them once, drain on kitchen paper.\t\t\t\tServe with dates and tea."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Nafaqo",
-    "NameLink": "http://www.mysomalifood.com/nafaqo/",
-    "Ingredients": "2 eggs 2 large potatoes, peeled 1 teaspoon cumin powder 1 teaspoon coriander powder 1 teaspoon turmeric salt and pepper bread crumbs oil for frying",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/08/nafaqo.jpg",
-    "Instructions": "Place the potatoes in a large pan and cover with water and boil for 20 minutes or until tender, then mash with a fork season with salt and pepper, turmeric, coriander and cumin, mix well until combined. In the mean time place the eggs in another pan and boil until cooked. Peel the cooked eggs and cut into fourths then set aside. Take a heaping spoonful of the mashed potato slightly flatten with your hands. Place a piece of egg in the middle and cover with the mashed potato, and make a round or oval shape. Then roll the mashed potato balls with the bread crumbs until covered. Drop the naffaqos in the hot oil, and fry until golden brown."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Quraac with nigella and buttermilk",
-    "NameLink": "http://www.mysomalifood.com/quraac-with-nigella-and-buttermilk/",
-    "Ingredients": "1 teaspooon nigella seeds (haba sauda)\t\t\t\t2 cups all-purpose plain flour\t\t\t\t2 teaspoons baking powder\t\t\t\t1/2 cup butter milk\t\t\t\t1 egg, beaten\t\t\t\t1/4 cup sugar\t\t\t\t2 tablespoons melted butter or oil",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/khamiirbuttermilk.jpg",
-    "Instructions": "Mix all the ingredients and knead until it comes all together, if sticky add more flour and if too dry tablespoon of butter milk at a time.\t\t\t\tWrap the dough in plastic wrap and leave in a warm place for 20 minutes.\t\t\t\tKnead the dough and roll on a floured surface, 9 inch by 19 inch cut the dough in to diamonds.\t\t\t\tDeep-fry in batches until golden on both sides, turning them, drain on kitchen paper.\t\t\t\tServe with dates and tea."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Sambusa filled with peas and potato",
-    "NameLink": "http://www.mysomalifood.com/sambusa-filled-with-peas-and-potato/",
-    "Ingredients": "� cup green peas, cooked 1 tablespoon chopped cilantro 2 teaspoon lemon juice 2 large potatoes, cooked, chopped in cubes 1 green chili 2 tablespoon oil 1 onion chopped 1 clove garlic � teaspoon turmeric 1 teaspoon coriander 1 teaspoon cumin 1 teaspoon fresh ginger, minced Salt and pepper � cup all-purpose flour � cup water, or as needed Sambusa wrappers Oil for frying",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/08/sambuuse.jpg",
-    "Instructions": "In a skillet heat the oil and saut� the onions until browned. Add the ginger and garlic, coriander cumin, green chili, salt, turmeric and cook stirring until fragrant, season with salt and pepper. Add the potatoes and stir add the peas and cook for few minutes; add the cilantro and lemon juice. Take off the heat. And let it cool until we ready to use. In a small bowl, mix flour and the water to make a smooth paste. Pick one the sambusa wrappers with your hands and fold it into a cone shape seal it with flour paste. Fill the cone with the filling and close the top into a triangle shape and seal it with the flour paste. Pinch the edges so that it is completely sealed. Continue filling the rest of the sambusas. Heat the oil in frying pan, fry the sambusas until golden brown. Remove and drain on paper towels. Serve while warm."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Sambusa Pastry",
-    "NameLink": "http://www.mysomalifood.com/sambusa-pastry/",
-    "Ingredients": "3 cups plain all-purpose flour 2 table spoon oil 1 cup Luke warm water salt more oil for brushing",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/08/sambuuse1.jpg",
-    "Instructions": "Mix the flour oil and the salt, while using a fork mix in the water slowly, knead the though for 5-10 minutes until smooth and pliable dough. Form the dough into a ball and coat the outside with oil. Cover and set it aside for about 15 minutes. Heat a skillet on a medium-low heat. Knead the dough again and divide it into 8 equal portions Form each portion into a ball. Using two balls at a time roll both in 5inch brush one with oil and put the other one on top. Press with your fingers to make sure they line up, roll on a floured surface to flatten with a rolling pin about 9-10 inches in diameter. Cut into four peaces with a sharp knife, roll each peace again so it keeps its shape. Place each peace on the warm skillet and leave it each side to dry it out (make sure you don�t leave it too long). Remove and let it cool slightly then separate the two slowly without tearing the wrappers. Cover with a towel and continue to repeat the same steps until you have finished all peaces."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Somali Sambusa",
-    "NameLink": "http://www.mysomalifood.com/somali-sambusa/",
-    "Ingredients": "1 pounds ground beef/lamb\t\t\t\t2 tablespoons oil\t\t\t\t1 small onion, chopped\t\t\t\t2 teaspoons coriander powder\t\t\t\t2 tablespoons cilantro, finely chopped\t\t\t\tgreen onion, chopped\t\t\t\t2 teaspoon cumin powder\t\t\t\t2 teaspoon cardamom powder\t\t\t\t1 teaspoon salt\t\t\t\t1 teaspoon pepper\t\t\t\t1 green chili\t\t\t\t1 clove garlic, minced\t\t\t\toil for frying",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/08/Sambusa1.jpg",
-    "Instructions": "Mix the flour oil and the salt, while using a fork mix in the water slowly, knead the though for 5-10 minutes until smooth and pliable dough.\t\t\t\tForm the dough into a ball and coat the outside with oil. Cover and set it aside for about 15 minutes.\t\t\t\tHeat a skillet on a medium-low heat.\t\t\t\tKnead the dough again and divide it into 8 equal portions\t\t\t\tForm each portion into a ball.\t\t\t\tUsing two balls at a time roll both in 5inch brush one with oil and put the other one on top. Press with your fingers to make sure they line up, roll on a floured surface to flatten with a rolling pin about 10-11 inches in diameter.\t\t\t\tCut into four peaces with a sharp knife, roll each peace again so it keeps its shape.\t\t\t\tPlace each peace on the warm skillet and leave it each side to dry it out (make sure you don�t leave it too long).\t\t\t\tRemove and let it cool slightly then separate the two slowly without tearing the wrappers.\t\t\t\tCover with a towel and continue to repeat the same steps until you have finished all peaces."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Sweet Fried Bread",
-    "NameLink": "http://www.mysomalifood.com/sweet-fried-bread/",
-    "Ingredients": "2 cups all-purpose flour\t\t\t\t1/4 cup sugar\t\t\t\t2 tablespoon oil\t\t\t\t1 teaspoon cardamom powder\t\t\t\t2 teaspoon baking powder\t\t\t\t1/2 cup lukewarm milk\t\t\t\t1 egg, beaten\t\t\t\tOil for frying",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/07/sweetfriedbread1.jpg",
-    "Instructions": "In a bowl combine all the ingredient.\t\t\t\tKneed the dough lightly don't over work it.\t\t\t\tLeave it to rest for 30 min.\t\t\t\tRoll the though on a lightly floured surface.\t\t\t\tCut in to desired shapes.\t\t\t\tDeep fry until golden brown on both sides.\t\t\t\tDrain on a paper towel and serve."
-  },
-  {
-    "Category": "Appetizers",
-    "Name": "Tuna Sambusa",
-    "NameLink": "http://www.mysomalifood.com/tuna-sambusa/",
-    "Ingredients": "for the Sambusa filling\t\t\t\t1 small onion, chopped\t\t\t\t2 cans of tuna, drained\t\t\t\t1 tablespoon cilantro,chopped\t\t\t\t1 large potato, finely chopped\t\t\t\t2 teaspoons tomato-paste\t\t\t\tsalt and pepper to taste\t\t\t\t1 teaspoon coriander powder\t\t\t\t1/2 teaspoon turmeric powder\t\t\t\t1 teaspoon cayenne pepper",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/11/Tuna-Sambusa.jpg",
-    "Instructions": "to make the dough\t\t\t\tIn a bowl add the flour and oil add warm water a little at a time to make pliable dough.\t\t\t\tknead the dough for 5 minutes on floured surface until the dough is smooth.\t\t\t\tCover and set aside for 20-30 minutes."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Bread pudding",
-    "NameLink": "http://www.mysomalifood.com/bread-pudding/",
-    "Ingredients": "7-8 slices bread 1/4 cup sugar 1/4 cup raisin 1 teaspoon cinnamon 3 eggs 2 1/2 cups milk 1 tablespoon custard powder 2 table spoon melted butter",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/02/breadp.jpg",
-    "Instructions": "preheat the oven 180C/350F/gas mark 4, Brush a ovenproof dish with butter. Beat together eggs, sugar, cinnamon, vanilla, butter and the milk in a bowl. In another small dish beat the custard powder with some of the milk and mix, then add this to the egg and milk mixture. Cut the bread in small pieces, arrange in the dish, sprinkling with the raisins as you go layering. pour the custard mixture over the bread,bake in the preheated oven for 35-40 minutes until golden brown. serve warm with custard or vanilla ice cream."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Coconut Semolina Cake (Basbosa)",
-    "NameLink": "http://www.mysomalifood.com/coconut-semolina-cake-basbosa/",
-    "Ingredients": "1 1/4 cups sugar\t\t\t\t1 1/2 cups semolina flour\t\t\t\t2 cups coconut\t\t\t\t4 tablespoons butter melted\t\t\t\t1 cup milk\t\t\t\t2 eggs\t\t\t\t2 teaspoons baking powder\t\t\t\t1 teaspoon vanilla",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2014/02/coconut-semolina-cake.jpg",
-    "Instructions": "Brush baking dish with oil or butter.\t\t\t\tPreheat the oven 350f/180c\t\t\t\tIn a bowl mix semolina flour, sugar,coconut, and baking powder.\t\t\t\tAdd the eggs, butter, milk and vanilla, mix well until all combined.\t\t\t\tTurn in to the prepared pan and level the top.\t\t\t\tBake in the over for 30 -35 minutes or until golden."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Coconut Sweet",
-    "NameLink": "http://www.mysomalifood.com/coconut-sweet/",
-    "Ingredients": "2 cups coconut, fresh or dried 14 oz can condensed milk 2 teaspoon cardamom, freshly grounded 1 tablespoon butter 1/4 cup sugar",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/11/qumbe-macaan.jpg",
-    "Instructions": "In a sauce pan place the coconut, condensed milk, and the sugar on a medium heat. Stir constantly, making sure not to burn it for about 10 minutes until mixture thickens. Mix in the butter and the cardamom powder. Line a small pound cake pan with a parchment paper and spread the coconut sweets evenly and let it cool. When cool cut them squares, diamonds or shape them into balls."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Creme Caramel Cake",
-    "NameLink": "http://www.mysomalifood.com/creme-caramel-cake/",
-    "Ingredients": "For the Caramel\t\t\t\t1 cups sugar\t\t\t\t1/4 cup water",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/03/cremecaramelcake.jpg",
-    "Instructions": "In a� saucepan combine sugar and water, heat until sugar is dissolved over medium heat.\t\t\t\tMake sure not to walk away or the sugar will burn quickly. Remove from heat once you have amber color.\t\t\t\tPour caramel over bottom of� 8 or 9 inch 20cm-23cm cake pan, tilting carefully to coat evenly. Let cool."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Date Banana Loaf",
-    "NameLink": "http://www.mysomalifood.com/date-banana-loaf/",
-    "Ingredients": "1/3 cup unsalted butter\t\t\t\t1/3 cup sugar\t\t\t\t2 tablespoons honey\t\t\t\t2 large eggs\t\t\t\t3 ripe bananas\t\t\t\t1/2 cup chopped dates\t\t\t\t1 cup plain flour\t\t\t\t1/2 cup wholemeal/wheat flour\t\t\t\t11/2 teaspoons baking powder\t\t\t\t1/2 cup Milk\t\t\t\t1/2 teaspoon salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/06/date-banana-loaf.jpg",
-    "Instructions": "Preheat the oven to 350f/80c\t\t\t\tGrease a loaf-pan.\t\t\t\tWhisk the butter, honey and sugar in a large bowl for 5 minutes.\t\t\t\tAdd the eggs on at the time and mix.\t\t\t\tIn a food processor puree the dates and banana, and add this to the bowl and mix in.\t\t\t\tMix the flours, baking powder and salt and fold it it along with the milk.\t\t\t\tSpoon into the prepared loaf pan and level the top.\t\t\t\tPut it in the oven and bake for an 1 hour or until a tester inserted and comes out clean.\t\t\t\tLet it coll in the pan for 10 minutes before turning out."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Date Cake",
-    "NameLink": "http://www.mysomalifood.com/date-cake/",
-    "Ingredients": "1 1/2 cups plain flour 2 teaspoons baking powder 1/2 teaspoon salt 1 cup brown sugar 3 eggs 1 teaspoon ground cinnamon 1 teaspoon ground cardamom 1 teaspoon ground cloves 1 teaspoon vanilla extract 1/2 cup oil 1/2 cup date syrup",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/04/datecake.jpg",
-    "Instructions": "Preheat oven 350F degrees Mix sugar, eggs in a large bowl, with a mixer, beat until thick and creamy. Add oil and date syrup then beat for few more minutes. Add flour,� baking powder, cloves, cinnamon and vanilla and beat until smooth. Pour batter into a prepared baking pan. Bake in preheated oven for 30-40 minutes or until a toothpick is inserted into the center , and comes out clean. Serve warm with scoop of your favorite vanilla ice cream and a drizzle of date syrup."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Easy Tiramisu (no eggs)",
-    "NameLink": "http://www.mysomalifood.com/easy-tiramisu-no-eggs/",
-    "Ingredients": "8 oz mascarpone\t\t\t\t1 cup cream, whipped\t\t\t\t1 teaspoon vanilla\t\t\t\t6 tablespoons caster sugar\t\t\t\t20-24 lady fingers\t\t\t\t2 cups of coffee, cooled\t\t\t\tUnsweetened coco powder (optional)",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2014/03/easy-tiramisu.jpg",
-    "Instructions": "Dip the lady fingers one at the time into the coffee drain off any excess and arrange them in the base of a deep serving dish (square 8 inch).\t\t\t\tSpread half of the cream mixture over the biscuits.\t\t\t\tDip the remaining lady fingers and repeat the layers.\t\t\t\tChill in the refrigerator for at least 2 hours or over night.\t\t\t\tBefore serving, dust top with cocoa powder."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Orange Cake",
-    "NameLink": "http://www.mysomalifood.com/orange-cake/",
-    "Ingredients": "1 cup all purpose flour\t\t\t\t1 teaspoon baking powder\t\t\t\t1/2 cup oil\t\t\t\t3 eggs\t\t\t\t3/4 cup sugar\t\t\t\t2 tablespoons fresh orange juice\t\t\t\t2 teaspoons orange zest",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/orange-cake.jpg",
-    "Instructions": "Heat the oven 350f, 180c or gas mark 4. Grease a loaf-pan.\t\t\t\tIn a bowl mix together the flour, baking powder and salt. set aside.\t\t\t\tIn another bowl beat the eggs until doubled in size.\t\t\t\tAdd the sugar, zest and the oil beat until it creamy.\t\t\t\tAdd the flour and mix until incorporated don't over mix.\t\t\t\tPut the mixture in to the greased baking pan.\t\t\t\tBake for 40 minutes or until a tester comes out clean.\t\t\t\tTo make the orange glaze\t\t\t\tMix all the ingredients and drizzle over the top of the warm cake."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Pineapple Upside-down Cake",
-    "NameLink": "http://www.mysomalifood.com/pineapple-upside-down-cake/",
-    "Ingredients": "1 cup sugar\t\t\t\t1/3 cup water\t\t\t\t20 oz/ 567 can pineapple slices\t\t\t\t1 1/2 cup all-purpose flour\t\t\t\t1/2 cup wholewheat flour\t\t\t\t3/4 cup packed light brown sugar\t\t\t\t2 eggs\t\t\t\t1/2 cup buttermilk\t\t\t\t1 teaspoon cardamom powder\t\t\t\t2 teaspoon baking powder\t\t\t\t1/4 teaspoon salt\t\t\t\t1/2 cup butter\t\t\t\tpineapple upside-down cake",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/06/pineapplecake2.jpg",
-    "Instructions": "Preheat the oven to 350 degrees Fahrenheit .\t\t\t\tGenerously butter a 10-inch dish and arrange the pineapple in the dish about 8 slices.\t\t\t\tCombine 1 cup sugar and 1/3 cup water in a small pan and cook until it turns gold, don't stir only swirl.\t\t\t\tPour over the pineapple slices, cover evenly.\t\t\t\tIn a large bowl beat the butter add the sugar and beat light and fluffy.\t\t\t\tAdd the eggs beating after each addition..\t\t\t\tAdd the buttermilk, cardamom, vanilla, beat just until blended, add the flour, salt and baking powder.\t\t\t\tSpoon the batter over pineapple topping spread evenly, bake in the preheated oven about 45 or until it is cooked in the middle.\t\t\t\tCool the cake for 5 minutes, invert the cake into a flat plate.\t\t\t\tServe warm or room temperature."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Pressed Sugar Cookies with Cardamom",
-    "NameLink": "http://www.mysomalifood.com/pressed-sugar-cookies-with-cardamom/",
-    "Ingredients": "1 cup plain flour\t\t\t\t1 stick and 2 tablespoons unsalted butter\t\t\t\t1/2 tsp salt\t\t\t\t1/2 tsp ground cardamom\t\t\t\t1 tsp vanilla extract\t\t\t\t1/3 cup sugar caster sugar\t\t\t\t1 egg  yolk",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/05/biscuits.jpg",
-    "Instructions": "Beat the sugar and butter in a mixer until pale and fluffy.\t\t\t\tAdd the egg and beat until smooth.\t\t\t\tThen add mix in the flour, salt and cardamom.\t\t\t\tPack the dough into cookie press, fit with desired shaped cookie plate.\t\t\t\tPress the dough out into ungreased baking sheet.\t\t\t\tBake the cookies until light golden on the sides."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Qureebaad : Butter Cookies",
-    "NameLink": "http://www.mysomalifood.com/qureebaad-butter-cookies/",
-    "Ingredients": "1 cup butter\t\t\t\t1 cup icing sugar\t\t\t\t2 1/2 cups plain flour\t\t\t\t1 teaspoon cardamom powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/08/qureebaad.jpg",
-    "Instructions": "Melt the butter in a pan and let it cool.\t\t\t\tStir in the icing sugar then add the flour and the cardamom and mix until smooth.\t\t\t\tDivide in to two, and wrap each piece a plastic or parchment wrap and shaped it into a logs and let it cool for 20 minutes in the fridge.\t\t\t\tPreheat the oven to 350f/180c\t\t\t\tGrease a baking sheet.\t\t\t\tCut the logs of dough into disks and place them in to the prepared pan.\t\t\t\tBake for 20 minutes or until golden."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Rice Pudding",
-    "NameLink": "http://www.mysomalifood.com/rice-pudding/",
-    "Ingredients": "� cup basmati rice 3 cups milk 1 tablespoon butter � teaspoon vanilla 5 cardamom, crushed 1 cinnamon stick � cup raisins Salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/02/ricepudding1.jpg",
-    "Instructions": "Wash the rice and place in a large pot, add two cups of water and let it boil slowly. When the water evaporates, mash the rice with a spoon, add two cups of milk, cardamom, cinnamon, vanilla, salt and sugar. Bring it to the boil and let it simmer until it becomes thick add here the remaining milk and the raisins cook and simmer until the pudding is creamy and thick. Let it cool, serve warm or cold"
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Semolina cake",
-    "NameLink": "http://www.mysomalifood.com/semolina-cake/",
-    "Ingredients": "1/2 cup oil/butter 1/2 cup sugar 3 tablespoon millk 2 teaspoon baking powder 3 eggs 2 cups semolina 1/2 cup oil/butter 1/2 cup sugar 3 tablespoon millk 2 teaspoon baking powder 3 eggs 2 cups semolina",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/08/sam1.jpg",
-    "Instructions": "Preheat the oven to 350F Grease baking dish (23cm/9inch square) Cream butter/oil, milk and sugar in a bowl add the eggs one at the time and mix. Add the semolina, baking powder and mix until combined. Turn in to the prepared pan and level the top. Bake for 30 minutes or until it is golden. Cut the cake in squares, or diamond shapes. Pour the cold syrup over the hot cake. Let it sit to cool and serve.  To make the syrup, in a small pan put the sugar and water. Bring it to the boil and keep boiling for 5 minutes. Stir in the orange blossom water. Let it cool."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Sweet Shells",
-    "NameLink": "http://www.mysomalifood.com/sweet-shells/",
-    "Ingredients": "1� 3/4 cup all purpose flour 1/4 cup semolina flour 2 table spoons oil/butter/ghee pinch of salt oil for frying water to form a dough 1 cup of sugar 3 tablespoons of water",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/06/shushume.jpg",
-    "Instructions": "In a bowl rub the flour, salt and the oil/ghee/ butter using your fingers until the mixture has the consistency of crumbs. Add tablespoons of water at a time to make a soft dough. In the meantime, boil the water and the sugar in pan on medium high until tick syrup. Take marbled sized balls of dough and flatten as shown in the picture, using a back of the fork press with your thumb and roll forward to make a shell, keep it aside and finish with the rest of the shells. Heat the oil in a pan and fry the shells until golden, drain on a kitchen paper. Dip the shells in to the syrup to coat evenly. Let it cool and serve."
-  },
-  {
-    "Category": "Desserts",
-    "Name": "Vanilla Bundt Cake",
-    "NameLink": "http://www.mysomalifood.com/vanilla-bundt-cake/",
-    "Ingredients": "1 1/2 cup selfraising flour\t\t\t\t2 sticks unsalted butter\t\t\t\t1 cup sugar\t\t\t\t5 eggs\t\t\t\t1 teaspoon vanilla\t\t\t\t1/2 teaspoon salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2014/12/bundtcake1.jpg",
-    "Instructions": "Preheat oven to 350. Spray a Bundt pan with cooking spray.\t\t\t\tBeat butter and sugar together in a bowl with a mixer on medium speed until pale and fluffy, 2 to 3 minutes.\t\t\t\tAdd eggs, one at a time, beating well after each addition and scraping down sides of bowl.\t\t\t\tAdd the flour and salt into the mixture and mix until combined .\t\t\t\tPour the batter into prepared pan.Bake cake until golden and a wooden skewer inserted comes out clean, about 50 to 60 minutes. Cool completely before turning out."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Baajiye: Black Eyed Bean Fritters with hot sauce",
-    "NameLink": "http://www.mysomalifood.com/baajiye-blacked-eyed-bean-fritters-with-hot-sauce/",
-    "Ingredients": "2 � cups of black-eyed beans 1 onion, chopped 2 cloves garlic, chopped 1 jalapeno, chopped 1 table spoon cilantro chopped 2 green onions 1 teaspoon baking powder � cup all propose flour/ gram flour Salt and pepper to taste 2/3 cup water",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/babjiye.jpg",
-    "Instructions": "Soak the black-eyed beans in cold water overnight. Drain the beans and then remove the skin by rubbing the beans between the palms of your hands. Put the beans in a bowl filled with water and the skins will float to the surface. Discard the skin. Place the beans in a food processor with the all the ingredients. Process the mixture to make a thick paste. If it is watery add more flour, and if it is bather is tick add more water. Heat the oil in a pan and fry spoonfuls of the mixture until golden brown. Serve with basbaas sauce."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Bulgur with strawberries, raisins and honey",
-    "NameLink": "http://www.mysomalifood.com/bulgur-with-strawberries-raisins-and-honey/",
-    "Ingredients": "1 cup Bulgur 2 cups of water 1/2 teaspoon salt honey to taste 1/2 cup raisins 1 cup yogurt 1 cup chopped strawberries",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/12/bu1.jpg",
-    "Instructions": "In a sauce pan add the water and salt bring it to a boil. wash the bulgur and drain ad to the boiling water. Remove from the heat and cover for 20 minutes. Bulgur comes in different sizes of coarseness, add more water if you need to. Serve bulgur with yogurt on top and sprinkle raisin, strawberries, drizzle with honey."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Creamy Pearled Barley Porridge",
-    "NameLink": "http://www.mysomalifood.com/creamy-pearled-barley-porridge/",
-    "Ingredients": "1 cup Pearl Barley\t\t\t\t6 cups of water\t\t\t\tsalt\t\t\t\tCinnamon\t\t\t\tbutter optional\t\t\t\tmilk",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/w1.jpg",
-    "Instructions": "In a large saucepan bring the water to a boil, add salt to taste add the barley, simmer uncoverd utill tender for an hour. Add more milk and cook untill reached disired consistency for a creamier barley.\t\t\t\tServe with more milk, yogurt, buttermilk, butter and cinnamon to taste."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Haricot Beans",
-    "NameLink": "http://www.mysomalifood.com/haricot-beans/",
-    "Ingredients": "1 pound haricot beans 4 table spoon oil 1 red/green pepper 2 cloves of garlic, chopped 1 large onion chopped 1 (15-ounce) can chopped tomatoes 2 tablespoons tomato paste 2 teaspoon cayenne pepper � cup cilantro, chopped 1 Maggi bouillon Salt and pepper, to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/beans.jpg",
-    "Instructions": "Put the haricot beans in a bowl, cover with water and soak overnight. Heat the oil in a large pan over medium heat and cook the onions until soft, add garlic and cook briefly season with salt and pepper. Add the tomato paste, tomato, pepper and cayenne, cook for 5 minutes. Stir in the cilantro. Drain the beans and add to the pan with 3 cups of hot water and the Maggi. Bring it to a boil, cover and simmer for 1 to 1 � hours until the beans are tender, add more water if necessary."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Sorghum & Corn flour Hot Cereal",
-    "NameLink": "http://www.mysomalifood.com/shuurosoor/",
-    "Ingredients": "1/2  cup corn flour\t\t\t\t1/2 cup sorghum flour\t\t\t\tpinch of salt\t\t\t\t2 cups milk\t\t\t\t2 cups water\t\t\t\tsugar/honey\t\t\t\tpinch of cinnamon",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/07/photo.jpg",
-    "Instructions": "In a heavy pan bring the water and milk to a rolling boil.\t\t\t\tStir the corn and sorghum to the boiling water and milk, constantly stir.\t\t\t\tReduce the heat on a medium and let it simmer, stir occasionally .\t\t\t\tKeep stirring until it thickens add more water or milk to get softer consistency, according to your preference.\t\t\t\tServe hot with butter, milk, sugar, honey, buttermilk, or yogurt."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Sorghum Cereal : Garow",
-    "NameLink": "http://www.mysomalifood.com/garow/",
-    "Ingredients": "2 cups of Sorghum/Millet Salt to taste Butter, Sugar, Milk to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/02/garow.jpg",
-    "Instructions": "Clean the sorghum water until it is clear. In a large pot combine the sorghum and enough water to come 2 inches over the sorghum. Bring to a boil and cook uncovered for 1 hour, or until tender, add more water if it needed. Stir occasionally. Drain and let cool. Serve in a bowl with butter sugar and milk"
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Sweet Adzuki Beans : Digir",
-    "NameLink": "http://www.mysomalifood.com/sweet-adzuki-beans-digir/",
-    "Ingredients": "2 cups adzuki bean\t\t\t\tsalt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/03/digir.jpg",
-    "Instructions": "Rinse the beans and soak with water and let it sit for overnight, to reduce cooking time.\t\t\t\tDrain the beans and rinse again , in a saucepan boil beans and water, bring to a boil over high heat.\t\t\t\tReduce heat to medium to low, partially, or fully covered as long as it doesn't over follow, keep an eye on it, and cook 30-40 minutes.\t\t\t\tI you decide to add the rice you can add it in the last 10-15 minutes for the rice to be cooked.\t\t\t\tContinue to simmer until the rice is cooked.\t\t\t\tServe with sugar and sesame oil and milk."
-  },
-  {
-    "Category": "Grains & Legumes",
-    "Name": "Sweet and Creamy Millet",
-    "NameLink": "http://www.mysomalifood.com/sweet-and-creamy-millet/",
-    "Ingredients": "1 cup millet\t\t\t\t2 cups of water\t\t\t\t2 cups of milk and more\t\t\t\tsalt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/11/millet.png",
-    "Instructions": "In a dry saucepan toast the millet for few minutes for deeper flavor, stir continuously\t\t\t\tto avoid burning .\t\t\t\tAdd water, bring to a boil, then reduce heat and simmer for bout 20 minutes all the liquid will absorbed.\t\t\t\tAdd the milk, salt and butter to taste cook for 5-10 more minutes until desired consistency reached, for a creamier millet.\t\t\t\tServe with more milk, honey, dried or fresh fruits, nuts. Adding a dash of cinnamon will spice it up."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Baamiye Suqaar",
-    "NameLink": "http://www.mysomalifood.com/baamiye-suqaar/",
-    "Ingredients": "1 pound lamb/beef, cubed 2 potato, diced 1/2 pound okra, sliced 1 squash, diced 1 tomato, chopped 1 chicken cube 1 onion, chopped 1 green onion, chopped 2 tablespoon cilantro, chopped 1 teaspoon coriander powder 1 teaspoon cumin powder 2 tablespoon oil",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/07/bamiyesuqaar.jpg",
-    "Instructions": "On a medium heat the meat with the oil on a large skillet or a saucepan until brown. Add the onion and cook until tender, then add the potato and stir for 5 minutes. Season with the salt and the spices. Add the tomato, garlic, cilantro, and the squash. Mix the chicken cube with a little water and mix until dissolved then add it to the skillet. Stir in the okra, green onion, finish cooking until all the vegetables are tender Serve with sabaayad."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Beef Lasagna",
-    "NameLink": "http://www.mysomalifood.com/beef-lasagna/",
-    "Ingredients": "12 sheets precooked lasagna\t\t\t\t15 oz 425g Ricotta cheese\t\t\t\t1 cup milk\t\t\t\t1 egg\t\t\t\t2 cups grated mozzarella cheese",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/beef-lasagna.jpg",
-    "Instructions": "To make the sauce, heat the oil in a large pan over medium heat add the meat and cook until browned stirring frequently. Add the onion stir and cook for 5 minutes.\t\t\t\tStir in the tomatoes, coriander/cilantro leaves, garlic, tomato paste and cook for 5 minutes. season to taste with salt and pepper, cover and let it simmer gently for 45 minutes, siring occasionally.\t\t\t\tIn a mixing bowl whisk the egg, then add the ricotta and the milk and mix until combined.\t\t\t\tPreheat the oven, 375f/190c.\t\t\t\tSpoon a thin layer of the sauce on the bottom of an ovenproof dish, then arrange sheets of lasagna over. then spoon over a layer of the ricotta mix then some mozzarella cheese.\t\t\t\tContinue the same process twice, finishing with a layer of ricotta. sprinkle over the mozzarella.\t\t\t\tBake covered for 30 minutes then uncover and cook until  golden-brown and bubbly. serve immediately."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Chicken Suqaar",
-    "NameLink": "http://www.mysomalifood.com/chicken-suqaar/",
-    "Ingredients": "1 pound chicken cube 1 squash/ zucchini, sliced 1 small onion, diced 1 teaspoon vinegar 1 teaspoon cumin 1 teaspoon chili powder Salt and pepper to taste 2 teaspoon oil 2 teaspoon lemon 1 teaspoon cilantro/coriander chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/11/digaag.jpg",
-    "Instructions": "On a skillet brown the chicken with oil on high heat, season with salt and pepper, chili powder and cumin powder. Stir the onions until soft, add squash, lemon, vinegar and the cilantro/coriander . Continue stirring until the squash is tender don�t over cook it. Serve with rice, lahooh, sabaayad or bread."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Injera: Ethiopia Sourdough FlatBread with Chicken Stew",
-    "NameLink": "http://www.mysomalifood.com/injera-ethiopia-sourdough-flatbread-with-chicken-stew/",
-    "Ingredients": "2 cup all-purposeflour\t\t\t\t� cup cornmeal flour\t\t\t\t� cup teff flour\t\t\t\t2 teaspoon yeast\t\t\t\t1/2 cup sourdough starter\t\t\t\t3 1/4 cups lukewarm water",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/injera.jpg",
-    "Instructions": "In a mixer or a blender combine all the ingredient and mix or blend until there are no lumps.\t\t\t\tCover and set aside to rest at a warm place for 2 hours.\t\t\t\tHeat a nonstick skillet on a medium heat.\t\t\t\tTake about � cup of the batter and pour it in the skillet tilting to coat most of the bottom.\t\t\t\tCook, until moisture has evaporated and when lots of holes form in the injera and the edges lift from the pan.\t\t\t\tRemove and let cool each injera before stacking them as you go along."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Lahooh and Lentil",
-    "NameLink": "http://www.mysomalifood.com/lahooh-and-lentil/",
-    "Ingredients": "1 cup green lentils\t\t\t\t2 cups water and more if needed\t\t\t\t2 tablespoons oil\t\t\t\t1 smalll onion chopped\t\t\t\t2 cups baby spinach leaves\t\t\t\t1 large tomato, chopped\t\t\t\t1 teaspoon cumin\t\t\t\t2 cloves garlic chopped\t\t\t\tfresh lemon juice\t\t\t\tsalt,ground black pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/07/lahooh-and-lentil.jpg",
-    "Instructions": "In a sauce pan bring water to a boil add the lentil, simmer until the lentils are tender about 20-30 minutes add more water if needed.\t\t\t\tDrain any excess water and set aside.\t\t\t\tHeat the oil in a large skillet over medium heat.\t\t\t\tAdd the onion and cook, about 4-5 minutes until softened.\t\t\t\tAdd the tomatoes, cumin and garlic and cook about few minutes,stir to combine.\t\t\t\tStir in the cooked lentil and cook for 5- 10 more minutes.\t\t\t\tSeason with salt and pepper and serve with lahooh."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Lahooh with Suqaar and Eggs",
-    "NameLink": "http://www.mysomalifood.com/lahooh-with-suqaar-and-eggs/",
-    "Ingredients": "1 lb beef cubes, suqaar\t\t\t\t2 large tomatoes , chopped\t\t\t\t2 eggs\t\t\t\t1large onion chopped\t\t\t\t2 tablespoons Oil\t\t\t\t1 cloves garlic, chopped\t\t\t\t1 teaspoon coriander powder\t\t\t\t1 teaspoon paprika\t\t\t\tSalt and pepper\t\t\t\t2 green onion, chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/10/suqaar-lahooh.jpg",
-    "Instructions": "In a deep skillet on high heat add the meat and stir until brown.\t\t\t\tAdd oil and stir for few minutes season with salt and pepper.\t\t\t\tAdd the onion and stir for few more minutes.\t\t\t\tAdd the tomatoes and the garlic, coriander and paprika. Cook for 5 minutes.\t\t\t\tMake two holes by spreading the meat then crack the eggs drop them in to the holes.\t\t\t\tCook covered until the eggs have cooked through. Alternatively bake it in the oven 15-20 min until the eggs are set.\t\t\t\tServe with lahooh."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Lamb Stew : Sanuunad Hilib Adhi",
-    "NameLink": "http://www.mysomalifood.com/lamb-stew-sanuunad-hilib-adhi/",
-    "Ingredients": "1lb lamb medium cut 3 large potatoes, cubed 3 large carrots, cubed 1 large onion, chopped 4 large tomatoes, chopped 3 tablespoons oil salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/08/lamb-stew.jpg",
-    "Instructions": "Heat oil in a pan add the meat and sear on both sides on a medium heat . Add onion, and saute for few minutes add potatoes and carrots cook for 5 more minutes. Then add tomatoes saut� another 5 minutes. Add 3 cups of water bring to a boil then cook covered on a low until the stew is thick and the vegetables are tender(add more water if needed). Serve with rice."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Slow roasted leg of lamb",
-    "NameLink": "http://www.mysomalifood.com/slow-roasted-leg-of-lamb/",
-    "Ingredients": "1 (6-pound) leg of lamb, bone-in 1 small onion, roughly chopped 4 cloves garlic 2 tablespoons cilantro 1 tablespoon ginger chopped juice of 1 lemon 2 tablespoons olive oil 2 teaspoons cardamom, powder 2 teaspoons coriander, powder 2 teaspoon cumin, powder salt, pepper to taste 1 tablespoon berbere recipe here (optional) 3 carrots , peeled, cut into chunks� (optional) 4 medium potatoes,peeled, cut into chunks (optional)",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/10/leg_lamb1.jpg",
-    "Instructions": "In a blender or a food processor blend the onion, garlic, cilantro, oil, lemon and the spices until combined. Rub the marinade all over the lamb and season with salt and pepper Put the leg of lamb in a large bag and wrap it tightly with little air in the bag as possible. Let it sit in your refrigerator for two hours to overnight. Remove the leg of lamb from the refrigerator and let it come to a room temperature. Sprinkle with� berbere, salt and pepper. Preheat the oven 450F Place lamb in a roasting pan and cover tightly with foil and place in the oven. Turn the oven temperature down to 325F Cook this for about 3 1/2 hours. Last 20 minutes when the lamb is cooked add the carrots and potatoes and cook uncovered. The lamb is ready when it falls of the bone,and the vegetables are tender. Remove the lamb from the oven and let it rest covered in a foil. As a side dish I have made quick spinach and cabbage and the potatoes where roasted with the lamb in the end. Serve over rice if you prefer."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Bariis Fahfah, Rice Pilaf",
-    "NameLink": "http://www.mysomalifood.com/bariis-fahfah/",
-    "Ingredients": "2 cups basmati rice 3 cups of stock 2 garlic, chopped 2 tablespoons oil 1 onion sliced 1 teaspoon salt 4 whole cardamom pods 1 cinnamon stick 5 black peppercorns 2 teaspoon cumin",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/02/bariisfahfah.jpg",
-    "Instructions": "Rinse the rice well in cold water until most of the starch is removed. Heat the oil in a pan on a medium heat, saut� the onions until brown. Season with salt, add peppercorns, garlic, cinnamon stick, cardamom and the cumin and cook for few more minutes. Add the drained rice and stir for about 2-3 minutes. Add the stock and stir in and cover, bring it to a boil and then reduce the heat. Continue to cook gently on a low heat until the rice is tender about 10 to 15 minutes, you can add more to achieve desired consistency. Garnish with onions or raisin, sprinkle with some saffron powder. Gently fluff the rice with a fork and serve."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Beef Stew with Green Peas and Potato",
-    "NameLink": "http://www.mysomalifood.com/beef-stew-with-green-peas-and-potato-served-with-rice/",
-    "Ingredients": "1 lb beef cubes 4 cardamom pods 2 tablespoon cilantro, chopped 2 garlic cloves, minced 1 tablespoon ginger 1 cup frozen peas 4 potatoes, cut into cubes 1 large onion, chopped 4 tomatoes, chopped 1 tablespoon tomato paste 1 Maggi beef cube 1 teaspoon chili powder 2 teaspoon cumin powder 1 teaspoon coriander powder 1 teaspoon turmeric powder 4 tablespoon oil Basmati rice, to serve with",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/07/peasbeef.jpg",
-    "Instructions": "1 lb beef cubes 4 cardamom pods 2 tablespoon cilantro, chopped 2 garlic cloves, minced 1 tablespoon ginger 1 cup frozen peas 4 potatoes, cut into cubes 1 large onion, chopped 4 tomatoes, chopped 1 tablespoon tomato paste 1 Maggi beef cube 1 teaspoon chili powder 2 teaspoon cumin powder 1 teaspoon coriander powder 1 teaspoon turmeric powder 4 tablespoon oil Basmati rice, to serve with"
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Fluffy White Rice : Bariis Cad",
-    "NameLink": "http://www.mysomalifood.com/fluffy-white-rice-bariis-cad/",
-    "Ingredients": "1 cup basmati rice\t\t\t\t1 1/2 cup water\t\t\t\tsalt and pepper to taste\t\t\t\t1 tablespoon oil or butter\t\t\t\t1 tablespoon  vinegar\t\t\t\t1 tablespoon lemon juice",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2014/02/white-rice.-bariis-cad.jpg",
-    "Instructions": "Wash the rice and drain.\t\t\t\tIn a saucepan, bring water to a boil.\t\t\t\tStir in the rice, oil or butter, vinegar, lemon juice season with salt and pepper.\t\t\t\tCover and reduce heat and simmer for 20 minutes or until all water is absorbed.\t\t\t\tTest the rice if it needs a bit of water you can add to it now.\t\t\t\tFluff with a fork and serve warm"
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Iskudheh Karis: Chicken Pilaf",
-    "NameLink": "http://www.mysomalifood.com/isku-dhex-karis-with-chicken/",
-    "Ingredients": "1 small chicken cut into pieces 2 cups of basmati rice 3 cups of water 1 onion, diced 2 chopped garlic cloves 5 cardamoms 4 cloves 1 cinnamon sticks 1 teaspoon cumin powder 1 teaspoon coriander powder 2 tablespoon cilantro, chopped 1 teaspoon ginger 2 tablespoon tomato paste 1 Maggie chicken bouillon cube 2 medium tomatoes, chopped 1 green chili pepper, seeded, chopped salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/iskudhexkaris.jpg",
-    "Instructions": "Wash the rice well in cold water until most of the starch is removed and let it to soak in water for 30 minutes. Heat the oil in a heavy pan on a medium heat; add the chicken season with salt and pepper and saut� until brown and crisp. Add the onion and the garlic and fry gently for 5-6 minutes until softened. Stir in the cardamoms, cloves, cinnamon stick, and ginger. Add the chopped tomatoes, chili, cumin, coriander, cilantro and the tomato paste and cook until tomato is soft. Drain the rice and mix with the sauce until combined. Pour the water and the Maggie and mix well, bring it to boil then cover. Simmer gently on a low heat for 15-20 minutes until all the liquid has been absorbed and the rice is done."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Kaluun iyo Bariis: Spicy Fish Sauce with Rice",
-    "NameLink": "http://www.mysomalifood.com/kaluun-iyo-bariis-spicy-fish-sauce-with-rice/",
-    "Ingredients": "1 whole fish red snapper/king fish, cleaned and cut 3 potatoes 1 chili pepper 2 carrots � cup cilantro 2 cloves of garlic salt and pepper to taste 2 tomatoes, chopped 1 tablespoon tomato paste 2 teaspoon tamarind paste 1 onion, chopped 1 eggplant, chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/kaluunbariis.jpg",
-    "Instructions": "Fry the fish both sides with a little oil, and set aside in a warm place. Saut� the onions in the same pan. until golden. Add the garlic and stir for few minutes. Add the potato and the carrots cover and cook for 5 minutes. Add seasonings and the tomatoes, tomato paste, tamarind eggplant and cilantro. Cook until tomatoes are tender. Put the fish back in the sauce and cook on a medium eat add a little water as needed. Continue to cook until the vegetables are tender. Serve with rice."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Lamb Meatballs In Yogurt Sauce",
-    "NameLink": "http://www.mysomalifood.com/lamb-meatballs-in-yogurt-sauce/",
-    "Ingredients": "I lb ground lamb 1 tablespoon ginger 1 onion, chopped 2 cloves of garlic, minced 1 green chili, chopped 1 egg, beaten 2 tablespoon cilantro, chopped 2 green onions, chopped Juice of � a lemon For the Tomato Sauce I lb ground lamb 1 tablespoon ginger 1 onion, chopped 2 cloves of garlic, minced 1 green chili, chopped 1 egg, beaten 2 tablespoon cilantro, chopped 2 green onions, chopped Juice of � a lemon",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/bariismeatball.jpg",
-    "Instructions": "I lb ground lamb 1 tablespoon ginger 1 onion, chopped 2 cloves of garlic, minced 1 green chili, chopped 1 egg, beaten 2 tablespoon cilantro, chopped 2 green onions, chopped Juice of � a lemon"
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Lamb Surbiyaan: Surbiyaan Hilib Adhi",
-    "NameLink": "http://www.mysomalifood.com/lamb-surbiyaan-surbiyaan-hilib-adhi/",
-    "Ingredients": "Ingredients Caramelized onion and raisins 1/4 cup oil 1 onion, sliced 1/2 cup raisins Saffron 1/4 cup water 1 teaspoon saffron threads Boiling the Rice 3 cups basmati rice 5-6 cups of water The Lamb sauce 2 pounds lamb, medium cut 1 small onion, chopped 2 medium tomatoes, chopped 2 cloves garlic, chopped 1-2 tablespoons coriander/cilantro leaves 2 teaspoons coriander powder 2 teaspoons cumin powder 1-2 teaspoons paprika or a cayenne pepper 2-4 tablespoons oil (use the left over from the caramelized onions) 5 cardamom pods cracked 2 cinnamon sticks 2 tablespoons lemon juice",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/08/surb.jpg",
-    "Instructions": "Caramelized onion and raisins Heat the oil over medium heat, add the onion and fry until nice and brown. Add the raisins and cook until they puff up. Drain on a kitchen paper Keep this a side we will, add this mixture over rice. Soak the Saffron In a small bowl add the saffron pour hot water into the bowl. let is soak for 4- 20 minutes Boiling the Rice Start boiling the water in a sauce pan . when boiled, add the rice and salt to sate. Cook about 4 minutes depending on your heat the rice should be cooked half way use your hand to test it, break the rice grain in your hand. Drain the rice in a colander and let it cool until needed. Cooking the lamb In a large pot fry the lamb with the oil until brown both sides Add onions saute until brown add cardamom, cinnamon sticks, lemon juice, then add garlic add tomatoes, spices and cilantro Mix this together until combined then cook for 3 minutes until fragrant, add the 1/2 cup of water Let it simmer while covered on a medium heat until boil and then lower the heat for 10- 15 minutes. Now we need the boiled rice add it to the lamb sauce, scrape the top evenly. Add the caramelized onion and raisins. Add the saffron water cover the pot and cook on a medium heat until boil, then reduced the heat on a simmer. The bottom of the pan will be dry and there will be no water left make sure not to burn the bottom. The rice should be fluffy"
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Plain Rice flavored with spices",
-    "NameLink": "http://www.mysomalifood.com/plain-rice-flavored-with-spices/",
-    "Ingredients": "2 cups basmati rice 3 cups of water 2 tablespoons ghee/oil 1 onion sliced 1 teaspoon salt 4 whole cardamom pods 1 cinnamon stick 5 black peppercorns 2 teaspoon cumin 1 chicken cube",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/11/bariis.jpg",
-    "Instructions": "Rinse the rice well in cold water until most of the starch is removed. Heat the oil in a pan on a medium heat, and saut� the onions until brown. Add salt, pepper, cardamom, cinnamon and the cumin and cook until the onions are brown. Add the drained rice and stir for about 2-3 minutes. Add the water and chicken cube and stir in and cover, bring it to a boil and then reduce the heat. Continue to cook gently on a low heat until the rice is tender about 10 to 15 minutes."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Rice with Vermicelli Noodles: Cadriyad iyo Bariis",
-    "NameLink": "http://www.mysomalifood.com/rice-with-vermicelli-noodles-cadriyad-iyo-bariis/",
-    "Ingredients": "2 cups Basmati Rice 3 cups of water 1 cup of vermicelli 1 small onion, chopped 4 tablespoons oil salt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/08/6.jpg",
-    "Instructions": "Wash the rice and let it soak for 30 minutes. Break the vermicelli noodles into small pieces. fry them with 2 tablespoons of oil on a skillet until golden color. Set aside. In a sauce pan add 2 tablespoons oil and fry the onions for 4 minutes. Add the drained rice and 3 cups water season with salt, bring to a boil turn down the heat and leave to a simmer for 10 minutes. Add the vermicelli to the rice and cover. Mix well with the rice and cover the pan and simmer on a low heat until the rice has soaked all the water and both the rice and vermicelli are tender. Add little water if needed."
-  },
-  {
-    "Category": "Main Courses",
-    "Name": "Somali Style Rice : Surbiyaan",
-    "NameLink": "http://www.mysomalifood.com/somali-style-rice-surbiyaan/",
-    "Ingredients": "6 pieces chicken (Thighs & Legs )\t\t\t\t3 cups basmati rice\t\t\t\t5 cardamom pods, crushed\t\t\t\t2 black cardamom\t\t\t\t2 cinnamon sticks\t\t\t\t5 peppercorn\t\t\t\t1 onion, chopped\t\t\t\t3 cloves\t\t\t\t2 teaspoons cumin, powder\t\t\t\t1 teaspoon ginger, powder\t\t\t\t2 teaspoons coriander powder\t\t\t\t1 teaspoon paprika/red pepper\t\t\t\t2 teaspoon cilantro, chopped\t\t\t\t2 cloves garlic, chopped\t\t\t\t1/2 green pepper, chopped\t\t\t\t1 cup yogurt\t\t\t\t1/2 lemon\t\t\t\ttwo medium tomatoes, chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/02/surbiyaan.jpg",
-    "Instructions": "Clean and soak the rice with water and let it rest of 30 minutes.\t\t\t\tFry the chicken with the oil until brown, add cardamom, black cardamom, cinnamon sticks, cloves, pepper corn.\t\t\t\tAdd onions saute until brown then add garlic add tomatoes .\t\t\t\tAdd the yogurt when tomatoes are tender.\t\t\t\tThen add the juice of a lemon, cumin, ginger, coriander, paprika and the cilantro.\t\t\t\tLet it simmer while covered on a medium heat until boil and then lower the heat for 10- 15 minutes.\t\t\t\tIn another saucepan add the rice in boiling water cook until the rice is half done.\t\t\t\tDrain and add the rice to the chicken sauce and cook until the rice is tender on a medium heat covered, add the garnish."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Beet Salad with Mustard Vinaigrette",
-    "NameLink": "http://www.mysomalifood.com/beet-salad-with-mustard-vinaigrette/",
-    "Ingredients": "Beets, boiled, peeled, sliced into strips 1 onion, sliced 1 head iceberg or romaine salad 2 hard boiled eggs 1 tomato sliced Vinaigrette: 4 tablespoons olive oil juice of one lemon 1 teaspoon mustard 2 tablespoon vinegar Salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/08/beetsalad.jpg",
-    "Instructions": "Wash the salad and cut in to pieces. In a small bowl, mix together olive oil, lemon juice, mustard, salt, pepper and vinegar. Arrange the salad on a serving plate, top the beets, eggs and onions. Drizzle over the vinaigrette."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Cucumber and Tomato Salad",
-    "NameLink": "http://www.mysomalifood.com/cucumber-and-tomato-salad/",
-    "Ingredients": "1/2 cucumber sliced 1 small red onion, chopped 2 tomato chopped finely 1/2 lettuce, cleaned, chopped thinly juice of half a lemon 1 tablespoon vinegar 2 tablespoon olive oil salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/salad.jpg",
-    "Instructions": "In a medium bowl combine the vinegar, lime juice, olive oil, salt and pepper stir well. Putt salad in a serving bowl, top with the cucumber, onion and the tomato. Drizzle over the dressing and serve."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Egg Salad",
-    "NameLink": "http://www.mysomalifood.com/egg-salad/",
-    "Ingredients": "1 small head romaine, cut into bite size 1 carrot, grated 1 small onion, sliced 1 tomato, sliced 1 small cucumber, sliced 2 hard boiled eggs, sliced Dressing: 2 tablespoons olive oil juice of one lemon 1 -2 teaspoon mustard 2 tablespoon vinegar Salt and pepper to taste 2 tablespoons yogurt",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/05/eggsalad.jpg",
-    "Instructions": "In a bowl, mix the salad, tomatoes, carrot, cucumber, onions, and the eggs."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Fava Bean Salad",
-    "NameLink": "http://www.mysomalifood.com/fava-bean-salad/",
-    "Ingredients": "1 small cucumber, chopped 1 large tomato, chopped 1/2 red onion, chopped fine 2 tablespoon fresh cilantro, chopped squeeze of a lemon 2 cloves of garlic, finely chopped 1 15-oz favabean, rinsed and drained 2 tablespoon olive oil 1 teaspoon red chilli powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/10/fava-salad.png",
-    "Instructions": "Saut� the garlic with olive oil, until fragrant for 2 minutes, add the beans and cook for 5 minutes. Then cool for 5 minutes."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Fruit Salad",
-    "NameLink": "http://www.mysomalifood.com/fruit-salad/",
-    "Ingredients": "1 banana, sliced 1 papaya, diced 1 mango, diced 1/2 cup blueberries 1 table spoons of lemon�",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/06/fruitsalad.jpg",
-    "Instructions": "In a large bowl combine the banana, papaya, mango, and blueberries, add the lemon juice and mix well. Bananas tend to get brown, add them just before serving."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Garow: Sorghum Salad",
-    "NameLink": "http://www.mysomalifood.com/garow-sorghum-salad/",
-    "Ingredients": "2 cups sorghum 1/4 cup finely chopped cilantro 3 tablespoons olive oil 2 tablespoons lemon juice 1 onion, diced 2 green onions, chopped 2 tablespoon balsamic vinegar 1/2 red bell pepper, diced 1 tomato, diced chopped olives Salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/03/garowsalad.jpg",
-    "Instructions": "Clean the sorghum water until it is clear. (if you have the time it is best to soaked over night) In a large pot combine the sorghum and enough water to come 2 inches over the sorghum. Bring to a boil and cook uncovered for 1 hour, or until tender, add more water if it needed. Drain and let cool. In a large bowl, combine the sorghum, tomato, pepper, onion, green onions, cilantro, lemon juice, olive oil, olives, season to taste, with salt and pepper."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Potato salad with yogurt",
-    "NameLink": "http://www.mysomalifood.com/potato-salad/",
-    "Ingredients": "1 lb potato, peeled, cubed and cooked 1 cup yogurt 2 tablespoon chopped cilantro � onion, minced � cup sweet corn 2 hard boiled eggs 1 jalapeno pepper, seeded and chopped 2 green onions, chopped 2 tablespoon mayonnaise 2 teaspoon mustard 2 tablespoon lemon 1 teaspoon smoked horseradish 1 garlic clove, chopped 2 tablespoon olive oil salt and pepper to taste 1 tomato, chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/potatosalad.jpg",
-    "Instructions": "In a large bowl, mix together mayonnaise, yogurt, mustard, horseradish, lemon, salt, pepper, and the olive oil. In another bowl mix the potato, onion, cilantro, green onion, sweet corn, and pepper. Gently combine the two mixtures until combined. Transfer to a serving bowl and garnish with the tomatoes."
-  },
-  {
-    "Category": "Salads",
-    "Name": "Tomato and Cucumber Salad",
-    "NameLink": "http://www.mysomalifood.com/tomato-and-cucumber-salad/",
-    "Ingredients": "�1 cumber, finely chopped 2 tomatoes, finely chopped 1 small onion, finely chopped 1 chilli, finely chopped 1 garlic clove, finely minced 2 tablespoons cilantro/coriander leaves, finely chopped 2 tablespoon olive oil Juice of one lemon 2 tablespoon vinegar salt and pepper�",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/07/tomatocu.jpg",
-    "Instructions": "�Stir together in a bowl the onion, cucumber, tomato, chillies, coriander, lemon juice. Season with salt and pepper, to taste, before serving. In a small bowl mix together,lemon, vinegar, oil and salt and pepper and the minced garlic. Mix until all combined. let it chill."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Beef Kebab",
-    "NameLink": "http://www.mysomalifood.com/beef-kebab/",
-    "Ingredients": "1 lb beef finly minced\t\t\t\t1 onion grated\t\t\t\t2 teaspoons ground cumin\t\t\t\t2 teaspoons ground coriander\t\t\t\t2 teaspoons paprika, or cayene pepper\t\t\t\t1 teaspoon salt\t\t\t\t1 egg\t\t\t\tsmall bunch of coriander/cilantro, finely chopped",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/06/kebab.jpg",
-    "Instructions": "In a large bowl mix the beef, onion,  spices, salt, and the fresh cilantro/coriander.\t\t\t\tBreak the egg and mix it in another bowl pour it in the mixture.\t\t\t\tMix well and cover and leave to stand in the fridge for 1 hour.\t\t\t\tRoll small balls of the meat mixture using your hands.\t\t\t\tFry them in a large skillet with little oil, on a medium heat and fry them both sides."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Berbere Spice Blend",
-    "NameLink": "http://www.mysomalifood.com/berbere-spice-blend/",
-    "Ingredients": "1 teaspoon black peppercorns\t\t\t\t1 teaspoon cumin seeds\t\t\t\t1/2 teaspoon cardamom seeds\t\t\t\t1/2 teaspoon coriander\t\t\t\t1 table spoon salt\t\t\t\t1/2 teaspoon fenugreek seeds\t\t\t\t3 whole cloves\t\t\t\t1/2 cup cayenne pepper\t\t\t\t1/2 cup paprika\t\t\t\t1/2 teaspoon turmeric powder\t\t\t\t1 teaspoon ginger powder\t\t\t\t1/4 ground cinnamon powder\t\t\t\t1 teaspoon garlic powder\t\t\t\t1 teaspoon onion powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/10/berbere.jpg",
-    "Instructions": "In a skillet over medium heat, toast the, cumin, cardamom, whole cloves, cardamom, peppercorns, fenugreek for 2 minutes.\t\t\t\tRemove from heat and let it cool.\t\t\t\tfinely grind the toasted spices in a spice grinder or a mortar and pestle.\t\t\t\tmix in the remaining ingredients until combined.\t\t\t\tStore in a airtight jar."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Chickpea in Tomato Sauce",
-    "NameLink": "http://www.mysomalifood.com/chickpea-in-tomato-sauce/",
-    "Ingredients": "1 cup dried chickpea, soaked overnight 2 tomatoes, chopped 2 cloves of garlic, minced 1 tablespoon tomato paste 1 onion, chopped 2 tablespoon oil 1 tablespoon ginger Salt and pepper 1 teaspoon chili powder 2 tablespoon cilantro 2 teaspoon cumin powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/chickp.jpg",
-    "Instructions": "Heat the oil in a pan and cook the onion on a medium heat until soft add the garlic and ginger, stir until fragrant. Add the tomato paste stir few minutes, then add the tomatoes. cook until tomatoes are tender. Stir chili powder, cumin, cilantro and season with salt and pepper. Cook for few more minutes then add the chickpeas, cover with water. Continue to simmer on a low heat until chickpeas are tender."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Cucumber Yogurt Dip",
-    "NameLink": "http://www.mysomalifood.com/cucumber-yogurt-dip/",
-    "Ingredients": "2 cups plain low-fat yogurt 2 large cucumber, peeled, seeded, and grated 1 tablespoon lemon juice 1 tablespoon fresh dill (optional) 1 garlic cloves, minced Salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/07/cucumbersalad2.jpg",
-    "Instructions": "Peel, seed, and grate cucumbers. Mix yogurt, grated cucumber, lemon juice, dill, and garlic in a serving bowl. season with salt and pepper Chill before serving."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Goat Stew",
-    "NameLink": "http://www.mysomalifood.com/goat-stew/",
-    "Ingredients": "1 - 2 pound goat, small pieces\t\t\t\t3 medium potatoes, cut into cubes\t\t\t\t2 medium carrots, cut into pieces\t\t\t\t2 cups chopped tomato\t\t\t\t1 large onion, finely chopped\t\t\t\t2 tablespoon tomato paste\t\t\t\t2 cloves of garlic, finely chopped\t\t\t\t2 tablespoons chopped cilantro\t\t\t\tSalt and pepper to taste\t\t\t\t1 teaspoon cumin powder\t\t\t\t1 teaspoon coriander powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/06/goat-stew.jpg",
-    "Instructions": "Heat oil in a pan add the meat and sear on both sides on a medium heat .\t\t\t\tAdd onion, potatoes, and carrots saut� about 5 minutes.\t\t\t\tThen add tomatoes saut� another 5 minutes.\t\t\t\tStir in garlic, cilantro and the spices, cook for  for 10 minutes stirring occasionally.\t\t\t\tAdd cup of water and cook covered until the stew is tick and the vegetables are tender.\t\t\t\tServe warm and enjoy."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Shigni: Spicy Hot Sauce",
-    "NameLink": "http://www.mysomalifood.com/shigni-spicy-hot-sauce/",
-    "Ingredients": "� pound chilies 1 tomato 1 lemon juice 2 tablespoon cilantro 1 teaspoon tamarind Salt to taste Water as needed",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/shigni.jpg",
-    "Instructions": "In a blender put all the ingredients and blend until smooth add water as go a long to keep the blender moving."
-  },
-  {
-    "Category": "Side-Dishes",
-    "Name": "Spicy Tomato Chutney",
-    "NameLink": "http://www.mysomalifood.com/spicy-tomato-chutney/",
-    "Ingredients": "1 onion, chopped 3 tablespoon 1 tablespoon tamarind paste 6 large tomatoes, peeled, chopped 4 cloves of garlic roughly chopped 2-4 tablespoons berbere 2 tablespoon tomato paste 1 tablespoon sugar",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/10/spicytomatos.jpg",
-    "Instructions": "Heat oil in large sauce pan over medium heat. Add the onion and saute until soft and translucent. Add the tomatoes, garlic, tomato paste, bring it to a simmer for 10 minutes. Add the� sugar, berbere, tamarind paste and bring to a boil. Reduce the heat and simmer for� 50 minutes, or until the sauce is thick enough to coat the back of a spoon. Put the chutney in blender and make a smooth paste (optional)."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Cauliflower Soup",
-    "NameLink": "http://www.mysomalifood.com/cauliflower-soup/",
-    "Ingredients": "1 tablespoon olive oil\t\t\t\t1 small onion (chopped)\t\t\t\t3 cloves garlic, chopped\t\t\t\tsalt and pepper to taste\t\t\t\t1 teaspoon coriander powder\t\t\t\t1 head cauliflower (cut in to florets)\t\t\t\t4 cups  water or stock\t\t\t\tPlain Yogurt(optional)\t\t\t\tspinach, chopped  (optional garnish)",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/03/cauliflower-soup.jpg",
-    "Instructions": "In a large soup pan, saute onions, over medium heat until translucent.\t\t\t\tAdd in cauliflower and cook for few minutes add the garlic, salt, coriander and pepper.\t\t\t\tPour in water or stock and bring to a boil.\t\t\t\tReduce the heat to low and simmer with the lid until cauliflower is tender.\t\t\t\tCheck for seasoning and adjust accordingly.\t\t\t\tRemove from heat and puree until smooth with a hand blender or a food processor.\t\t\t\tServe with yogurt and top with chopped spinach and drizzle with olive oil."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Chicken and chickpea soup",
-    "NameLink": "http://www.mysomalifood.com/chicken-and-chickpea-soup/",
-    "Ingredients": "2 table spoon oil 2 cloves of garlic 1 table spoon ginger 1 medium onion 1 pound chicken 2 potatoes, chopped 2 carrots, chopped 2 tomatoes 1 can chickpea 1 chili 2 table spoon cilantro juice of half a lemon 1 magi bouillon 1 teaspoon cumin 1 teaspoon turmeric Salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/chickensoup.jpg",
-    "Instructions": "In a large saucepan, heat the oil on a medium heat, add the onion, garlic and the ginger cook until the onion is brown and softened, season with salt and pepper. Add the spices and chicken continue to brown the chicken, and then add potatoes and the carrots. Next add tomatoes cook few more minutes. Then add chickpea, chilies, cilantro, and lemon juice, simmer for few minutes. Add the magi and some water continue to cook until the veggies and the chicken are cooked about 30-40 minutes add more lemon juice. And serve with bread."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Chicken Soup : Maraq Digaag",
-    "NameLink": "http://www.mysomalifood.com/chicken-soup-maraq-digaag/",
-    "Ingredients": "4 chicken legs-tights 1 tomato, cut in half 3 carrots, peeled 3 potatoes, peeled 1/2� head of cabbage, sliced 3 cloves of garlic, chopped 3 black peppercorns 1 teaspoon cumin seeds 5 cardamom pods, crushed 1 teaspoon coriander 1 teaspoon ginger 1-2 tablespoons coriander/cilantro leaves salt to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/08/maraqdigaag.jpg",
-    "Instructions": "Place the chicken in a in a large soup pan, cover with water, bring it to a boil. Skim the foam that rises to the top with a spoon. Boil for 15 minutes, then let simmer on a medium. Add tomatoes, potatoes,cabbage, carrots, garlic and the spices continue to cook for 30-40 minutes or until the Chicken is tender almost falling off from the bone. Garnish with more cilantro/coriander leaves. Serve with bead."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Kale potato lamb soup",
-    "NameLink": "http://www.mysomalifood.com/kale-potato-lamb-soup/",
-    "Ingredients": "1 punch kale\t\t\t\thalf a head cabbage\t\t\t\t2 potatoes\t\t\t\t1 tomato\t\t\t\t2 teaspoons tomato paste\t\t\t\t3 cloves of garlic,chopped\t\t\t\t1 medium onion small onion\t\t\t\t2 pounds lamb or goat\t\t\t\t1 teaspoon coriander powder",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/01/lamb-kale-soup.jpg",
-    "Instructions": "In a large pot boil the meat with water until tender.\t\t\t\tChop the vegetables in the same size and add it to the meat.\t\t\t\tseason with salt pepper and the coriander and bring it to a boil.\t\t\t\tSimmer over low heat add more water if needed and until the vegetables are tender\t\t\t\tCheck if it needs more seasoning.\t\t\t\tServe warm with rice, flat breads."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Lentil Soup",
-    "NameLink": "http://www.mysomalifood.com/lentil-soup/",
-    "Ingredients": "3 potatoes, diced 2 carrots, chopped 1 small onion, chopped 1 small tomato, chopped 2 cloves of garlic, minced 1 cup lentil 1 Magi cube salt and pepper to taste 1 teaspoon cumin 1 teaspoon paprika/chili powder/ 1 tablespoon chopped cilantro",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/06/lentilsoup.jpg",
-    "Instructions": "In a sauce pan on a medium heat, add the lentil and cover with water. Bring it to a boil then simmer until the lentils are tender. On a sauce pan add the onions and cook until brown add the potato and the carrot. Cook for few minutes. Season with salt and pepper. Add the garlic, tomato, cilantro and cook until tomatoes are tender. Strir in the lentil, Maggi cube, cumin, paprika and cover with water. Cook until the potatoes and the carrots are tender, add more water if needed. Blend soup using a hand held blender or use a blender until pureed, or you can serve it as it is"
-  },
-  {
-    "Category": "Soups",
-    "Name": "Maraq Fahfah : Somali Soup",
-    "NameLink": "http://www.mysomalifood.com/maraq-fahfah-somali-soup/",
-    "Ingredients": "3 medium potatoes 2 carrots Half a head of cabbage 1 tomato, chopped 1 pound beef/lam 1 small onion, chopped 2 cloves of garlic, chopped 2 table spoon cilantro, chopped Half of green pepper, chopped 2 green onions, chopped 2 teaspoon coriander powder 1 green chili, seeded Juice of half of a lemon Salt and pepper, to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/maraq.jpg",
-    "Instructions": "In a large pot cook the beef and cover with water and the magi until the meat is tender. Add the potatoes, carrots and the cabbage and cook for 10-15 minutes. Add the rest of the vegetables and season with salt and pepper. Cook until the vegetables are tender"
-  },
-  {
-    "Category": "Soups",
-    "Name": "Oatmeal Soup : Shurbad",
-    "NameLink": "http://www.mysomalifood.com/oatmeal-soup-shurbad/",
-    "Ingredients": "1 1/2 cups of oats 6 cups of water 1/2 to 1 pound of meat salt pepper 1 small onion chopped 1 clove of garlic chopped 1 teaspoon cumin powder 1 teaspoon coriander powder one lemon cut in half",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2010/08/oatmealsoup.jpg",
-    "Instructions": "In a medium sauce pan heat the oil add the meat and brown, add the onion season with salt and pepper cook until the onions are translucent, add the garlic, cumin and coriander powder stir for few minutes. Add the oats and bring it to a boil reduce the heat and simmer while stirring occasionally about 30- 40 minutes. (make sure not to burn the soup.) Using a hand blender or in a blender blend the soup until smooth and creamy. Serve with lemon and sprinkle with some sugar and duqus (optional)."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Okra and Vegetable Soup : Maraq Baamiye iyo Khudrad kale",
-    "NameLink": "http://www.mysomalifood.com/okra-and-vegetable-soup-maraq-baamiye-iyo-khudrad-kale/",
-    "Ingredients": "1 onion, chopped\t\t\t\t1lb okra, trimmed and cut\t\t\t\t2-3 carrots\t\t\t\t3 potatoes chopped\t\t\t\t1 large tomato, chopped\t\t\t\t1 zucchini/courgette, chopped\t\t\t\t2 cloves garlic, finely chopped\t\t\t\t3 cups broth/stock\t\t\t\t1 teaspoon coriander powder\t\t\t\t2 tablespoons oil\t\t\t\tsalt and pepper",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2013/07/okra-soup.jpg",
-    "Instructions": "In a saucepan heat oil on a medium heat add the onions and cook for 4 minutes.\t\t\t\tAdd the potatoes and the carrots, cook for 4 minutes add salt and pepper.\t\t\t\tThen add the tomatoes stir for few minutes add the zucchini/courgette.\t\t\t\tAdd the broth and cook for 5 minutes.\t\t\t\tThen add the okra and the garlic and the coriander powder.\t\t\t\tAdd more water and bring to a boil.Then simmer cook until the vegetables are tender."
-  },
-  {
-    "Category": "Soups",
-    "Name": "Okra Soup : Maraq Baamiye",
-    "NameLink": "http://www.mysomalifood.com/okra-soup-maraq-baamiye/",
-    "Ingredients": "2 tablespoons oil\t\t\t\t1 Onion,chopped\t\t\t\t3 Garlic cloves, chopped\t\t\t\t1 cup chopped green onion\t\t\t\t500 g okra, ends trimmed\t\t\t\t6 Cups broth\t\t\t\t1/4 Cup green coriander, chopped\t\t\t\tSalt and pepper\t\t\t\t1  lemon juice",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2014/03/okrasoup.jpg",
-    "Instructions": "In a saucepan heat the oil over medium heat.\t\t\t\tAdd the onions and garlic, stirring cook about 5 minutes.\t\t\t\tAdd the green onions and okra, and stir.\t\t\t\tAdd the broth, lemon juice and salt and pepper.\t\t\t\tBring it to a boil, reduce heat and cook for 30 minutes covered .\t\t\t\tAdd cilantro and mix in.\t\t\t\tIn a blender or hand blender blend the mixture until smooth.\t\t\t\tServe warm"
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Cabbage",
-    "NameLink": "http://www.mysomalifood.com/cabbage/",
-    "Ingredients": "1 small head cabbage, sliced 1 medium onion, chopped 2 carrots grated 1 teaspoon cumin powder 1 teaspoon coriander powder 1 chilli peper, to taste 2 tablespoon lemon juice 2 table spoon cilantro, chopped salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/cabage1.jpg",
-    "Instructions": "Heat the oil on a medium heat, add the onion saut� for 3-5 minutes until soft. Add the cabbage and carrots and the chili and stir-fry until the cabbage is soft. Stir in coriander, cumin, cilantro, lemon, season with salt and pepper until combined. Lower the heat and cook until the cabbage is cooked through."
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Cabbage and Corn Saute",
-    "NameLink": "http://www.mysomalifood.com/cabbage-and-corn-saute/",
-    "Ingredients": "1 small head of cabbage,chopped\t\t\t\t1-2 tablespoon oil\t\t\t\tsalt\t\t\t\t1 teaspoon nigella seeds\t\t\t\t1 onion, chopped\t\t\t\t3 ears of corn,kernels removed\t\t\t\t2 cloves garlic, minced",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/06/cabbagecorn.jpg",
-    "Instructions": "Heat oil in large skillet or a pan with a cover, add the onion and cook over medium heat about 5 minutes.\t\t\t\tAdd the cabbage and cook over, high heat, stirring, until wilted about 5 minutes lower heat and cook until almost tender for 10 more minutes.\t\t\t\tAdd the , salt, garlic, nigella, and the corn stir and cover and cook stirring occasionally until the corn and the cabbage are both tender about 10 minutes.\t\t\t\tAdd litte water in the last 10 minutes for a softer cabbage if you prefer and cover with the lid.\t\t\t\tServe while warm."
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Curried Cauliflower",
-    "NameLink": "http://www.mysomalifood.com/curried-cauliflower/",
-    "Ingredients": "1 head of cauliflower chopped 1 teaspoons curry powder 1 teaspoon coriander powder � teaspoon turmeric 1 medium onion, diced 2 cloves of garlic, chopped 1 table spoon ginger 2 small tomatoes 2 tablespoon cilantro, chopped 2 tablespoon oil 1 � cups of water Salt and pepper to taste",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2009/05/curryc.jpg",
-    "Instructions": "In a large pan heat the oil over medium heat, add the onions saut� for few minutes. Add the curry , coriander, turmeric, garlic, ginger, tomatoes, cilantro, cauliflower, and season with salt and pepper. Stir until all veggies are incorporated. Add water and simmer until a boil then simmer on a low heat, continue to cook covered until the cauliflower is tender."
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Green Beans in Tomato Sauce",
-    "NameLink": "http://www.mysomalifood.com/green-beans-in-tomato-sauce/",
-    "Ingredients": "1 lb green beans, trimmed, cut in half 2 garlic cloves, finely chopped 4 tomatoes, chopped 1 green chilli, seeded, chopped 2 tablespoons cilantro/ coriander leaves, chopped 1 tablespoon tomato paste 1 teaspoon cumin powder Salt and pepper 1/4 cup oil",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2011/09/green-bean.jpg",
-    "Instructions": "Heat the oil in a large pan, add the onion and cook over medium heat until softened. Add tomato paste, tomatoes, green chilli, and cilantro, cumin, season with salt and pepper. Cook until tomatoes are soft. Add the beans and 1/2 cup of water,bring it to a boil then simmer on a medium heat until the beans are tender about 10-15 minutes. Serve warm as a side dish."
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Saut�ed Mixed Vegetable",
-    "NameLink": "http://www.mysomalifood.com/sauteed-mixed-vegetable/",
-    "Ingredients": "2 Carrots, shredded\t\t\t\t2 potato, shredded\t\t\t\t1/2 head cabbage, shredded\t\t\t\t1 green squash, shredded\t\t\t\t1 yellow squash, shredded\t\t\t\tSalt and pepper",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/09/mixed-vegies-and-pasta.jpg",
-    "Instructions": "Heat a large skillet on a high,  non stick makes it easier so the vegetable wont stick and to minimize the oil used.\t\t\t\tAdd the oil, then start with the cabbage and saute few minutes , add the potato, mix for few more minutes. Then Add the carrots and the squash.\t\t\t\tSeason with salt and pepper.\t\t\t\tCover and cook until the vegetables are tender.\t\t\t\tIf needed add some water"
-  },
-  {
-    "Category": "Vegetables",
-    "Name": "Sauteed Spinach with Sweet potato",
-    "NameLink": "http://www.mysomalifood.com/sauteed-spinach-with-sweet-potato/",
-    "Ingredients": "1 large sweet potato, peeled, chopped\t\t\t\tpunch spinach, cleaned, chopped\t\t\t\t2 tablespoon oil\t\t\t\t1 small onion, chopped\t\t\t\t1 clove garlic, finely chopped\t\t\t\tsalt\t\t\t\tpepper\t\t\t\tberbere (optional)",
-    "image_src": "http://www.mysomalifood.com/wp-content/uploads/2012/07/spinachandsweet-potato.jpg",
-    "Instructions": "Heat oil in a skillet or a pan saute onions few minutes. Add the garlic and fry for a few seconds.\t\t\t\tThrow in sweet potatoes, season with berbere, salt and pepper  fry for a few minutes until partly done. Add in spinach, and stir fry until it starts to wilt and sweet potatoes are cooked through.\t\t\t\tServe warm."
-  },
   {
     "Category": "Appetiser",
     "Name": "Black Quinoa, Hulled Millet, Artichoke and Pomegranate Salad",
@@ -892,169 +13,169 @@ var data = [
     "Ingredients": "_ black quinoa _ cup hulled millet 150g red and gold perino tomatoes, cut into halves 1 small cucumber, thinly sliced 10 baby artichokes, top and bottom trimmed Seeds from half a pomegranate 1 tablespoon pomegranate molasses 2 teaspoons white vinegar 2 tablespoons olive oil _ teaspoon minced garlic 2-3 cups of water Salt to taste",
     "Instructions": "1. Toast the millet on medium heat for four minutes or until golden brown. This will enhance the nutty flavour of millet. 2. Wash and boil the quinoa in one cup of water for about 15 minutes with salt to taste. 3. Boil the millet in one cup water for about 30 minutes with salt to taste or until well cooked. Add more water if required. 4. Slice about 3/4 inch to an inch off the tip of the artichoke. Pull off any smaller leaves towards the base and on the stem. 5. Rinse the artichokes in running cold water and cook in a large pot with a cup of water. Cover and cook over low heat for about 30 minutes. 6. To make the pomegranate vinaigrette, thoroughly mix pomegranate molasses, garlic, salt to taste with olive oil and white vinegar. Toss the vinaigrette through the vegetables. 7. Lay out the sliced cucumbers on a large plate. Pile the quinoa and millet in the centre of the plate and arrange the tomatoes and artichokes around the plate. 8. Drizzle any left over vinaigrette and fresh pomegranate seeds on the salad and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 40 minutes Total time: 40 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Homemade Labneh with Sumac, Pomegranate and Basil",
     "Description": "Strain Greek yoghurt, which is already strained, even more and you get labneh (laben in Somali), a popular Middle Eastern and North African breakfast dish. It is a great alternative to cream cheese and spreads easily on bread. Get as inventive as you want with labneh. Sometimes I sprinkle ground nuts and spices over it or honey. Another popular use of labneh is to mix it with herbs and shape it into balls, which are then stored in olive oil. This can be eaten as a cheese. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Homemade Labneh with Sumac, Pomegranate and Basil  Author:  Abderazzaq Noor  Recipe by:  Adapted from a recipe by Paul Merrett Ingredients 450g Greek yoghurt _ teaspoon salt 1 teaspoon sumac 1 pomegranate A few basil leaves 1 tablespoon olive oil A large piece of muslin cloth Instructions 1. Place the muslin cloth inside a large bowl. Pour the yoghurt into the cloth, wrap tightly and suspend the wrapped yoghurt over the bowl for 24 hours. This will allow the liquid to drain from the yoghurt, leaving thick, creamy labneh. 2. Cut the pomegranate in half and remove the seeds by hitting the bottom of the fruit with a wooden spoon. 3. Mix the labneh with salt and spread over a large plate. Drizzle with olive oil. Sprinkle the sumac, pomegranate seeds and basil leaves. 4. Serve with bread. Prep time: 10 minutes Cook time: 24 hours Total time: 24 hours and 10 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "450g Greek yoghurt _ teaspoon salt 1 teaspoon sumac 1 pomegranate A few basil leaves 1 tablespoon olive oil A large piece of muslin cloth",
     "Instructions": "1. Place the muslin cloth inside a large bowl. Pour the yoghurt into the cloth, wrap tightly and suspend the wrapped yoghurt over the bowl for 24 hours. This will allow the liquid to drain from the yoghurt, leaving thick, creamy labneh. 2. Cut the pomegranate in half and remove the seeds by hitting the bottom of the fruit with a wooden spoon. 3. Mix the labneh with salt and spread over a large plate. Drizzle with olive oil. Sprinkle the sumac, pomegranate seeds and basil leaves. 4. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 24 hours Total time: 24 hours and 10 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Fenugreek oil seared tofu, spring onions, cherry tomatoes with ginger and lime",
     "Description": "I was beyond flattered when I given the daunting challenge of putting my own twist to the famous chef Tal Ronnen�s vegan menu at the Wynn Luxury Resort in Las Vegas. I started the task with quite a bit of trepidation! This guy is one of the world�s most celebrated chefs, runs the Crossroads restaurant in Los Angeles, and is the author of The Conscious Cook, a New York Times bestselling cookbook. Tal Ronnen is also someone Oprah calls the world�s best vegan chef. I was also daunted by the fact that I had to choose one dish from the menus of the numerous restaurants at the Wynn , named in the�Cond� Nast Traveller� Gold List �as one of the �Top Hotels in the World�. I chose an organic olive oil seared tofu dish prepared with sundried tomatoes, green onions, ginger and lemon soy from Andrea�s, a Forbes Travel Guide Four Star award winning restaurant. I wanted to put a Somali touch to this dish and the idea of using fenugreek seeds and leaves came to mind. Fenugreek is used as a herb (fresh or dried) and a spice when in seed form. In Somali, we call it� hulbad (xulbad) . It is used to spice food and also as a herbal medicine to help women who are breast feeding improve their milk flows. I also decided to substitute the sun dried tomatoes in the original dish with fresh red and gold cherry tomatoes and saut�ed them in fenugreek flavoured oil and lime juice. The resulting juices acted as my dressing and was used in lieu of the lemon soy. I also added rocket leaves as I thought their peppery flavour would go well with the other ingredients. I was delighted with the delicate flavour imparted by the distinctive sweetness of the fenugreek seeds. The fresh tartness of the lime and the slightly caramelised onions, rocket, tomatoes and ginger added a tasty layer of flavour to the tofu. This is definitely a dish that I will cook again. Tal Ronnen, if you ever happen to read my humble take on your dish I hope you think I did a good interpretation! �And to anyone who uses this recipe, I hope you will enjoy the dish as much as I did. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Fenugreek oil seared tofu, spring onions, cherry tomatoes with ginger and lime  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 150g Tofu 6 stalks of green onions, cleaned and sliced 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon fenugreek seeds 2 tablespoons olive oil 100g mixed red and gold Perino tomatoes, cut in halves Juice of one lime Salt to taste 1 cup of washed rocket leaves 1 teaspoon fresh or dry fenugreek leaves (optional) 1 lime halved for garnish Rind of one lime for garnish Instructions Saut� vegetables",
     "Ingredients": "150g Tofu 6 stalks of green onions, cleaned and sliced 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon fenugreek seeds 2 tablespoons olive oil 100g mixed red and gold Perino tomatoes, cut in halves Juice of one lime Salt to taste 1 cup of washed rocket leaves 1 teaspoon fresh or dry fenugreek leaves (optional) 1 lime halved for garnish Rind of one lime for garnish",
     "Instructions": "Saut� vegetables",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Lentil and Sweet Potato Salad with Yoghurt and Tahini",
     "Description": "This nutritious salad with its nutty and earthy taste is not only filling, but looks pretty good on the plate. I also love the fact that something so delicious can also be healthy. There is so much more to like about this wonderful legume. Did you know that lentils lower cholesterol? This is because they have high levels of soluble fiber, which help to keep the arteries clean. Lentils are also a great source of folate and magnesium, which are good for heart health. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Lentil and Sweet Potato Salad with Yoghurt and Tahini  Author:  Abderazzaq Noor. Recipe compiled by Issa Noor  Recipe by:  Abderazzaq Noor Ingredients 2 medium sized sweet potatoes, cut into round discs of about 1 cm thickness 200g cherry tomatoes, cut into halves 800g cooked lentils (or two 400g tinned lentils. I prefer brown lentils) 120g rocket salad leaves 1 diced capsicum (I like to use half a red and half a green capsicum for the colour effect) 1 tablespoon olive oil 1 teaspoon ground turmeric 1 teaspoon ground cumin 20g chopped coriander leaves _ teaspoon salt Yoghurt and tahini dressing Juice of one lemon 1 tablespoon tahini 2 cloves garlic, minced 3 tablespoons thick yoghurt Pinch of sugar and salt 1 red onion, cut into rings Instructions 1. Coat the sweet potato in olive oil and roast for about 10 minutes on medium heat or until cooked through 2. Prepare the dressing by mixing all the lemon juice, onion, garlic, salt and sugar together and rest for about 5 minutes. This takes away the bite from the raw onion. Add in the yoghurt and tahini and mix into a smooth paste. 3. Mix the lentils, tomatoes, rocket salad leaves, capsicum, tomatoes coriander leaves, spices and salt together. 4. Spread the yoghurt and tahini dressing on a large serving plate. 5. Start arranging the salad in layers, starting with placing the roasted sweet potato discs on top of the dressing. Pile the rest of the salad ingredients on top of the sweet potatoes. 6. Serve with some good bread. Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 6 - 8 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "2 medium sized sweet potatoes, cut into round discs of about 1 cm thickness 200g cherry tomatoes, cut into halves 800g cooked lentils (or two 400g tinned lentils. I prefer brown lentils) 120g rocket salad leaves 1 diced capsicum (I like to use half a red and half a green capsicum for the colour effect) 1 tablespoon olive oil 1 teaspoon ground turmeric 1 teaspoon ground cumin 20g chopped coriander leaves _ teaspoon salt",
     "Instructions": "1. Coat the sweet potato in olive oil and roast for about 10 minutes on medium heat or until cooked through 2. Prepare the dressing by mixing all the lemon juice, onion, garlic, salt and sugar together and rest for about 5 minutes. This takes away the bite from the raw onion. Add in the yoghurt and tahini and mix into a smooth paste. 3. Mix the lentils, tomatoes, rocket salad leaves, capsicum, tomatoes coriander leaves, spices and salt together. 4. Spread the yoghurt and tahini dressing on a large serving plate. 5. Start arranging the salad in layers, starting with placing the roasted sweet potato discs on top of the dressing. Pile the rest of the salad ingredients on top of the sweet potatoes. 6. Serve with some good bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Suqaar Lettuce Cups",
     "Description": "I enjoy giving tradition a new twist so when a Vietnamese friend served me some vegetables in a lettuce cup I thought I would try that idea on Somali food. Combining meat and salad seemed like a good way to go and my suqaar lettuce cup recipe was born. Suqaar is Somali diced stir-fry beef or lamb made simply with onion, tomato and sometimes a bit of spice. It is usually eaten with canjeero (a sourdough flat bread or sabaayad , a wheat flatbread). The suqaar lettuce cups were a great success in my Somali kitchen. My family said that the combination of spicy meat and the crunch and freshness of the lettuce leaves made for a memorable entr�e dish. I guess you will have to try it out for yourself to see if you agree! If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Suqaar Lettuce Cups  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 500g lamb or beef, finely diced into small cubes 1 tablespoon olive oil 1 onion, diced finely 2 tablespoons tomato puree _ teaspoon of ground cumin (optional) _ red capsicum, chopped into small pieces (leave some for garnish) Salt to taste (about _ teaspoon should be enough) 4 � 6 lettuce leaves, folded into cups Instructions 1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, ground cumin, tomato puree and capsicum. Stir fry the meat for 3 � 4 minutes or until just cooked. Remove from heat. 4. Spoon the meat onto the lettuce cups and garnish with a sprinkle of the diced capsicum. Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "500g lamb or beef, finely diced into small cubes 1 tablespoon olive oil 1 onion, diced finely 2 tablespoons tomato puree _ teaspoon of ground cumin (optional) _ red capsicum, chopped into small pieces (leave some for garnish) Salt to taste (about _ teaspoon should be enough) 4 � 6 lettuce leaves, folded into cups",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, ground cumin, tomato puree and capsicum. Stir fry the meat for 3 � 4 minutes or until just cooked. Remove from heat. 4. Spoon the meat onto the lettuce cups and garnish with a sprinkle of the diced capsicum.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Red Kidney Bean Dip",
     "Description": "I like the versatility of dips. �I enjoy them served with good bread as a starter, for breakfast, lunch and even dinner. They are also perfect for entertaining. �Nothing beats a homemade dip for a healthy snack. �I hope you will enjoy this flavoursome red kidney bean dip. If you�ve read this far then you should keep in touch! � Like The Somali Kitchen on�Facebook . �Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Red Kidney Bean Dip  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste. Instructions 1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread. Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste.",
     "Instructions": "1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Spicy Mango, Tofu and Pumpkin Salad",
     "Description": "The sweetness of the mango, the crunch of the fresh vegetables, and the heat of the chilli combine into a delicious salad. What more would you ask for? � If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Spicy Mango, Tofu and Pumpkin Salad  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil Instructions",
     "Ingredients": "250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Tamarind Flavoured Kebabs in Switzerland?",
     "Description": "You expect raclette, cheese fondue and rosti in a Swiss kitchen and not tamarind flavoured kebabs, but for Kenyan-born Fatuma the flavours of home have helped her acclimatise to her new world. Fatuma is a keen cook, mother, wife, PhD student and an award winning public relations practitioner with 25 years of experience under her belt. She recently moved to Berne, Switzerland for her new job as head of cabinet for the Universal Postal Union, a specialised�UN agency. Fatuma says she finds cooking therapeutic. �My whole thought process is in the mixing, stirring, tasting and I find it adds to my �me� time where I do what I like at my own pace and time. I also feel good when the end result is appreciated by people�my family love my cooking though I don�t do it much.� Like most Somalis, Fatuma loves meat and spices and learnt to cook at an early age from her mother, but it was the time spent with her grandparents that cemented her connection with food. �My maternal grandpa, God rest his soul, taught me how to make square sabaayad during one of my school holidays in Nyeri, Kenya where my mum was born and brought up. My maternal grandmother used to teach me how to make traditional caano gadod �(special milk) using the roots that were burnt and used to line the diil �(traditional milk container) where the milk was stored to ferment it and that gave the milk that special smell, colour and flavour. �But most of all, I grew up always cooking more than we needed because we never knew who would show up for a meal. Perhaps it was influenced by being a politician�s daughter and there were always people milling around our home that made us do this, but I guess it now affects me because I can never cook for just one person�not used to it. I cook a lot and freeze,� she adds. Fatuma has passed on her love of cooking to her three daughters and two sons. �My son even wanted to be a professional chef at one time � maybe from watching too much Masterchef and Gordon Ramsay and Halimo wants to learn cooking professionally, but it is my eldest, Khadija Iman, who takes after me as she uses her eye to estimate ingredients and does not measure out as most recipes indicate.� Ali, her husband, also chips in and loves to make koroga � a Kenyan dish where meat or chicken is cooked with loads of spices and stirred over a wood or�charcoal�burner for hours until the meat falls off the bone. Tip: You can add bread soaked in water (with the water squeezed out) to the meat. This helps to bind the mince meat. Alternatively, you can add an egg to bind the meat. I find the meat binds together without these if done while meat is fresh and not frozen. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Tamarind flavoured kebabs  Author:  Abderazzaq Noor  Recipe by:  Fatuma Hirsi Mohamed Ingredients 1kg beef mince 1 tablespoon garlic paste 1 teaspoon coriander powder 1 teaspoon cumin powder 1 tablespoon vinegar 1/2 teaspoon paprika powder 1/2 teaspoon black pepper powder Salt to taste (I don�t add salt because I use lemon and tamarind paste) Juice of half a lemon 1 tablespoon tamarind paste Vegetable oil for frying Instructions",
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Sambuus Qudaar (Vegetable Samosa)",
     "Description": "Sambuus, sambusa, samosa � are delicious, regardless of what name you use for them.� They are a great snack or appetiser. Other cultures have similar pastries.� The Spanish and Portuguese have empanada , the Polish are proud of their pirogi , the English and Aussies love their meatpie, and the Chinese continue to dazzle us with spring-rolls. In this recipe I have used spring roll pastry instead of the traditional handmade pastry. Using spring rolls is quick and easy, but if you prefer to make your own pastry, check out our meat sambuus recipe for instructions. Healthy tip: Try baking your sambuus in a medium heat oven for about 10 minutes, turning after five minutes to bake evenly. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Sambuus Qudaar (Vegetable Samosa)  Author:  Abderazzaq Noor  Recipe by:  Shukri Ingredients Three large potatoes, boiled and diced into small cubes 1 cup of cooked green peas One large onion, diced finely 1 bunch of coriander, chopped 1 tablespoon of curry powder 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon of ground chilli or two diced green chillies (optional) Salt to taste 10 sheets of spring roll pastry Oil for deep frying Instructions Sambuus Qudaar filling 1: Gently�cook the diced potatoes, peas, coriander, onions, salt and spices in a pan in a tablespoon of oil and cook for about five minutes. 2: Let the mixture cool. How to wrap the sambuus pastry (see pictures above) 1: Thaw the spring roll pastry and cover with a clean cloth to keep the pastry from drying out. 2: Mix two tablespoons of plain flour with a quarter cup of warm water to form a paste to seal the pastry�s edge. 3: Cut the two pastry sheets into thirds of equal size rectangles.� Repeat for the rest of the pastries, using two sheets at a time. In total, you will have 15 rectangles, each forming into one sambuus. Ensure that the pastry pieces are always kept covered with a clean cloth. 4: Fold the two sheets of rectangular pastry into pockets � see picture below. 5: Fill the pocket with about two tablespoons of the vegetable mixture. 6: Spread the flour paste along the edges of the final fold and seal the pastry completely. Ensure that the pastry does not have any holes.� You should have a neat triangular sambuus . A well folded sambuus will fry crisply and won�t be oily. 7: Repeat the process of filling and folding with the remaining pieces of pastry. Keep the pasties covered in cloth to ensure they don�t dry out. Frying the sambuus 1: Heat up oil in a deep frying pan on medium heat. Test the oil with a small strip of excess dough and if the pastry floats up then you are ready to start frying your sambuus . 2: Fry several sambuus at a time until they are a nice golden colour. 3: Drain the sambuus on a clean kitchen towel and serve with a wedge of lemon, lime or shidni sauce. � Prep time: 30 minutes Cook time: 2 hours Total time: 2.5 hours Serves: 8 - 10 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "Three large potatoes, boiled and diced into small cubes 1 cup of cooked green peas One large onion, diced finely 1 bunch of coriander, chopped 1 tablespoon of curry powder 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon of ground chilli or two diced green chillies (optional) Salt to taste 10 sheets of spring roll pastry Oil for deep frying",
     "Instructions": "Sambuus Qudaar filling 1: Gently�cook the diced potatoes, peas, coriander, onions, salt and spices in a pan in a tablespoon of oil and cook for about five minutes. 2: Let the mixture cool.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 2 hours Total time: 2.5 hours Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Fried coffee, anyone? (Bun Soomaali)",
     "Description": "Fried coffee? I know what you are thinking! It sounds weird, right? But let me tell you the taste is incredible and Somalis have some interesting stories that we associate with the bean. My beloved maternal grandparents introduced me to fried coffee beans at the tender age of five. This special dish was offered during meditation sessions called dhikr , an Islamic form of devotional chanting in praise of God. Somehow to this day, the smell of coffee brings to mind the sonorous, repetitive and ancient sounds of sacred chant, and I get instantly transported to a state of mental clarity. The d hikr group would sit on a mat and the coffee would be served floating in oil in a kurbin , a special wooden bowl. The kurbin would be passed around and we would start with a deep and appreciative sniff of the wonderful aroma, and then ladle a spoonful of the coffee onto the palm, chew the beans, and then rub the scented oil over our faces. This was part of the ritual and was said to prepare the person to face the world. Sometimes sugar is added to the bun to sweeten it.� Bun is also often eaten with popcorn or a simple dish of boiled azuki beans known as cambuulo . Coffee beans are called� bun �in the Somali language, and� buna �in Oromo and� bunna �in Amharic, the two other main languages of Ethiopia, the home of coffee. Somalis also associate bun with rites and spirit possession practices that hint at the ancient beliefs of Somalis. Ceremonies are held by a ritual expert, calanqad . Dancing, drumming, bun and the burning of incense are used to enhance the senses of participants. The spirit descends on the host under various names, sometimes speaking in different languages. Men and women participate in a ceremony called mingis , but women have their own ceremony called saar . If the spirit is vexatious, an exorcism is conducted by the calanqad . Not all spirits are cast out. Some become friends of the possessed person and are sometimes inherited by the children. Fried coffee beans also play a central role in ceremonies women hold to pray for the safe delivery of a pregnant friend. The oil used to fry the coffee beans is applied liberally on the head and hair of the pregnant woman as the women pray and sing for their friend. The Oromo people of Ethiopia, a Cushitic tribe like the Somali, also have a fried coffee ceremony. The outer skin is snipped off the coffee beans and words of blessings are uttered in a ritual known as buna-chiru , which signifies sacrifice to honour a guest or for a ceremony. Don�t forget to moisturise your face with some of the coffee flavoured oil! If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Fried coffee (Bun Soomaali)  Author:  Abderazzaq Noor  Recipe by:  Halima Sharif Ingredients 1 cup of whole coffee beans _ cup vegetable oil 2 � 3 tablespoons of ghee (clarified butter) Instructions",
     "Ingredients": "1 cup of whole coffee beans _ cup vegetable oil 2 � 3 tablespoons of ghee (clarified butter)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Hummus with Tahini � tasty and filling",
     "Description": "Rich, smooth, creamy, garlicky with a hint of spice � that�s how I like my hummus . Not only does it make a great protein-packed dip, but it can also be used to �butter� your bread or used instead of mayo in a sandwich. Hummus is the Arabic word for chickpea. I prefer using fresh chickpeas as they give you a certain silkiness that you don�t get from canned chickpeas. When boiling the chickpeas I add one teaspoon of baking soda to take away the gas. You can use canned chickpeas as it is more convenient and it tastes great too. Hummus can keep well in the fridge for up to a week. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow us on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Hummus with Tahini  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda For garnish: Ground paprika One tomato, diced into small cubes _ cup chickpeas 1 tablespoon olive oil Instructions",
     "Ingredients": "2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 10 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Chickpea Patties",
     "Description": "Chickpea patties are great for vegetarians who want to have their burger and eat it.� Tasty, nutritious, healthy, full of fibre�the list of why these patties have to be a regular part of your diet is endless! Note:�Measurement of spices in this recipe is based on freshly ground spices.� Add an extra half a teaspoon if you are using packaged ground spices. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Chickpea Patties  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 400g can chickpea, drained and rinsed 1 medium potato, boiled 1 medium onion, diced finely _ cup chopped coriander leaves 1 teaspoon ground coriander seeds 1 teaspoon ground cumin _ teaspoon black pepper _ cup toasted sesame seeds 1 tablespoon corn flour (this helps bind all the ingredients together. Alternatively, you can use one beaten egg.) 1-2 green chillies, diced (optional) Salt to taste Olive oil Instructions",
     "Ingredients": "400g can chickpea, drained and rinsed 1 medium potato, boiled 1 medium onion, diced finely _ cup chopped coriander leaves 1 teaspoon ground coriander seeds 1 teaspoon ground cumin _ teaspoon black pepper _ cup toasted sesame seeds 1 tablespoon corn flour (this helps bind all the ingredients together. Alternatively, you can use one beaten egg.) 1-2 green chillies, diced (optional) Salt to taste Olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Maraq Bocor (Pumpkin Soup)",
     "Description": "This is one of my favourite soups. Warming and nutritious � it is just the thing to warm the cockles of the heart on a chilly day. The addition of mushroom, capsicum and eggplant add a wonderful texture and heartiness to the soup. In Somali, we use a generic term � bocor � for gourds and squashes such as pumpkin. My aunt who was born and grew up in Mogadishu, the capital of Somalia, told me that they call pumpkin bocor hindi (literally Indian bocor ) possibly because it was introduced in Somalia by Indian traders. Another popular dish from the pumpkin family made in southern Somalia is bocor katiitow , which uses the flesh of the green gourd plant. It is a particular favourite during the month of Ramadan when Muslims fast between sunrise and sunset. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Maraq Bocor (Pumpkin Soup)  Author:  Abderazzaq Noor  Recipe by:  Mariam Ingredients 250g diced pumpkin, cut into small cubes 100g mushroom 1 small capsicum , chopped 2 small eggplant, cut into small cubes 1 small onion, chopped 2 cloves of garlic, crushed 2 small tomatoes, diced 1 teaspoon�tomato paste 2 teaspoons olive oil A handful of coriander leaves (keep some aside for garnish) 1 teaspoon ground cumin 1 diced green chilli (add more if you like it spicy) 1 cup water (you can add a bit more if you like your soup thinner) Salt to taste Instructions 1. Heat oil in a large saucepan and saut� the onions until brown. 2. Add all the other ingredients and cook for a few minutes until well mixed. 3. Add the water and salt to taste. 4. Cook with the lid on until vegetables are tender. 5. Puree the soup in a blender to your desired consistency. 6. Garnish with the herbs for a memorable lunch or dinner! Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "250g diced pumpkin, cut into small cubes 100g mushroom 1 small capsicum , chopped 2 small eggplant, cut into small cubes 1 small onion, chopped 2 cloves of garlic, crushed 2 small tomatoes, diced 1 teaspoon�tomato paste 2 teaspoons olive oil A handful of coriander leaves (keep some aside for garnish) 1 teaspoon ground cumin 1 diced green chilli (add more if you like it spicy) 1 cup water (you can add a bit more if you like your soup thinner) Salt to taste",
     "Instructions": "1. Heat oil in a large saucepan and saut� the onions until brown. 2. Add all the other ingredients and cook for a few minutes until well mixed. 3. Add the water and salt to taste. 4. Cook with the lid on until vegetables are tender. 5. Puree the soup in a blender to your desired consistency. 6. Garnish with the herbs for a memorable lunch or dinner!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Digaag Duban (Spicy Baked Chicken)",
     "Description": "You have try this recipe if you want an appetizer or a side dish with attitude.� The fragrance of the spices combined with the moist chicken�is a marriage made in heaven! In this recipe, I have used chicken drummettes, the upper part of a chicken�s wing, which resemble a small drumstick. You can also use chicken wings or drumsticks. Somali cooks will generally vary the spices they use, but I particularly like the combination of spices that I have used. It results in a tasty dish that doesn�t stay on the plate for long in my house! �Serve with a salad. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Digaag Duban (Spicy Baked Chicken)  Author:  Abderazzaq Noor  Recipe by:  Shukri Ingredients 1 kg chicken drummettes _ teaspoon ground black pepper Juice of one lemon _ teaspoon�ground coriander 1 teaspoon�ground cumin _ teaspoon�ground cinnamon _ teaspoon chilli powder (optional) A few strands of saffron Salt to taste 3 tablespoons olive oil Instructions 1.Wash the chicken drummettes thoroughly and dry with a paper towel 2.Prick the chicken with a sharp knife. This allows the marinade to soak in nicely. 3.Mix all the dry ingredients and lemon juice�with the olive oil 4.Marinate the chicken in the mixture for at least 30 minutes. Marinate overnight if you have the time. 5.Place the chicken on a baking tray lined with aluminium foil and bake in a medium oven for 25-35 minutes or until well browned. The cooking time depends on the size of your chicken drummettes. � � Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 kg chicken drummettes _ teaspoon ground black pepper Juice of one lemon _ teaspoon�ground coriander 1 teaspoon�ground cumin _ teaspoon�ground cinnamon _ teaspoon chilli powder (optional) A few strands of saffron Salt to taste 3 tablespoons olive oil",
     "Instructions": "1.Wash the chicken drummettes thoroughly and dry with a paper towel 2.Prick the chicken with a sharp knife. This allows the marinade to soak in nicely. 3.Mix all the dry ingredients and lemon juice�with the olive oil 4.Marinate the chicken in the mixture for at least 30 minutes. Marinate overnight if you have the time. 5.Place the chicken on a baking tray lined with aluminium foil and bake in a medium oven for 25-35 minutes or until well browned. The cooking time depends on the size of your chicken drummettes.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Sweet Potato and Feta Frittata",
     "Description": "Do you want something quick and nutritious to eat? You can�t go past a frittata for a delicious protein hit that you can have for breakfast, lunch with a simple salad or dinner. How versatile is that? Frittata is an Italian egg dish that is usually stuffed with various ingredients such as vegetables, meat or cheese. It is delicious served either hot or cold. Italian food is quite common in Somali kitchens because of Italian colonisation of the country. In this recipe, I have used feta cheese and vegetables, but I have tried it with all sorts of ingredients � spinach and feta, thinly sliced potatoes and rosemary, diced beef� I remember a delicious sweet frittata my grandmother made me years ago � it had raisins and was sprinkled with icing sugar! �Be as creative as you want to be! If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Sweet Potato and Feta Frittata  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 1 medium sized red sweet potato, cut into small cubes 125 g of reduced fat feta cheese, cut into small cubes 1 small onion, chopped finely _ teaspoon ground cumin A small bunch of fresh coriander leaves 6 eggs, lightly beaten 1 tablespoon olive oil Instructions 1.�Preheat oven to 180�C. 2.�Coat an ovenproof pie dish with olive oil and arrange the vegetables, coriander leaves and feta cheese all over the dish. 3.�Pour the eggs over the vegetables and bake for about 20 minutes or until set and light golden in colour. 4.�Cool for about 10 minutes and serve with a salad. Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 medium sized red sweet potato, cut into small cubes 125 g of reduced fat feta cheese, cut into small cubes 1 small onion, chopped finely _ teaspoon ground cumin A small bunch of fresh coriander leaves 6 eggs, lightly beaten 1 tablespoon olive oil",
     "Instructions": "1.�Preheat oven to 180�C. 2.�Coat an ovenproof pie dish with olive oil and arrange the vegetables, coriander leaves and feta cheese all over the dish. 3.�Pour the eggs over the vegetables and bake for about 20 minutes or until set and light golden in colour. 4.�Cool for about 10 minutes and serve with a salad.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Chickpea and Potato Bhajia",
     "Description": "Some call it bhajia . Others call it bajiya or bajiye .� I call it my favourite appetiser. Dip a bhajia into a hot shidni sauce and you won�t stop eating! Bhajia is one of the many recipes that Somalis have borrowed from India.� Somalis make various versions of this delicious snack. This particular recipe uses chickpea flour and potatoes. Bhajia is usually served with a hot sauce such as shidni or tomato sauce. � � If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Chickpea and Potato Bhajia  Author:  Abderazzaq Noor  Recipe by:  Shukri Ingredients 1 _ cups of chickpea flour (ask for gram or besan flour at any Indian grocery store) _ cup of water 1 teaspoon of salt _ teaspoon�of baking powder I large onion, diced finely 2 large boiled potatoes, cubed into small squares 1 bunch of chopped coriander leaves 1 tablespoon of dry fenugreek leaves (optional) Oil for frying Instructions 1.�Mix the chickpea flour, salt, baking powder and water into a smooth batter 2.�Rest the batter for about 20 minutes 3.�Add in the cubed potatoes, coriander, fenugreek and onion and mix all the ingredients 4.�Put the oil on medium heat 5.�Drop in a spoonful of the batter to test.� The oil is hot enough if it floats up. 6.�Continue dropping in spoonfuls of the batter until you have enough to cover the frying up. Keep turning to brown evenly to a light golden colour. 7.�Remove from the frying pan and drain on absorbent paper. Prep time: 25 minutes Cook time: 15 minutes Total time: 40 minutes Serves: 6 - 8 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 _ cups of chickpea flour (ask for gram or besan flour at any Indian grocery store) _ cup of water 1 teaspoon of salt _ teaspoon�of baking powder I large onion, diced finely 2 large boiled potatoes, cubed into small squares 1 bunch of chopped coriander leaves 1 tablespoon of dry fenugreek leaves (optional) Oil for frying",
     "Instructions": "1.�Mix the chickpea flour, salt, baking powder and water into a smooth batter 2.�Rest the batter for about 20 minutes 3.�Add in the cubed potatoes, coriander, fenugreek and onion and mix all the ingredients 4.�Put the oil on medium heat 5.�Drop in a spoonful of the batter to test.� The oil is hot enough if it floats up. 6.�Continue dropping in spoonfuls of the batter until you have enough to cover the frying up. Keep turning to brown evenly to a light golden colour. 7.�Remove from the frying pan and drain on absorbent paper.",
     "Prep_Detail": "Prep time: 25 minutes Cook time: 15 minutes Total time: 40 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Black Eyed Beans Bhajia",
     "Description": "This is a recipe from Nyanyake Fatima, an old Swahili friend and a neighbour in Malindi, the town I grew up in.� Nyanyake Fatima (Granny Fatima) was famous for her black eyed beans bhajia. She would make them in the evenings and sell them from a little shop at the front of her house. Those bhajias were legendary! The entire neighbourhood would look forward to Nyanyake Fatima�s bhajia. When�I grew up and went back to Somalia I saw my relatives making the same bhajia, but Nyanyake Fatima�s recipe remains my favourite. I have made it many times, but somehow it isn�t quite the same as Nyanyake Fatima�s. She did not use an electric blender like I do, but a traditional stone grinder to mush the beans. I wonder now if that is the missing ingredient! Serve the bhajia with shidni sauce or any other kind of sauce.� I also like to roll these bhajias in pita bread with salad and tahini sauce � my own version of a falafel roll! If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Black Eyed Beans Bhajia  Author:  Abderazzaq Noor  Recipe by:  Mariam Ingredients 200g black eye beans 1 small onion 4 sticks of spring onions 2 cloves of garlic 2 green/red chilli (optional) _ teaspoon of salt A bunch of coriander, chopped 1 teaspoon of curry powder (optional) Oil for deep frying � Instructions 1.�Soak the beans overnight in hot water. 2.�Drain it of all access water and blend all ingredients together. Do it all at once if you have a powerful blender and if not do it in little patches. 3.�Add a little bit of water if your blender can�t blend dry ingredients and gives you a hard time. 4.�Heat the oil over medium heat 5.�Shape the mixture into small balls. 6.�Deep fry in the hot oil, turning to brown evenly on both sides. 7.�Drain on self absorbent paper. Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 6 - 8 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "200g black eye beans 1 small onion 4 sticks of spring onions 2 cloves of garlic 2 green/red chilli (optional) _ teaspoon of salt A bunch of coriander, chopped 1 teaspoon of curry powder (optional) Oil for deep frying",
     "Instructions": "1.�Soak the beans overnight in hot water. 2.�Drain it of all access water and blend all ingredients together. Do it all at once if you have a powerful blender and if not do it in little patches. 3.�Add a little bit of water if your blender can�t blend dry ingredients and gives you a hard time. 4.�Heat the oil over medium heat 5.�Shape the mixture into small balls. 6.�Deep fry in the hot oil, turning to brown evenly on both sides. 7.�Drain on self absorbent paper.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d6be2b970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d6be2b970c-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Samosa",
     "Description": "Samosa or sambuus as we call it in Somali is a deep fried triangular shaped pastry filled with meat and spices. It is commonly made for afternoon tea � asariya . Our house in Malindi was like a little bakery. We would start cooking at 6am, making samosas and other pastries for my mother�s shop and my brother�s restaurant. It was my job to help stuff the samosas with meat or vegetables and fold them up. I was also the delivery person, dropping off the hot pastries at the restaurant on my way to school. Thanks to the demands of the shop and restaurant we got to enjoy samosas everyday! This recipe is based on how my mother made her samosas. Everything is made from scratch. You can use store bought pastry, but the extra effort of making your own pastry is worth it. Serve with a wedge of lemon and shidni sauce . If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Samosa  Author:  Abderazzaq Noor  Recipe by:  Mariam Ingredients I cup plain flour 1 teaspoon salt 2 teaspoons olive oil _ cup warm water _ kilo minced meat (half lamb and half beef) One large onion 1 bunch of coriander 1 teaspoon of curry powder Salt to taste Oil for deep frying Instructions Samosa filling 1.�Marinate the mince meat with the curry powder. Place in the fridge for one hour. I use two meats because beef on its own can be dry while lamb on its own is too oily. So the combination gives you a lovely tasting meat. 2.�Dice the onion and chop the coriander. 3.�Saute the mince in a sauce pan until cooked through. 4.�Add the onion and coriander and cook for a minute or two. 5.�Season with salt. 6.�Let the mixture cool. Samosa pastry 1.�Place plain flour, oil and the warm water in the bowl and mix until you have a smooth dough 2.�Divide the dough into small tennis ball sized pieces 3.�Roll three dough balls out flat, each to size of a saucer. 4.�Spread a little oil on top of each round and stack them one on top of the other. The oil prevents the� dough rounds sticking to each other. 5.�Roll the stacks to roughly the size of a dinner place. Cut into quarters. 6.�Dry fry the quarters on both sides one at a time for a minute on each side. Don�t overcook! 7.�When each quarter is dry-fried separate them and wrap with plastic. How to wrap the samosas 1.�Mix two tablespoons of plain flour with a quarter cup of warm water to form a paste to seal the samosa edge. 2.�Form each quarter into a cone shape by folding the sides from the rounded end over each other and seal with the paste. You should have a cone shape with a triangular shaped top that looks like an ice cream cone. 3.�Fill the cone with the mince mixture. 4.�Tuck the pointed top end down over the sealed edges and seal with the paste. You should now have a neat triangular samosa. Repeat with remaining pieces of pastry. Cooking the samosas 1.�Heat the oil in heavy shallow frying pan over medium heat. Test the oil with a small strip of excess dough and if the pastry floats up then you are ready to start frying your samosas. 2.�Place several samosas in your frying pan. Turn to brown to a light gold. 3.�Drain the cooked samosas on paper. � Prep time: 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 6 - 8 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "I cup plain flour 1 teaspoon salt 2 teaspoons olive oil _ cup warm water _ kilo minced meat (half lamb and half beef) One large onion 1 bunch of coriander 1 teaspoon of curry powder Salt to taste Oil for deep frying",
     "Instructions": "Samosa filling 1.�Marinate the mince meat with the curry powder. Place in the fridge for one hour. I use two meats because beef on its own can be dry while lamb on its own is too oily. So the combination gives you a lovely tasting meat. 2.�Dice the onion and chop the coriander. 3.�Saute the mince in a sauce pan until cooked through. 4.�Add the onion and coriander and cook for a minute or two. 5.�Season with salt. 6.�Let the mixture cool.",
     "Prep_Detail": "Prep time: 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0167687dd303970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0167687dd303970b-800wi.jpg"
   },
   {
-    "Category": "Appetizers",
+    "Category": "Appetiser",
     "Name": "Galey iyo Qumbo (Corn in Coconut Sauce)",
     "Description": "If you want something that is quick and easy to make you can�t go past corn in coconut sauce. This is one of those dishes that taste so complex that you�d think it takes massive effort to prepare. In fact what you do is literally put everything into the pot and enjoy the easy fruit of your labour! The only spice in this tropical dish is turmeric, which gives the corn a subtle earthy flavour and a lovely�golden colour. Corn is a staple food in much of Africa. In Somalia we eat it in a variety of ways � as a stiff polenta like dish called soor or as a porridge. Cooking it with coconut is my favourite way of preparing corn. I usually serve this as a side dish. It goes well with meat or vegetables. You can use light coconut milk if you are watching your figure! If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Galey iyo Qumbo (Corn in Coconut Sauce)  Author:  Abderazzaq Noor  Recipe by:  Shukri Ingredients Yellow or white corn on the cob, washed and cut into 10cm lengths 1 cup coconut milk powder or a cup of tinned coconut milk 1 cup water 1 large onion, diced _ cup tomato puree 1 teaspoon ground turmeric Salt to taste Instructions Place all the ingredients into a large saucepan and cook on a low heat for about 10 minutes. How easy is that? Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "Yellow or white corn on the cob, washed and cut into 10cm lengths 1 cup coconut milk powder or a cup of tinned coconut milk 1 cup water 1 large onion, diced _ cup tomato puree 1 teaspoon ground turmeric Salt to taste",
     "Instructions": "Place all the ingredients into a large saucepan and cook on a low heat for about 10 minutes. How easy is that?",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
   },
   {
     "Category": "Beverages",
@@ -1063,7 +184,7 @@ var data = [
     "Ingredients": "10 dates, de-stoned 2 cups milk (skim, low fat or full fat � whatever floats your boat! You can also use a non-dairy option such as soy or almond milk) 1 banana, diced _ teaspoon ground cardamom",
     "Instructions": "1. Blend the dates with a little milk until you get a smooth paste 2. Add the rest of the milk, bananas and cardamom and blitz away for a couple of minutes 3. Chill and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Dateshake1a.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Dateshake1a.jpg"
   },
   {
     "Category": "Beverages",
@@ -1072,7 +193,7 @@ var data = [
     "Ingredients": "� 14 green cardamom pods, ground finely � 10 cloves whole � 2 quills of cinnamon, broken into small pieces � 1 teaspoon ground dry ginger � 1 teaspoon of black tea leaves � 4 _ cups of water � Sugar to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 10 minutes Total time: 15 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
   },
   {
     "Category": "Beverages",
@@ -1081,7 +202,7 @@ var data = [
     "Ingredients": "2 apples, cored and diced 3 large bananas, peeled and chopped into small pieces Juice of two lemons or limes 1 cup of apple juice _ teaspoon of ground cinnamon 1 teaspoon of chia seeds (optional)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 10 minutes Total time: 25 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
   },
   {
     "Category": "Beverages",
@@ -1090,7 +211,7 @@ var data = [
     "Ingredients": "I stick celery, chopped I large mango I orange I tablespoon of tamarind paste (available in most Somali or Indian grocery stores) Handful of mint 2 cups of water",
     "Instructions": "Blend all the ingredients together and serve with a garnish of mint leaves.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee884c032970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee884c032970d-800wi.jpg"
   },
   {
     "Category": "Beverages",
@@ -1099,7 +220,7 @@ var data = [
     "Ingredients": "2 cups of water 1�cup of milk 2 teaspoons of tea leaves (use a strong tea like Kenyan) 6 cardamom pods 1 cinnamon stick _ teaspoon of ground ginger (you can use minced fresh ginger) 4 black peppercorns 2 cloves Sugar to taste",
     "Instructions": "1.�Grind all the spices 2.�Place the water and spices in a saucepan 3.�Add the tea leaves and bring to boil 4.�Add the milk and heat through for two to three minutes 5.�Sieve the tea into a pot and serve hot.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 3 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Somali-shaah.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Somali-shaah.jpg"
   },
   {
     "Category": "Bread",
@@ -1108,7 +229,7 @@ var data = [
     "Ingredients": "Shushumow dough 1 _ cups all-purpose flour 3 tablespoon of sugar _ teaspoon salt _ teaspoon baking powder 1/3 cup of canola oil 1 large egg 3 tablespoon of warm water (more or less) 2 cups of canola oil (for frying)",
     "Instructions": "Preparing the shushumow 1. In an electric mixer mix all dough ingredients together except the water (and frying oil of course!) 2. Add the water slowly until you get soft dough. Mix for about 4-5 minutes. 3. Then let the dough rest for about 30 minutes. 4. Next cut the dough into small pieces roughly 1 inch x 1 inch. This should give you about 30 shushumow . 5. Shape them one at a time by pressing the dough on the back of the fork and curl it out toward the opposite side (away from you) 6. Preheat oil on medium heat. Fry the shushumow in the preheated oil a few at time, until golden brown. Make sure you turn the pastry frequently so that it cooks evenly. 7. Take them out and place them on a few layers of paper towels. This helps drain the oil from pastry.",
     "Prep_Detail": "Prep time: 45 minutes to 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 30 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
   },
   {
     "Category": "Bread",
@@ -1117,7 +238,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon of instant yeast _ cup sugar 2 teaspoon plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup milk Oil for cooking",
     "Instructions": "1. Blend all the ingredients together to a smooth batter. 2. Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3. Brush oil over the Aebleskiver pan and place on stove over medium heat. 4. Pour the mixture using a spoon and fill to the top. 5. Reduce the heat to low to allow the batter to cook through. You will notice tiny bubbles on the batter. This means they are cooking nicely. When brown at the bottom, use a skewer or wooden toothpick to flip and cook the other side. 6. Cook the rest of the rice cakes and place on a platter to serve.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 20 minutes Total time: 1 hour and 35 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
   },
   {
     "Category": "Bread",
@@ -1126,7 +247,7 @@ var data = [
     "Ingredients": "2 cups white or yellow corn flour (polenta) 2 cups self-raising flour (you can substitute corn flour or semolina for wheat if you want to keep it gluten free) 1 teaspoon salt 1 sachet dry yeast 1 clove garlic, minced 1 teaspoon ground coriander seeds 1 teaspoon ground cumin seeds 1 _ cups water",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1135,7 +256,7 @@ var data = [
     "Ingredients": "2 cups whole wheat flour _ salt 2 teaspoon olive oil or subag (ghee) _ cup warm water Flour for kneading and dusting",
     "Instructions": "1.�Mix the flour and salt in a large mixing bowl. 2.�Add oil and mix until all lumps are gone. 3.�Add warm water a little at a time to form a medium soft dough ball. 4.�Divide the dough into 12 small balls and let them rest for about 10 minutes. 5.�Heat up a frying pan or skittle on medium heat. 6.�Using a rolling pin, roll out each ball into a thin, medium sized circle. Dust the dough with some flour to keep it from sticking to the rolling pin. 7.�Place the dough on the frying pan and cook until it begins to rise slightly. 8.�Flip the bread and cook on the other side. It should puff up. Press it with a flat spoon. This will make it puff up some more. 9.�Wrap the kibhis in a tea towel to keep it warm. 10.�Keep cooking the rest of the dough in the same way.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 25 minutes Total time: 40 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c372cf7c6970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c372cf7c6970b-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1144,7 +265,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder (the Maggi brand is the most similar to freshly grated coconut) 1 tablespoon instant yeast _ cup sugar 2 tsp plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup water (substitute milk for water for a softer cake)",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter. 2.�Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3.�Brush oil over a baking dish and bake in a hot oven for 35-40 minutes or until golden brown at the top. 4.�Remove from the oven, cool and cut into pieces for serving.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 35 minutes Total time: 1 hour and 50 minutes (includes rest time) Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1153,7 +274,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon instant yeast _ cup sugar 2 teaspoons plain flour (optional) _ teaspoon ground cardamom 1 egg (optional) 1 cup milk Oil for cooking",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter to a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 2.�Heat a spoonful of oil in a griddle or small frying pan over medium heat. 3.�When hot, pour a small amount of the batter and spread to form a small pancake. 4.�When golden brown, flip to cook the other side. 5.�Repeat the process, adding more oil when necessary.",
     "Prep_Detail": "Prep time: 1 hour and 30 minutes (time to soak rice overnight not included) Cook time: 30 minutes Total time: 2 hours Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1162,7 +283,7 @@ var data = [
     "Ingredients": "2 eggs _ cup sugar _ teaspoon salt 1 teaspoon�cardamom powder 3 cups of self-raising flour 3 _ cups of milk Oil for cooking ( subag or ghee gives this malawah �wonderful flavour)",
     "Instructions": "1.�Whisk or blend the eggs, sugar, milk, salt and cardamom powder until frothy 2.�Add the flour slowly and mix until you get a smooth batter 3.�Place a non-stick frying pan on medium heat 4.�Pour about quarter a cup of the batter at the centre of the pan. Use a spoon to quickly spread the batter around the pan in a circular motion. 5.�Drizzle a little bit of oil on top of the pancake, and once brown flip and cook on the other side. 6.�Remove from the pan and place on a plate. 7.�Keep cooking the rest of the batter until finished.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1171,7 +292,7 @@ var data = [
     "Ingredients": "1 cup white corn flour _ cup sorghum flour (optional) 4 cups self raising flour _ teaspoon salt 4- 4_ cups lukewarm water (you will need to reduce the water a little bit if you aren�t using the sorghum flour)",
     "Instructions": "1.�Blend all the ingredients together, adding the water slowly to make sure that you get a smooth batter. 2.�Pour the batter in a bowl, cover and let it rest for two days in a warm place. This will allow the batter to ferment nicely. 3.�Heat a non stick frying pan on medium heat. 4.�Once the pan is hot, pour a ladleful of the fermented batter and spread from the centre in a circular motion. You should aim for a circle that is about the size of a dinner plate. 5.�Cover the pan and cook until the surface is holey and the bottom a light golden brown. 6.�Remove from the pan and place on a plate. 7.�Keep cooking until you have enough� anjero . 8.�Keep any remaining batter in the fridge to cook the next day.",
     "Prep_Detail": "Prep time: 10 minutes (fermentation time not included) Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
   },
   {
     "Category": "Bread",
@@ -1180,7 +301,7 @@ var data = [
     "Ingredients": "3 cups plain flour 1 cup coconut milk powder _ cup warm milk 1 teaspoon ground cardamom 1 tablespoon instant yeast _ cup warm water _ cup sugar Oil for deep frying",
     "Instructions": "1. Mix the yeast, a pinch of sugar, a pinch of plain flour and the _ cup of warm water. Leave the yeast to rise (the addition of sugar and flour helps in the rising process). 2. Knead the flour, sugar, cardamom, coconut powder, warm�milk and yeast mixture to form a smooth dough. 3. Let the dough rest in a warm place � preferably overnight or until double in size (the dough could rise in a few hours if you live in a warm climate). 4. Divide dough into 8 balls. 5. Roll each ball into a 6 inch circle and cut into quarters 6. Pour the oil in a deep frying pan on medium heat. You want the oil hot enough when you start frying the dough. 7. Drop the three to four triangles into the hot oil. If the oil is hot enough the dough will quickly float to the top and puff up. Turn the mahamri as soon as it is a light brown and turn. Cook on the other side for another minute and remove from the deep fryer with a slated spoon. The doughnuts should be a light golden brown.",
     "Prep_Detail": "Prep time: 30 minutes (resting time for dough not included) Cook time: 20 minutes Total time: 50 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
   },
   {
     "Category": "Bread",
@@ -1189,7 +310,7 @@ var data = [
     "Ingredients": "6 cups of plain flour 2 teaspoons baking powder 1 cup sugar 1 cup hot melted subag (clarified ghee)�or butter or vegetable oil 2 cups warm milk 1 teaspoon cardamom powder Pinch of salt 2 eggs (optional) Oil for deep frying",
     "Instructions": "1.�Sift the flour and baking powder in a mixing bowl. 2.�Add sugar and cardamom powder. 3.�Pour hot melted subag �(clarified ghee or butter) onto the flour mixture. Mix well until you get a breadcrumb consistency. 4.�Add the warm milk and start kneading until the dough is smooth and stops sticking to your fingers. If the mixture is too sticky, add a little flour at a time. 5.�Roll out the dough into a circular shape to a thickness of about half an inch. Cut into diamond shapes. 6.�Heat the oil on medium heat. 7.�Deep fry the kac kac until brown on both sides. Remove from deep fryer when done with a sieve spoon.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 15 minutes Total time: 45 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
   },
   {
     "Category": "Bread",
@@ -1198,7 +319,7 @@ var data = [
     "Ingredients": "1 kg of flour 1 litre of water or about 4 cups of water 1 tablespoon turmeric powder ( hurud ) _� teaspoon black cumin ( xabasuud ) which can be found in most Somali or Indian grocery shops A pinch of ground cumin 2 teaspoons fennel powder ( khamoon ) 1 crushed clove of garlic Half an onion, finely diced A teaspoon of dry yeast A pinch of saffron powder (optional) A pinch of salt Melted ghee ( subag ) or yoghurt for serving with the cambabuur Sugar for serving if using subag Oil for cooking",
     "Instructions": "Preparing the cambabuur batter You need to ferment the cambabuur so prepare the mixture the day before you want to cook the bread.",
     "Prep_Detail": "Prep time: 20 minutes (fermentation time not included) Cook time: 20 minutes Total time: 40 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
   },
   {
     "Category": "Bread",
@@ -1207,7 +328,7 @@ var data = [
     "Ingredients": "2 cups of all purpose white flour I cup of wholemeal wheat flour (called atta in Indian grocery stores) 2 tablespoonfuls of oil (use ghee or as we call it subag which you can get in Indian or Somali grocery shops) _ teaspoon of salt 1 cup of water or enough to mix for a firm and elastic dough _ cup of oil for cooking _ cup of floor for keeping the dough smooth when rolling",
     "Instructions": "1. Mix all the flour together with the salt. Add the oil and mix in thoroughly. Add in the water slowly as you knead the dough. When you are satisfied that you have a firm and elastic dough you know you�ve got it right. Let the dough rest for about half an hour. 2. Cut the dough into eight equal portions. Roll out each portion into a circle. Spread one teaspoon of oil and rub it gently all over the surface of the dough. To make the sabaayad square shaped, use a rolling pin to roll the circle and fold it into a square. This will allow you to achieve a square shape when you roll the dough. If the dough is sticky pat it with some flour. 3. Heat up a frying pan or griddle on the stove. When hot place the thinly rolled dough and let it cook for a minute or so. Once it starts to puff up flip the sabaayad and immediately spread a teaspoon of oil on top. Use a spatula to press down the bread all around. This makes it puff up more evenly. Flip and cook on the other side. 4. Remove from the heat and place on a plate. To show off the flakiness of the bread my grandmother used to gently smash the sabaayad from two ends before wrapping it up in a cloth to keep it warm. Serve while hot.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 20 minutes Total time: I hour Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1216,7 +337,7 @@ var data = [
     "Ingredients": "1 cup rolled oats 2 � 2 _ cups milk (skim milk is fine) 50g nuts � almond, cashew, pistachio or any that you like (optional) _ teaspoon chia seeds A pinch or two of�ground black pepper (or less if you wish. I sometimes use ground cinnamon) A pinch of salt 1 teaspoon of honey for drizzling when serving",
     "Instructions": "1. Place all the ingredients in a pan and cook over low heat, stirring constantly for about 3 � 5 minutes or until the mixture thickens and sticks to the spoon. Add more milk if you want the porridge creamier. 2. Serve in a bowl with a drizzle of honey.",
     "Prep_Detail": "Prep time: 2 minutes Cook time: 5 minutes Total time: 7 minutes Serves: 2",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Mushaali1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Mushaali1.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1225,7 +346,7 @@ var data = [
     "Ingredients": "400g can of fava beans (washed and drained) or cooked beans 1 large onion, minced 1 large tomato, diced 1 large clove garlic, minced 1 tablespoon berbere _ tsp cumin 1 tablespoon fresh coriander for garnish 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry onion and garlic until soft, about 4 minutes 2. Add the diced tomato and cook for about 5 minutes 3. Add berbere, cumin and fava beans and cook for about 10 minutes. 4. Serve with good crusty bread or anjero �bread.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes (if using canned fava beans) Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1234,7 +355,7 @@ var data = [
     "Ingredients": "450g Greek yoghurt _ teaspoon salt 1 teaspoon sumac 1 pomegranate A few basil leaves 1 tablespoon olive oil A large piece of muslin cloth",
     "Instructions": "1. Place the muslin cloth inside a large bowl. Pour the yoghurt into the cloth, wrap tightly and suspend the wrapped yoghurt over the bowl for 24 hours. This will allow the liquid to drain from the yoghurt, leaving thick, creamy labneh. 2. Cut the pomegranate in half and remove the seeds by hitting the bottom of the fruit with a wooden spoon. 3. Mix the labneh with salt and spread over a large plate. Drizzle with olive oil. Sprinkle the sumac, pomegranate seeds and basil leaves. 4. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 24 hours Total time: 24 hours and 10 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1243,7 +364,7 @@ var data = [
     "Ingredients": "500g lamb or beef, finely diced into small cubes 1 tablespoon olive oil 1 onion, diced finely 2 tablespoons tomato puree _ teaspoon of ground cumin (optional) _ red capsicum, chopped into small pieces (leave some for garnish) Salt to taste (about _ teaspoon should be enough) 4 � 6 lettuce leaves, folded into cups",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, ground cumin, tomato puree and capsicum. Stir fry the meat for 3 � 4 minutes or until just cooked. Remove from heat. 4. Spoon the meat onto the lettuce cups and garnish with a sprinkle of the diced capsicum.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1252,7 +373,7 @@ var data = [
     "Ingredients": "1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste.",
     "Instructions": "1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1261,7 +382,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon of instant yeast _ cup sugar 2 teaspoon plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup milk Oil for cooking",
     "Instructions": "1. Blend all the ingredients together to a smooth batter. 2. Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3. Brush oil over the Aebleskiver pan and place on stove over medium heat. 4. Pour the mixture using a spoon and fill to the top. 5. Reduce the heat to low to allow the batter to cook through. You will notice tiny bubbles on the batter. This means they are cooking nicely. When brown at the bottom, use a skewer or wooden toothpick to flip and cook the other side. 6. Cook the rest of the rice cakes and place on a platter to serve.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 20 minutes Total time: 1 hour and 35 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1270,7 +391,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 5 minutes Total time: 10 minutes Serves: 1 - 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1279,7 +400,7 @@ var data = [
     "Ingredients": "� 14 green cardamom pods, ground finely � 10 cloves whole � 2 quills of cinnamon, broken into small pieces � 1 teaspoon ground dry ginger � 1 teaspoon of black tea leaves � 4 _ cups of water � Sugar to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 10 minutes Total time: 15 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1288,7 +409,7 @@ var data = [
     "Ingredients": "2 cups white or yellow corn flour (polenta) 2 cups self-raising flour (you can substitute corn flour or semolina for wheat if you want to keep it gluten free) 1 teaspoon salt 1 sachet dry yeast 1 clove garlic, minced 1 teaspoon ground coriander seeds 1 teaspoon ground cumin seeds 1 _ cups water",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1297,7 +418,7 @@ var data = [
     "Ingredients": "2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 10 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1306,7 +427,7 @@ var data = [
     "Ingredients": "1 cup of hulled millet or sorghum 250g thick greek yoghurt (or any kind of thick set yoghurt) 250g mixed berries or any other kind of chopped fresh fruit 4 tablespoons honey",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 1 hour Total time: 1 hour and 10 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cba19970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cba19970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1315,7 +436,7 @@ var data = [
     "Ingredients": "2 apples, cored and diced 3 large bananas, peeled and chopped into small pieces Juice of two lemons or limes 1 cup of apple juice _ teaspoon of ground cinnamon 1 teaspoon of chia seeds (optional)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 10 minutes Total time: 25 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1324,7 +445,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder (the Maggi brand is the most similar to freshly grated coconut) 1 tablespoon instant yeast _ cup sugar 2 tsp plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup water (substitute milk for water for a softer cake)",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter. 2.�Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3.�Brush oil over a baking dish and bake in a hot oven for 35-40 minutes or until golden brown at the top. 4.�Remove from the oven, cool and cut into pieces for serving.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 35 minutes Total time: 1 hour and 50 minutes (includes rest time) Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1333,7 +454,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon instant yeast _ cup sugar 2 teaspoons plain flour (optional) _ teaspoon ground cardamom 1 egg (optional) 1 cup milk Oil for cooking",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter to a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 2.�Heat a spoonful of oil in a griddle or small frying pan over medium heat. 3.�When hot, pour a small amount of the batter and spread to form a small pancake. 4.�When golden brown, flip to cook the other side. 5.�Repeat the process, adding more oil when necessary.",
     "Prep_Detail": "Prep time: 1 hour and 30 minutes (time to soak rice overnight not included) Cook time: 30 minutes Total time: 2 hours Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1342,7 +463,7 @@ var data = [
     "Ingredients": "1 medium sized red sweet potato, cut into small cubes 125 g of reduced fat feta cheese, cut into small cubes 1 small onion, chopped finely _ teaspoon ground cumin A small bunch of fresh coriander leaves 6 eggs, lightly beaten 1 tablespoon olive oil",
     "Instructions": "1.�Preheat oven to 180�C. 2.�Coat an ovenproof pie dish with olive oil and arrange the vegetables, coriander leaves and feta cheese all over the dish. 3.�Pour the eggs over the vegetables and bake for about 20 minutes or until set and light golden in colour. 4.�Cool for about 10 minutes and serve with a salad.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1351,7 +472,7 @@ var data = [
     "Ingredients": "2 kg of lean beef or camel if you can get it (ask your butcher to cut it muqmad or odkac �style or dice it finely yourself into _ cm cubes) 500g ghee 1 cup of sultanas (optional, but it adds a sweetness that enhances the meat�s flavour) 1 small onion, finely diced 1 teaspoon cardamom powder 2 cloves garlic, minced 1 cup of vegetable oil for frying Salt to taste",
     "Instructions": "1.�Heat up the one cup of oil over medium heat and fry the meat until the meat�s natural juices has evaporated. This should take about 30 minutes. The meat will look like dried raisins or sultanas. 2.�Drain the oil and keep the meat in a large bowl to cool. Keep the oil in a container and use to cook other meals. 3.�Fry the onion, garlic and cardamom powder in the 500g of ghee over medium heat until the onion is nicely browned. 4.�Sieve the fragrant and spiced ghee over the muqmad , which is now ready to be stored in an airtight container.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 40 minutes Total time: 55 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1360,7 +481,7 @@ var data = [
     "Ingredients": "2 eggs _ cup sugar _ teaspoon salt 1 teaspoon�cardamom powder 3 cups of self-raising flour 3 _ cups of milk Oil for cooking ( subag or ghee gives this malawah �wonderful flavour)",
     "Instructions": "1.�Whisk or blend the eggs, sugar, milk, salt and cardamom powder until frothy 2.�Add the flour slowly and mix until you get a smooth batter 3.�Place a non-stick frying pan on medium heat 4.�Pour about quarter a cup of the batter at the centre of the pan. Use a spoon to quickly spread the batter around the pan in a circular motion. 5.�Drizzle a little bit of oil on top of the pancake, and once brown flip and cook on the other side. 6.�Remove from the pan and place on a plate. 7.�Keep cooking the rest of the batter until finished.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1369,7 +490,7 @@ var data = [
     "Ingredients": "1 cup white corn flour _ cup sorghum flour (optional) 4 cups self raising flour _ teaspoon salt 4- 4_ cups lukewarm water (you will need to reduce the water a little bit if you aren�t using the sorghum flour)",
     "Instructions": "1.�Blend all the ingredients together, adding the water slowly to make sure that you get a smooth batter. 2.�Pour the batter in a bowl, cover and let it rest for two days in a warm place. This will allow the batter to ferment nicely. 3.�Heat a non stick frying pan on medium heat. 4.�Once the pan is hot, pour a ladleful of the fermented batter and spread from the centre in a circular motion. You should aim for a circle that is about the size of a dinner plate. 5.�Cover the pan and cook until the surface is holey and the bottom a light golden brown. 6.�Remove from the pan and place on a plate. 7.�Keep cooking until you have enough� anjero . 8.�Keep any remaining batter in the fridge to cook the next day.",
     "Prep_Detail": "Prep time: 10 minutes (fermentation time not included) Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1378,7 +499,7 @@ var data = [
     "Ingredients": "3 cups plain flour 1 cup coconut milk powder _ cup warm milk 1 teaspoon ground cardamom 1 tablespoon instant yeast _ cup warm water _ cup sugar Oil for deep frying",
     "Instructions": "1. Mix the yeast, a pinch of sugar, a pinch of plain flour and the _ cup of warm water. Leave the yeast to rise (the addition of sugar and flour helps in the rising process). 2. Knead the flour, sugar, cardamom, coconut powder, warm�milk and yeast mixture to form a smooth dough. 3. Let the dough rest in a warm place � preferably overnight or until double in size (the dough could rise in a few hours if you live in a warm climate). 4. Divide dough into 8 balls. 5. Roll each ball into a 6 inch circle and cut into quarters 6. Pour the oil in a deep frying pan on medium heat. You want the oil hot enough when you start frying the dough. 7. Drop the three to four triangles into the hot oil. If the oil is hot enough the dough will quickly float to the top and puff up. Turn the mahamri as soon as it is a light brown and turn. Cook on the other side for another minute and remove from the deep fryer with a slated spoon. The doughnuts should be a light golden brown.",
     "Prep_Detail": "Prep time: 30 minutes (resting time for dough not included) Cook time: 20 minutes Total time: 50 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1387,7 +508,7 @@ var data = [
     "Ingredients": "1 kg of flour 1 litre of water or about 4 cups of water 1 tablespoon turmeric powder ( hurud ) _� teaspoon black cumin ( xabasuud ) which can be found in most Somali or Indian grocery shops A pinch of ground cumin 2 teaspoons fennel powder ( khamoon ) 1 crushed clove of garlic Half an onion, finely diced A teaspoon of dry yeast A pinch of saffron powder (optional) A pinch of salt Melted ghee ( subag ) or yoghurt for serving with the cambabuur Sugar for serving if using subag Oil for cooking",
     "Instructions": "Preparing the cambabuur batter You need to ferment the cambabuur so prepare the mixture the day before you want to cook the bread.",
     "Prep_Detail": "Prep time: 20 minutes (fermentation time not included) Cook time: 20 minutes Total time: 40 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1396,7 +517,7 @@ var data = [
     "Ingredients": "500g of lamb liver, sliced in into thin strips 1 onion, sliced finely 1 small green capsicum, sliced into thin strips 3 tablespoons of olive oil for cooking Salt to taste",
     "Instructions": "1. Heat oil in frying pan over high heat 2. Fry the sliced lamb liver with salt for about three minutes (or until the liver is cooked) 3. Stir in the capsicum and onion and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1405,7 +526,7 @@ var data = [
     "Ingredients": "500g lamb, finely cubed 1 tablespoon olive oil 1 onion, diced 2 tablespoons tomato puree _ red capsicum, chopped into small pieces Salt",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, tomato puree and capsicum. Stir fry the meat for a few minutes until cooked. Remove from heat.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
   },
   {
     "Category": "Breakfast",
@@ -1414,52 +535,52 @@ var data = [
     "Ingredients": "2 cups of all purpose white flour I cup of wholemeal wheat flour (called atta in Indian grocery stores) 2 tablespoonfuls of oil (use ghee or as we call it subag which you can get in Indian or Somali grocery shops) _ teaspoon of salt 1 cup of water or enough to mix for a firm and elastic dough _ cup of oil for cooking _ cup of floor for keeping the dough smooth when rolling",
     "Instructions": "1. Mix all the flour together with the salt. Add the oil and mix in thoroughly. Add in the water slowly as you knead the dough. When you are satisfied that you have a firm and elastic dough you know you�ve got it right. Let the dough rest for about half an hour. 2. Cut the dough into eight equal portions. Roll out each portion into a circle. Spread one teaspoon of oil and rub it gently all over the surface of the dough. To make the sabaayad square shaped, use a rolling pin to roll the circle and fold it into a square. This will allow you to achieve a square shape when you roll the dough. If the dough is sticky pat it with some flour. 3. Heat up a frying pan or griddle on the stove. When hot place the thinly rolled dough and let it cook for a minute or so. Once it starts to puff up flip the sabaayad and immediately spread a teaspoon of oil on top. Use a spatula to press down the bread all around. This makes it puff up more evenly. Flip and cook on the other side. 4. Remove from the heat and place on a plate. To show off the flakiness of the bread my grandmother used to gently smash the sabaayad from two ends before wrapping it up in a cloth to keep it warm. Serve while hot.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 20 minutes Total time: I hour Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
   },
   {
-    "Category": "Main Courses",
+    "Category": "Main Course",
     "Name": "Zaatar Chicken",
     "Description": "This tangy, zesty chicken dish is big on flavour and easy to prepare. �Zaatar, a middle eastern spice mix which contains thyme, basil, oregano, sumac and sesame seeds, is the main spice I have used. If you don�t have zaatar use a mix of the herbs you can find. � If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Zaatar Chicken  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 4 boneless, skinless chicken breasts 1 tablespoon zaatar Juice of one lemon Lemon zest One clove garlic, minced 3 tablespoons olive oil Salt to taste Instructions 1. Marinate the chicken in a mixture of lemon juice, zest, salt, garlic, zaatar and one tablespoon of olive oil. Cover and rest for about 30 minutes. 2. Place a non-stick pan over medium heat and heat up the remaining two tablespoons of oil. 3. Cook the chicken for about 3 to 4 minutes on each side or until cooked through. 4. Rest for a few minutes before serving with a salad. Prep time: 40 minutes Cook time: 8 minutes Total time: 48 minutes Serves: 4 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "4 boneless, skinless chicken breasts 1 tablespoon zaatar Juice of one lemon Lemon zest One clove garlic, minced 3 tablespoons olive oil Salt to taste",
     "Instructions": "1. Marinate the chicken in a mixture of lemon juice, zest, salt, garlic, zaatar and one tablespoon of olive oil. Cover and rest for about 30 minutes. 2. Place a non-stick pan over medium heat and heat up the remaining two tablespoons of oil. 3. Cook the chicken for about 3 to 4 minutes on each side or until cooked through. 4. Rest for a few minutes before serving with a salad.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 8 minutes Total time: 48 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
   },
   {
-    "Category": "Main Courses",
+    "Category": "Main Course",
     "Name": "Mango Chicken Curry from a Somali kitchen in Minneapolis",
     "Description": "Chef Jamal Hashi, co-owner (with his brother Sade Hashi) of Safari Express East African Restaurant in Minneapolis, Minnesota says: �I owe it to the Italians that I make a �great marinara.� Hashi was born and raised in Mogadishu, the capital of Somalia, and immigrated to the US with his family as a teenager. Hashi says that Somali cuisine has been shaped by diverse influences over centuries and that it is fusion that makes the cuisine special. �Somalia was divided into three �parts: The north was �French, the middle was the�UK �red coats,� and the south, Italian.� He says: �You can�t say there�s Somali this or that, but each region is special. The �south is known for sweets, pasta, and marinara. The north gets influences from Djibouti. The way we use spice is different, from the north to the south.� With respect to home cooking in his family growing up, Hashi says: �My father specializes in seafood.� In Somalia, recipes are typically not written down, but passed down through family. Or, Hashi says: �People can guess, play around with the spices.� Hashi�s own interest �in cooking sparked at home. �Something about food called to me. It started as a hobby, in the home. I loved playing around with food, watching others cook for me. �There�s an artistry to it. Playing with fire, and the textures; it�s an art in a way. I love the gratitude of people when you serve it to them. It�s a good feeling.� Somalia�s location on the Indian Ocean and the Gulf of Aden historically enabled active trading with India, Pakistan, and the Middle East, particularly Yemen. �We get mixed fusion, the cultures blended into one. So, we have curry with pasta. And beef marinara. We use both potatoes and pasta. Crepes with sesame oil and brown sugar is very common. In Ethiopia, their injera is soft and spongy, made from teff. Somali injera also includes butter and milk.� Most Somalis observe halal dietary guidelines. He says the rules govern �mostly how the meat is prepped.� While Somali cuisine may be unfamiliar to many Americans, opportunities to try it, particularly in Minneapolis, are increasing. According to the Minneapolis Foundation,�Minnesota is home to the country�s largest population of Somali residents.� Estimates vary, but the Confederation of Somali Community indicates that, since 1991, 100,000 Somalis have settled in the United States, 40,000 of which have settled or re-settled in Minnesota. Safari Express is one of the estimated (by the Minneapolis Foundation) 120 African-owned businesses, including markets and restaurants, along Minneapolis� Lake Street corridor. Chef Jamal Hashi graciously accommodated the Heavy Table�s request to spend an evening grocery shopping and cooking with us, in order to provide more insight into Somali cuisine. He showed us how to make a dish not available on the menu at Safari Express: Mango (Ambe, pronounced �ahm-bay�) Curry Chicken with Somali Rice, which is a colorful dish, fragrant with the scents of cumin and curry. It�s both mildly sweet and spicy. Says Hashi: �The mango brings the spice down and balances everything out.� Hashi kicked off our evening of shopping and cooking with a stop at The Produce Exchange, in Midtown Global Market in Minneapolis, in search of ripe mangoes. �I love using organic produce at home and at Safari Express, too. It tastes like the way we do it back home. Fruits don�t taste like fruits here [in the US]. There are lots of good things about organics: They are good for your system, have fewer chemicals, and have health benefits over the long-term. And it supports local businesses.� He says that a ripe mango �should be a little soft when you squeeze it. The firmer it is, the more sour it is. It doesn�t matter what color the skin is: it might be green, but still sweet.� As Hashi patiently sorted through the mangoes, gently squeezing each one, a process that took several minutes, he said: �Back home, we had a big mango tree behind our house. It was our neighbors� tree, but half hung over",
     "Ingredients": "Mango (Ambe) Sauce: 1 cup coconut milk 1 teaspoon curry powder (either mild or hot) _ teaspoon cumin _ teaspoon (or more, depending on how sweet you like it) organic brown sugar _ cup mango pulp",
     "Instructions": "Mango (Ambe) Sauce: 1.In a saucepan over high heat, heat coconut milk until boiling. Stir occasionally. 2.Add curry powder and cumin. Turn fire low, to simmer. Stir constantly until there are no lumps (about 10 minutes), until the mixture is smooth and an even yellow color, and no little dots of color or spice remain. 3.Add brown sugar and continue to stir until the mixture is a little thicker, with the consistency of a syrup. 4.Add mango pulp and stir. Let sauce get a little thicker.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 25 minutes Total time: 35 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Mango-Chicken-Curry-dish1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Mango-Chicken-Curry-dish1.jpg"
   },
   {
-    "Category": "Main Courses",
+    "Category": "Main Course",
     "Name": "Digaag Duban (Spicy Baked Chicken)",
     "Description": "You have try this recipe if you want an appetizer or a side dish with attitude.� The fragrance of the spices combined with the moist chicken�is a marriage made in heaven! In this recipe, I have used chicken drummettes, the upper part of a chicken�s wing, which resemble a small drumstick. You can also use chicken wings or drumsticks. Somali cooks will generally vary the spices they use, but I particularly like the combination of spices that I have used. It results in a tasty dish that doesn�t stay on the plate for long in my house! �Serve with a salad. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Digaag Duban (Spicy Baked Chicken)  Author:  Abderazzaq Noor  Recipe by:  Shukri Ingredients 1 kg chicken drummettes _ teaspoon ground black pepper Juice of one lemon _ teaspoon�ground coriander 1 teaspoon�ground cumin _ teaspoon�ground cinnamon _ teaspoon chilli powder (optional) A few strands of saffron Salt to taste 3 tablespoons olive oil Instructions 1.Wash the chicken drummettes thoroughly and dry with a paper towel 2.Prick the chicken with a sharp knife. This allows the marinade to soak in nicely. 3.Mix all the dry ingredients and lemon juice�with the olive oil 4.Marinate the chicken in the mixture for at least 30 minutes. Marinate overnight if you have the time. 5.Place the chicken on a baking tray lined with aluminium foil and bake in a medium oven for 25-35 minutes or until well browned. The cooking time depends on the size of your chicken drummettes. � � Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 kg chicken drummettes _ teaspoon ground black pepper Juice of one lemon _ teaspoon�ground coriander 1 teaspoon�ground cumin _ teaspoon�ground cinnamon _ teaspoon chilli powder (optional) A few strands of saffron Salt to taste 3 tablespoons olive oil",
     "Instructions": "1.Wash the chicken drummettes thoroughly and dry with a paper towel 2.Prick the chicken with a sharp knife. This allows the marinade to soak in nicely. 3.Mix all the dry ingredients and lemon juice�with the olive oil 4.Marinate the chicken in the mixture for at least 30 minutes. Marinate overnight if you have the time. 5.Place the chicken on a baking tray lined with aluminium foil and bake in a medium oven for 25-35 minutes or until well browned. The cooking time depends on the size of your chicken drummettes.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
   },
   {
-    "Category": "Main Courses",
+    "Category": "Main Course",
     "Name": "Mishkaki (Grilled Meat Skewers)",
     "Description": "Everyone along the East African coast will know mishkaki as we call these tender grilled meat or chicken skewers. This is one my favourite dishes. It reminds me so much of the street food we enjoyed as teenagers! The meat is usually grilled on a charcoal burner, which gives the meat a delicious smoky flavour. In this recipe, I cooked the meat in a hot grill and used minced chicken and beef. You can cube the meat instead of mincing. Serve on a bed of cabbage, red capsicum and onion salad. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � � Print  Mishkaki (Grilled Meat Skewers)  Author:  Abderazzaq Noor  Recipe by:  Mariam Ingredients 1kg of breast minced chicken, lamb or beef 1 small onion, minced 2 cloves of garlic, crushed 2 teaspoons curry powder. _ tablespoon tamarind paste (or lime juice) 1 tablespoon of cornstarch 2 chilies, chopped finely Small bunch of coriander leaves Olive oil Salt to taste. Instructions 1.Mix all ingredients in a mixing bowl and marinate for one hour. 2.Add a spoon of olive oil and shape the mixture into round shape. Thread them (five per skewer or so) through a metal skewer and cook in a hot grill or barbeque until the meat is done. If using bamboo sticks soak them in water for 30 minutes before use. � Prep time: 1 hour Cook time: Total time: Serves: Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1kg of breast minced chicken, lamb or beef 1 small onion, minced 2 cloves of garlic, crushed 2 teaspoons curry powder. _ tablespoon tamarind paste (or lime juice) 1 tablespoon of cornstarch 2 chilies, chopped finely Small bunch of coriander leaves Olive oil Salt to taste.",
     "Instructions": "1.Mix all ingredients in a mixing bowl and marinate for one hour. 2.Add a spoon of olive oil and shape the mixture into round shape. Thread them (five per skewer or so) through a metal skewer and cook in a hot grill or barbeque until the meat is done. If using bamboo sticks soak them in water for 30 minutes before use.",
     "Prep_Detail": "Prep time: 1 hour Cook time: Total time: Serves:",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
   },
   {
-    "Category": "Main Courses",
+    "Category": "Main Course",
     "Name": "Green Coriander Chicken",
     "Description": "The mix of chicken, spices and delicate flavours of green coriander create an amazing aroma � the kind that wafts down the street and gets people sniffing in appreciation. Green coriander chicken is the perfect dish for a lazy Sunday at home.� It is not only lip smackingly delicious, but also a great fuss free meal to make. Serve on a bed of steamed basmati rice or with any kind of bread. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Green Coriander Chicken  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 4 chicken legs, skinned 4 chicken thighs, skinned 7 inch piece of fresh ginger, peeled and chopped 5 cloves of garlic, chopped Juice of one lemon 2 large tomatoes, chopped Large bunch of fresh coriander, leaves chopped 1 tablespoon of tomato puree 3 tablespoons of olive oil 250ml natural yoghurt 1 teaspoon of salt Instructions 1.�Grind the ginger and garlic in a mortar or blend. 2.�Add lemon juice and _ teaspoon of salt 3.�Place the chicken pieces in a non-metallic bowl.� Rub the spice mixture over the chicken. Cover with gladwrap and refrigerate for 30 minutes or overnight to marinate. 4.�Blend the diced tomato, coriander, tomato puree, _ teaspoon of salt and 2 tablespoons of water into a smooth paste and set aside. 5.�Pour the the oil into a large, non-stick lidded pan over medium heat.� When hot fry the marinated chicken until lightly browned. Keep turning the chicken pieces to make sure it cooks evenly. This should take about 10 minutes. 6.�Add in the second paste (coriander mixture). Cook for about 10 minutes, stirring until the sauce is thick and clings to the chicken. The dish should be almost dry at this point so add in a few tablespoons of water to keep it from burning. 7.�Add the yoghurt and cook for about 5 minutes or until the yoghurt forms a thick sauce. 8.�Cover the pan and reduce the heat to low. Cook for another five minutes or so or until the chicken is tender. Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "4 chicken legs, skinned 4 chicken thighs, skinned 7 inch piece of fresh ginger, peeled and chopped 5 cloves of garlic, chopped Juice of one lemon 2 large tomatoes, chopped Large bunch of fresh coriander, leaves chopped 1 tablespoon of tomato puree 3 tablespoons of olive oil 250ml natural yoghurt 1 teaspoon of salt",
     "Instructions": "1.�Grind the ginger and garlic in a mortar or blend. 2.�Add lemon juice and _ teaspoon of salt 3.�Place the chicken pieces in a non-metallic bowl.� Rub the spice mixture over the chicken. Cover with gladwrap and refrigerate for 30 minutes or overnight to marinate. 4.�Blend the diced tomato, coriander, tomato puree, _ teaspoon of salt and 2 tablespoons of water into a smooth paste and set aside. 5.�Pour the the oil into a large, non-stick lidded pan over medium heat.� When hot fry the marinated chicken until lightly browned. Keep turning the chicken pieces to make sure it cooks evenly. This should take about 10 minutes. 6.�Add in the second paste (coriander mixture). Cook for about 10 minutes, stirring until the sauce is thick and clings to the chicken. The dish should be almost dry at this point so add in a few tablespoons of water to keep it from burning. 7.�Add the yoghurt and cook for about 5 minutes or until the yoghurt forms a thick sauce. 8.�Cover the pan and reduce the heat to low. Cook for another five minutes or so or until the chicken is tender.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/07/Green-coriander-chicken.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/07/Green-coriander-chicken.jpg"
   },
   {
     "Category": "Side-dishes",
@@ -1468,7 +589,7 @@ var data = [
     "Ingredients": "1 large garlic clove, crushed Juice of half a large lime _ to 2 whole fresh Serrano chilli (depending on your taste. I have used other types of chilli with success) _ to 2/3 tight-packed cup fresh coriander leaves 1 to 2 teaspoons sugar, or to taste _ cup low-fat plain Greek yogurt Salt and freshly ground black pepper to taste More lime juice if needed",
     "Instructions": "1. Place the garlic clove in a coffee cup and squeeze the lime juice over it. Let stand 20 minutes while you gather the other ingredients. 2. Place the garlic, lime juice, chilli, coriander leaves, sugar, yogurt, salt and pepper into the bowl of a food processor and pur�e. Taste for balance. Refrigerate the bizbaz an hour or so to mellow, and use when cool.",
     "Prep_Detail": "Prep time: 1.5 hours (includes refrigeration time) Cook time: 5 minutes Total time: 1.55 minutes Serves: 5 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Bizbaz1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Bizbaz1.jpg"
   },
   {
     "Category": "Side-dishes",
@@ -1477,7 +598,7 @@ var data = [
     "Ingredients": "1 cup of whole coffee beans _ cup vegetable oil 2 � 3 tablespoons of ghee (clarified butter)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
   },
   {
     "Category": "Side-dishes",
@@ -1486,7 +607,7 @@ var data = [
     "Ingredients": "3 tablespoons of tamarind paste 3 diced tomatoes 6 green chillies or red if you like Two or three cloves of garlic Salt to taste I tablespoon of olive oil",
     "Instructions": "Blend all the ingredients (except the oil) thoroughly for a couple of minutes. Heat up the oil in a pan and cook the blended mixture for about 5 minutes. Make sure you cover the pan as the shidni does sputter.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d17168970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d17168970d-800wi.jpg"
   },
   {
     "Category": "Eggs",
@@ -1495,7 +616,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 5 minutes Total time: 10 minutes Serves: 1 - 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
   },
   {
     "Category": "Eggs",
@@ -1504,7 +625,7 @@ var data = [
     "Ingredients": "6 eggs 1 medium onion, chopped 1 large capsicum, diced (I used half each of green and red capsicums) 6 silverbeet leaves, finely chopped (or use spinach) 6 tomatoes, diced finely 1 tbsp tomato puree 1 tsp ground cumin 1 tsp turmeric 1 tsp minced garlic and coriander leaves _ tsp ground black pepper 1 green chilli (this is optional. Dice it if you want some heat) 2 tbsp olive oil Salt to taste",
     "Instructions": "1. Heat up the oven to medium. 2. Fry the onion in olive oil until translucent in an ovenproof pan over medium heat. 3. Add minced garlic and coriander and cook for a minute. 4. Add the greens, cumin, turmeric, black pepper, salt and chilli.� Saut� for a minute. 5. Add the diced tomatoes, tomato puree and capsicums and cook until the sauce is thick. This should take about 10 minutes.� Reduce the heat and add a little water if the sauce is drying out. 6. Slowly break in the eggs, one by one and drop them in gently.� Space them out so that they don�t run into each other. 7. Place the pan in the oven and bake for about 10 minutes if you like your eggs well done.� Otherwise cook for about 5 minutes. 8. Garnish with some fresh coriander leaves and serve with traditional Somali flatbreads such as sabaayad ,� anjero �or any other good bread.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff464983970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff464983970b-800wi.jpg"
   },
   {
     "Category": "Eggs",
@@ -1513,7 +634,7 @@ var data = [
     "Ingredients": "1 medium sized red sweet potato, cut into small cubes 125 g of reduced fat feta cheese, cut into small cubes 1 small onion, chopped finely _ teaspoon ground cumin A small bunch of fresh coriander leaves 6 eggs, lightly beaten 1 tablespoon olive oil",
     "Instructions": "1.�Preheat oven to 180�C. 2.�Coat an ovenproof pie dish with olive oil and arrange the vegetables, coriander leaves and feta cheese all over the dish. 3.�Pour the eggs over the vegetables and bake for about 20 minutes or until set and light golden in colour. 4.�Cool for about 10 minutes and serve with a salad.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
   },
   {
     "Category": "Fish",
@@ -1522,7 +643,7 @@ var data = [
     "Ingredients": "1 kg of snapper fillet, cut into medium sized chunks 2 potatoes, thinly sliced Half a capsicum, thinly sliced 1 lemon, thinly sliced A 400g can of diced tomato, or 3 large tomatoes, diced _ teaspoon salt 2 teaspoons olive oil",
     "Instructions": "1.�Heat the oven to a moderate heat (160� C or 325� F. If using a fan-forced oven, the oven temperature should be set 20� below). 2.�Blend all the ingredients of the marinade into a smooth paste. Add more olive oil if required. 3.�Coat the fish with the marinade 4.�Lightly oil a deep baking dish and spread the diced tomatoes around the dish. 5.�Arrange the sliced potatoes all around the baking dish (you can parboil the potatoes for less cooking time). 6.�Place the chunks of fish over the potatoes 7.�Top the fish with slices of capsicum and lemon 8.�Drizzle the remaining olive oil over the dish 9.�Cover the fish with aluminium foil and bake for about 25 minutes or until fish and potatoes are cooked through",
     "Prep_Detail": "Prep time: 20 minutes Cook time: 25 minutes Total time: 45 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c36788dae970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c36788dae970b-800wi.jpg"
   },
   {
     "Category": "Fish",
@@ -1531,7 +652,7 @@ var data = [
     "Ingredients": "1kg fish fillet (any kind of firm fleshed fish) 1 tablespoon of ground cumin 2 garlic cloves, crushed Juice of one lemon 1 tablespoon of vinegar Salt to taste Olive oil for frying",
     "Instructions": "1.�Mix ground cumin, crushed garlic, salt, lemon and vinegar to make a marinade for the fish 2.�Marinate the fish for 30 minutes 3.�Heat the olive oil in a frying pan on medium heat 4.�Fry the fish for about two minutes or until brown. Flip and cook the other side for another two minutes. 5.�Remove the fish and place them on a piece of paper towel. This will remove excess oil.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 5 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3cb6f1be970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3cb6f1be970c-800wi.jpg"
   },
   {
     "Category": "Fish",
@@ -1540,7 +661,7 @@ var data = [
     "Ingredients": "4 slices of kingfish fillets (about one inch thick) Juice of one lemon _ teaspoon of ground black pepper _ teaspoon of Ethiopian duqus pepper (you can use paprika as an alternative) Salt to taste 3 tablespoons of oil",
     "Instructions": "1.�Clean the kingfish fillets thoroughly and pat dry 2.�Season the fish with spices, lemon and salt 3.�Heat up about 1_ tablespoon of oil over medium heat in a shallow pan 4.�Shallow fry two fish fillets for five minutes on each side 5.�Repeat the frying for the remaining two fillets.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d70753970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d70753970c-800wi.jpg"
   },
   {
     "Category": "Fish",
@@ -1549,7 +670,7 @@ var data = [
     "Ingredients": "600g (hake or any other firm fish) 3 tablespoons of olive oil 1 red onion chopped 3 diced tomatoes 1 teaspoon crushed garlic 1 teaspoon�crushed ginger 1 tablespoon of garam masala * or curry powder 1 teaspoon�turmeric powder 1 tablespoon of tamarind mixed with _ cup of boiling water (you can use the juice of two lemons instead) 1 teaspoon�of salt _ cup coconut cream milk Freshly chopped coriander to garnish",
     "Instructions": "1. Cut fish into small squares and season with salt and pepper and set aside 2. Heat the oil in the sauce pan and saut� the onion to golden brown 3. Add the garlic, ginger, garam masala (or curry powder) and saut� for a minute 4. Add tomatoes and tamarind (or lemon juice). Cook until all tomatoes are crushed and turn to paste. This takes about 5 minutes on medium heat. 5. Lower the heat and add the coconut milk and simmer for about 5 minutes 6. Add salt to taste and place the fish gently in the pot. Don�t stir as the fish will flake. Simmer for about 8 minutes or until fish is cooked. 7. Remove the fire and garnish with chopped coriander.",
     "Prep_Detail": "Prep time: Cook time: Total time: Serves:",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d20854970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d20854970d-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1558,7 +679,7 @@ var data = [
     "Ingredients": "1.5kg goat shoulder, cut into small chunks 3 tablespoons olive oil 1 large onion, diced finely 2 tablespoons tomato paste 3 cloves garlic, minced 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon ground black pepper 375 ml (1.5 cups) water Salt to taste",
     "Instructions": "1. Cook the meat, onion, garlic, salt and water in a covered large saucepan over low heat for about an hour. The water will have almost evaporated by this time. If the goat meat is mature you will need to add a bit more water to tenderise it. 2. Add the spices and tomato paste and cook for about ten minutes until thoroughly absorbed. 3. Serve with rice, any kind of bread or a salad.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 1 hour 10 minutes Total time: 1 hour 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Hilib-Ari-Isku-Duug.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Hilib-Ari-Isku-Duug.jpg"
   },
   {
     "Category": "Meat",
@@ -1567,7 +688,7 @@ var data = [
     "Ingredients": "4 boneless, skinless chicken breasts 1 tablespoon zaatar Juice of one lemon Lemon zest One clove garlic, minced 3 tablespoons olive oil Salt to taste",
     "Instructions": "1. Marinate the chicken in a mixture of lemon juice, zest, salt, garlic, zaatar and one tablespoon of olive oil. Cover and rest for about 30 minutes. 2. Place a non-stick pan over medium heat and heat up the remaining two tablespoons of oil. 3. Cook the chicken for about 3 to 4 minutes on each side or until cooked through. 4. Rest for a few minutes before serving with a salad.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 8 minutes Total time: 48 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
   },
   {
     "Category": "Meat",
@@ -1576,7 +697,7 @@ var data = [
     "Ingredients": "500g lamb or beef, finely diced into small cubes 1 tablespoon olive oil 1 onion, diced finely 2 tablespoons tomato puree _ teaspoon of ground cumin (optional) _ red capsicum, chopped into small pieces (leave some for garnish) Salt to taste (about _ teaspoon should be enough) 4 � 6 lettuce leaves, folded into cups",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, ground cumin, tomato puree and capsicum. Stir fry the meat for 3 � 4 minutes or until just cooked. Remove from heat. 4. Spoon the meat onto the lettuce cups and garnish with a sprinkle of the diced capsicum.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
   },
   {
     "Category": "Meat",
@@ -1585,7 +706,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 1.5 hours Cook time: 3 hours Total time: 4.5 hours Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511d4fc6b970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd257aff970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511d4fc6b970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd257aff970b-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1594,7 +715,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1603,7 +724,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 5 minutes Total time: 10 minutes Serves: 1 - 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1612,7 +733,7 @@ var data = [
     "Ingredients": "1kg shoulder of lamb, cubed into small pieces 3 onions, chopped finely 1 large tomato, cut into four pieces _ cabbage, diced finely 2 potatoes, peeled and cut into quarters _ cup of chopped fresh coriander (cilantro) 2 green chillies, diced 1 litre water Salt and ground black pepper to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 45 minutes Total time: 1 hour Serves: 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b02904dd9970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b02904dd9970d-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1621,7 +742,7 @@ var data = [
     "Ingredients": "_ kg pasta (spaghetti) _ kg minced meat (beef � sometimes finely diced beef is used instead) 1 onion, diced finely 2 cloves garlic, minced 5 ripe tomatoes, diced 3 tablespoons tomato puree A small bunch of coriander leaves, chopped Salt to taste 2 tablespoons olive oil",
     "Instructions": "Preparing the bolognese sauce 1.Fry the onion until lightly browned 2.Add the minced meat and brown the meat 3.Add the garlic and cook for about a minute 4.Add the diced tomatoes and tomato puree and stir continuously until thoroughly absorbed. This should take about 5 minutes. 5.Reduce to low heat and simmer for about 10 minutes to allow the sauce to thicken. 6.Add salt and coriander leaves.� Stir and remove from the pot.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901cc6dbc5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901cc6dbc5970b-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1630,7 +751,7 @@ var data = [
     "Ingredients": "1kg of breast minced chicken, lamb or beef 1 small onion, minced 2 cloves of garlic, crushed 2 teaspoons curry powder. _ tablespoon tamarind paste (or lime juice) 1 tablespoon of cornstarch 2 chilies, chopped finely Small bunch of coriander leaves Olive oil Salt to taste.",
     "Instructions": "1.Mix all ingredients in a mixing bowl and marinate for one hour. 2.Add a spoon of olive oil and shape the mixture into round shape. Thread them (five per skewer or so) through a metal skewer and cook in a hot grill or barbeque until the meat is done. If using bamboo sticks soak them in water for 30 minutes before use.",
     "Prep_Detail": "Prep time: 1 hour Cook time: Total time: Serves:",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1639,7 +760,7 @@ var data = [
     "Ingredients": "1 kg minced meat (beef or lamb) 2 onions, diced finely 2 teaspoons minced garlic 1 teaspoon ginger 1 teaspoon ground cumin 1 teaspoon ground coriander _ teaspoon turmeric powder 3 tablespoons tomato paste _ cup chopped fresh coriander 1 400g tin of chopped tomatoes (or 4 large tomatoes, diced) 3 tablespoons olive oil Salt to taste 2 cups of water",
     "Instructions": "1. Mix the minced meat with one onion, add half of the ground spices, and all of the fresh coriander. Mix well and shape into small balls. 2. Fry the second onion in the olive oil until golden brown over medium heat. Use a pan with large and flat bottom. This will allow you to place the meatballs nicely around the pan. 3. Add the rest of the ground spices and cook for one minute. 4. Add the tomato paste and chopped tomatoes. Cook until a thick sauce is formed. 5. Add the two cups of water and salt to taste. 6. Gently insert the meat balls, taking care not to move them around.� Don�t stir the meatbalss for at least 5 minutes, after which time they should be firm. 7. Cook for another 10 minutes on reduced heat and remove from the fire.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 25 minutes Total time: 40 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c381c22bc970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c381c22bc970b-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1648,7 +769,7 @@ var data = [
     "Ingredients": "2 kg of lean beef or camel if you can get it (ask your butcher to cut it muqmad or odkac �style or dice it finely yourself into _ cm cubes) 500g ghee 1 cup of sultanas (optional, but it adds a sweetness that enhances the meat�s flavour) 1 small onion, finely diced 1 teaspoon cardamom powder 2 cloves garlic, minced 1 cup of vegetable oil for frying Salt to taste",
     "Instructions": "1.�Heat up the one cup of oil over medium heat and fry the meat until the meat�s natural juices has evaporated. This should take about 30 minutes. The meat will look like dried raisins or sultanas. 2.�Drain the oil and keep the meat in a large bowl to cool. Keep the oil in a container and use to cook other meals. 3.�Fry the onion, garlic and cardamom powder in the 500g of ghee over medium heat until the onion is nicely browned. 4.�Sieve the fragrant and spiced ghee over the muqmad , which is now ready to be stored in an airtight container.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 40 minutes Total time: 55 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1657,7 +778,7 @@ var data = [
     "Ingredients": "_ kg� lamb, diced into small cubes 1 onion, chopped 1 potato, cubed 2 tablespoons tomato paste 4 tablespoons oil 1 teaspoon crushed garlic 1 teaspoon crushed coriander seeds 1 teaspoon turmeric powder 1 teaspoon curry powder Salt to taste",
     "Instructions": "1.�Fry onions till light brown. 2.�Add meat and brown for about three minutes 3.�Add garlic, coriander and potatoes and stir for a minute 4.�Add tomato paste and the turmeric and curry powder 5.�Cook on low heat until the sauce thickens. Add a few tablespoonfuls of water if the sauce is drying out 6.�Add salt to taste 7.�Check to see if the potatoes are cooked and if so remove from the heat and serve with rice or sabaayad .",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 25 minutes Total time: 35 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0177449f53f3970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0177449f53f3970d-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1666,7 +787,7 @@ var data = [
     "Ingredients": "500g of lamb liver, sliced in into thin strips 1 onion, sliced finely 1 small green capsicum, sliced into thin strips 3 tablespoons of olive oil for cooking Salt to taste",
     "Instructions": "1. Heat oil in frying pan over high heat 2. Fry the sliced lamb liver with salt for about three minutes (or until the liver is cooked) 3. Stir in the capsicum and onion and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
   },
   {
     "Category": "Meat",
@@ -1675,7 +796,7 @@ var data = [
     "Ingredients": "4kg of spring lamb (This is about half the lamb. Ask your butcher to cut it in big chunks) 1 teaspoon of cumin powder 1 teaspoon�of coriander powder I teaspoon�cardamom powder 5 black peppercorns, ground I large piece of fresh ginger crushed (this also tenderises the meat) 1 large garlic clove, crushed Salt to taste I large green and one red capsicum 2 large onions 1 bunch baby carrots, trimmed",
     "Instructions": "1. Marinate the meat in large dish with spices, garlic and ginger for two hours in the fridge or preferably overnight. 2. Transfer to a big sauce pan � we have a special sauce pan for just this dish!� Add all the other ingredients except for the vegetables and place on the stove. Make sure your lid is airtight. Cook for an hour on stove on low heat. It will brown and you might be worried the meat is burning during the first ten minutes, but don�t worry as this gives the meat a delicious smoky flavour.� The meat will produce steam which will add to the meat�s juices. 3. Transfer the dish to a hot oven and cook for a further two hours or until meat is tender. 4. Chop the vegetables and add 5. Uncover the pan and let the meat and vegetables cook for a further 30 minutes. Usually its own juices are enough and if dry add a little bit of water. By this time the meat should be falling off the bone.",
     "Prep_Detail": "Prep time: 15 minutes (marinating time not included) Cook time: 3 hours Total time: 3 hours and 15 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d016305d7784c970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d016305d7784c970d-800wi.jpg"
   },
   {
     "Category": "Meat",
@@ -1684,7 +805,7 @@ var data = [
     "Ingredients": "500g lamb, finely cubed 1 tablespoon olive oil 1 onion, diced 2 tablespoons tomato puree _ red capsicum, chopped into small pieces Salt",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, tomato puree and capsicum. Stir fry the meat for a few minutes until cooked. Remove from heat.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1693,7 +814,7 @@ var data = [
     "Ingredients": "Shushumow dough 1 _ cups all-purpose flour 3 tablespoon of sugar _ teaspoon salt _ teaspoon baking powder 1/3 cup of canola oil 1 large egg 3 tablespoon of warm water (more or less) 2 cups of canola oil (for frying)",
     "Instructions": "Preparing the shushumow 1. In an electric mixer mix all dough ingredients together except the water (and frying oil of course!) 2. Add the water slowly until you get soft dough. Mix for about 4-5 minutes. 3. Then let the dough rest for about 30 minutes. 4. Next cut the dough into small pieces roughly 1 inch x 1 inch. This should give you about 30 shushumow . 5. Shape them one at a time by pressing the dough on the back of the fork and curl it out toward the opposite side (away from you) 6. Preheat oil on medium heat. Fry the shushumow in the preheated oil a few at time, until golden brown. Make sure you turn the pastry frequently so that it cooks evenly. 7. Take them out and place them on a few layers of paper towels. This helps drain the oil from pastry.",
     "Prep_Detail": "Prep time: 45 minutes to 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 30 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
   },
   {
     "Category": "Featured",
@@ -1702,7 +823,7 @@ var data = [
     "Ingredients": "_ black quinoa _ cup hulled millet 150g red and gold perino tomatoes, cut into halves 1 small cucumber, thinly sliced 10 baby artichokes, top and bottom trimmed Seeds from half a pomegranate 1 tablespoon pomegranate molasses 2 teaspoons white vinegar 2 tablespoons olive oil _ teaspoon minced garlic 2-3 cups of water Salt to taste",
     "Instructions": "1. Toast the millet on medium heat for four minutes or until golden brown. This will enhance the nutty flavour of millet. 2. Wash and boil the quinoa in one cup of water for about 15 minutes with salt to taste. 3. Boil the millet in one cup water for about 30 minutes with salt to taste or until well cooked. Add more water if required. 4. Slice about 3/4 inch to an inch off the tip of the artichoke. Pull off any smaller leaves towards the base and on the stem. 5. Rinse the artichokes in running cold water and cook in a large pot with a cup of water. Cover and cook over low heat for about 30 minutes. 6. To make the pomegranate vinaigrette, thoroughly mix pomegranate molasses, garlic, salt to taste with olive oil and white vinegar. Toss the vinaigrette through the vegetables. 7. Lay out the sliced cucumbers on a large plate. Pile the quinoa and millet in the centre of the plate and arrange the tomatoes and artichokes around the plate. 8. Drizzle any left over vinaigrette and fresh pomegranate seeds on the salad and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 40 minutes Total time: 40 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
   },
   {
     "Category": "Featured",
@@ -1711,7 +832,7 @@ var data = [
     "Ingredients": "400g tin of cooked brown lentils 1 large onion, diced 50g chopped walnuts 1 teaspoon ground cumin 150g, cherry tomatoes, cut in half 50g chopped fresh coriander 2 cloves of garlic, minced 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry the onion in the olive oil until soft 2. Add garlic and cook for one minute 3. Add cumin and lentils and cook for about 5 minutes on low heat and remove from the stove. 4. Mix the sesame oil, ground black pepper, lemon juice, white vinegar and salt and add to the lentils and mix through. 5. Add the walnuts and chopped fresh coriander and mix through.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 minutes (if using tinned lentils) Total time: 17 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
   },
   {
     "Category": "Featured",
@@ -1720,7 +841,7 @@ var data = [
     "Ingredients": "1.5kg goat shoulder, cut into small chunks 3 tablespoons olive oil 1 large onion, diced finely 2 tablespoons tomato paste 3 cloves garlic, minced 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon ground black pepper 375 ml (1.5 cups) water Salt to taste",
     "Instructions": "1. Cook the meat, onion, garlic, salt and water in a covered large saucepan over low heat for about an hour. The water will have almost evaporated by this time. If the goat meat is mature you will need to add a bit more water to tenderise it. 2. Add the spices and tomato paste and cook for about ten minutes until thoroughly absorbed. 3. Serve with rice, any kind of bread or a salad.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 1 hour 10 minutes Total time: 1 hour 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Hilib-Ari-Isku-Duug.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Hilib-Ari-Isku-Duug.jpg"
   },
   {
     "Category": "Featured",
@@ -1729,7 +850,7 @@ var data = [
     "Ingredients": "1 large garlic clove, crushed Juice of half a large lime _ to 2 whole fresh Serrano chilli (depending on your taste. I have used other types of chilli with success) _ to 2/3 tight-packed cup fresh coriander leaves 1 to 2 teaspoons sugar, or to taste _ cup low-fat plain Greek yogurt Salt and freshly ground black pepper to taste More lime juice if needed",
     "Instructions": "1. Place the garlic clove in a coffee cup and squeeze the lime juice over it. Let stand 20 minutes while you gather the other ingredients. 2. Place the garlic, lime juice, chilli, coriander leaves, sugar, yogurt, salt and pepper into the bowl of a food processor and pur�e. Taste for balance. Refrigerate the bizbaz an hour or so to mellow, and use when cool.",
     "Prep_Detail": "Prep time: 1.5 hours (includes refrigeration time) Cook time: 5 minutes Total time: 1.55 minutes Serves: 5 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Bizbaz1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Bizbaz1.jpg"
   },
   {
     "Category": "Featured",
@@ -1738,7 +859,7 @@ var data = [
     "Ingredients": "1 cup rolled oats 2 � 2 _ cups milk (skim milk is fine) 50g nuts � almond, cashew, pistachio or any that you like (optional) _ teaspoon chia seeds A pinch or two of�ground black pepper (or less if you wish. I sometimes use ground cinnamon) A pinch of salt 1 teaspoon of honey for drizzling when serving",
     "Instructions": "1. Place all the ingredients in a pan and cook over low heat, stirring constantly for about 3 � 5 minutes or until the mixture thickens and sticks to the spoon. Add more milk if you want the porridge creamier. 2. Serve in a bowl with a drizzle of honey.",
     "Prep_Detail": "Prep time: 2 minutes Cook time: 5 minutes Total time: 7 minutes Serves: 2",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Mushaali1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/09/Mushaali1.jpg"
   },
   {
     "Category": "Featured",
@@ -1747,7 +868,7 @@ var data = [
     "Ingredients": "4 boneless, skinless chicken breasts 1 tablespoon zaatar Juice of one lemon Lemon zest One clove garlic, minced 3 tablespoons olive oil Salt to taste",
     "Instructions": "1. Marinate the chicken in a mixture of lemon juice, zest, salt, garlic, zaatar and one tablespoon of olive oil. Cover and rest for about 30 minutes. 2. Place a non-stick pan over medium heat and heat up the remaining two tablespoons of oil. 3. Cook the chicken for about 3 to 4 minutes on each side or until cooked through. 4. Rest for a few minutes before serving with a salad.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 8 minutes Total time: 48 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Chicken-Zaatar.jpg"
   },
   {
     "Category": "Featured",
@@ -1756,7 +877,7 @@ var data = [
     "Ingredients": "400g can of fava beans (washed and drained) or cooked beans 1 large onion, minced 1 large tomato, diced 1 large clove garlic, minced 1 tablespoon berbere _ tsp cumin 1 tablespoon fresh coriander for garnish 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry onion and garlic until soft, about 4 minutes 2. Add the diced tomato and cook for about 5 minutes 3. Add berbere, cumin and fava beans and cook for about 10 minutes. 4. Serve with good crusty bread or anjero �bread.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes (if using canned fava beans) Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
   },
   {
     "Category": "Featured",
@@ -1765,7 +886,7 @@ var data = [
     "Ingredients": "10 dates, de-stoned 2 cups milk (skim, low fat or full fat � whatever floats your boat! You can also use a non-dairy option such as soy or almond milk) 1 banana, diced _ teaspoon ground cardamom",
     "Instructions": "1. Blend the dates with a little milk until you get a smooth paste 2. Add the rest of the milk, bananas and cardamom and blitz away for a couple of minutes 3. Chill and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Dateshake1a.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Dateshake1a.jpg"
   },
   {
     "Category": "Featured",
@@ -1774,7 +895,7 @@ var data = [
     "Ingredients": "1 small cabbage, finely sliced 3 carrots, grated 1 large onion, diced finely 1 teaspoon mustard seeds 1 teaspoon turmeric powder _ teaspoon minced fresh ginger or ground dried ginger One or two green chillies, diced 1 tablespoon of olive oil Salt to taste",
     "Instructions": "1. Heat the oil in a pan and when hot fry the mustard seeds until they start to pop. Make sure they don�t burn. 2. Add the onions and cook until they start to brown. 3. Add the ginger, salt and chillies and cook for a minute. 4. Add the cabbage and carrots. Mix well, cover the pot and cook for about 10 minutes or until cooked through. I like the vegetables crunchy. Cook for another five minutes if you like your cabbage softer.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
   },
   {
     "Category": "Featured",
@@ -1783,7 +904,7 @@ var data = [
     "Ingredients": "450g Greek yoghurt _ teaspoon salt 1 teaspoon sumac 1 pomegranate A few basil leaves 1 tablespoon olive oil A large piece of muslin cloth",
     "Instructions": "1. Place the muslin cloth inside a large bowl. Pour the yoghurt into the cloth, wrap tightly and suspend the wrapped yoghurt over the bowl for 24 hours. This will allow the liquid to drain from the yoghurt, leaving thick, creamy labneh. 2. Cut the pomegranate in half and remove the seeds by hitting the bottom of the fruit with a wooden spoon. 3. Mix the labneh with salt and spread over a large plate. Drizzle with olive oil. Sprinkle the sumac, pomegranate seeds and basil leaves. 4. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 24 hours Total time: 24 hours and 10 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Labneh-with-pomegranate.jpg"
   },
   {
     "Category": "Featured",
@@ -1792,7 +913,7 @@ var data = [
     "Ingredients": "2 cups of brown rice 8-10 pods cardamom pods 1 tablespoon ground cumin 1 tablespoon of turmeric powder 5 whole black peppercorns 2 tablespoons of coconut oil (olive or any other vegetable oil is fine) 1 teaspoon fenugreek seeds 1 teaspoon coriander seeds 1 onion, chopped finely 150g cubed sweet potato (you can use pumpkin or carrot or combine all these vegetables) 20g sultanas or raisins (optional) 20g fresh coriander, chopped Salt to taste",
     "Instructions": "1. Boil three cups of water and keep aside (ratio of 1.5 cups of water to one cup rice) 2. Saute the onion over medium heat in oil until it turns translucent 3. Add rice and spices and mix well. Make sure the spices don�t burn! 4. Add in four cups of water and salt. Cover and cook for about five minutes. 5. Add in the vegetables, reduce heat to low and cover again. Cook for about 15 minutes and keep checking to see if you need to add more water. 6. Turn off the heat and let the rice sit in the covered pot for another 10 minutes. This should result in a slightly chewy rice texture, which is just the way I like it.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20-25 minutes Total time: 35 minutes Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
   },
   {
     "Category": "Featured",
@@ -1801,7 +922,7 @@ var data = [
     "Ingredients": "150g Tofu 6 stalks of green onions, cleaned and sliced 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon fenugreek seeds 2 tablespoons olive oil 100g mixed red and gold Perino tomatoes, cut in halves Juice of one lime Salt to taste 1 cup of washed rocket leaves 1 teaspoon fresh or dry fenugreek leaves (optional) 1 lime halved for garnish Rind of one lime for garnish",
     "Instructions": "Saut� vegetables",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
   },
   {
     "Category": "Featured",
@@ -1810,7 +931,7 @@ var data = [
     "Ingredients": "2 medium sized sweet potatoes, cut into round discs of about 1 cm thickness 200g cherry tomatoes, cut into halves 800g cooked lentils (or two 400g tinned lentils. I prefer brown lentils) 120g rocket salad leaves 1 diced capsicum (I like to use half a red and half a green capsicum for the colour effect) 1 tablespoon olive oil 1 teaspoon ground turmeric 1 teaspoon ground cumin 20g chopped coriander leaves _ teaspoon salt",
     "Instructions": "1. Coat the sweet potato in olive oil and roast for about 10 minutes on medium heat or until cooked through 2. Prepare the dressing by mixing all the lemon juice, onion, garlic, salt and sugar together and rest for about 5 minutes. This takes away the bite from the raw onion. Add in the yoghurt and tahini and mix into a smooth paste. 3. Mix the lentils, tomatoes, rocket salad leaves, capsicum, tomatoes coriander leaves, spices and salt together. 4. Spread the yoghurt and tahini dressing on a large serving plate. 5. Start arranging the salad in layers, starting with placing the roasted sweet potato discs on top of the dressing. Pile the rest of the salad ingredients on top of the sweet potatoes. 6. Serve with some good bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
   },
   {
     "Category": "Featured",
@@ -1819,7 +940,7 @@ var data = [
     "Ingredients": "500g lamb or beef, finely diced into small cubes 1 tablespoon olive oil 1 onion, diced finely 2 tablespoons tomato puree _ teaspoon of ground cumin (optional) _ red capsicum, chopped into small pieces (leave some for garnish) Salt to taste (about _ teaspoon should be enough) 4 � 6 lettuce leaves, folded into cups",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, ground cumin, tomato puree and capsicum. Stir fry the meat for 3 � 4 minutes or until just cooked. Remove from heat. 4. Spoon the meat onto the lettuce cups and garnish with a sprinkle of the diced capsicum.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Suqaar-Lettuce-Cup.jpg"
   },
   {
     "Category": "Featured",
@@ -1828,7 +949,7 @@ var data = [
     "Ingredients": "1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste.",
     "Instructions": "1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
   },
   {
     "Category": "Featured",
@@ -1837,7 +958,7 @@ var data = [
     "Ingredients": "4 cups flour 2 cups sugar 1 cup nutmeal (peanut, almond or hazelnut) 2 cups warm melted butter or ghee 2 teaspoons ground cardamom powder A little milk if the dough requires more binding.",
     "Instructions": "1.�Grease a biscuit pan with some of the melted butter 2. Mix all the dry ingredients together 3. Make a hole in the middle and pour in the warm butter slowly, adding it a little at a time to make a soft dough. Add a little milk if the dough needs more binding. 4. Shape the dough into small balls with your hands and flatten into a small disc shape. 5. Bake for about 15-20 minutes in a medium heat oven or until golden brown.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 20+ people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/01/Icun-ama-qureebaad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/01/Icun-ama-qureebaad.jpg"
   },
   {
     "Category": "Featured",
@@ -1846,7 +967,7 @@ var data = [
     "Ingredients": "250g fine desiccated coconut 100g fine desiccated coconut (keep aside to coat the sweet) 395g can of sweet condensed milk 1 teaspoon ground cardamom 1 teaspoon ground pistachio (or any other kind of nut) A few strands of saffron",
     "Instructions": "1. Soak the saffron in a tablespoon of milk and let it sit for about 10 minutes to infuse 2. Mix all the ingredients together and cook over low heat for about five minutes. 3. Cool and shape into small balls. 4. Roll the balls one by one in the desiccated coconut.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 10+ people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Kashatacaano1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Kashatacaano1.jpg"
   },
   {
     "Category": "Featured",
@@ -1855,7 +976,7 @@ var data = [
     "Ingredients": "Mango (Ambe) Sauce: 1 cup coconut milk 1 teaspoon curry powder (either mild or hot) _ teaspoon cumin _ teaspoon (or more, depending on how sweet you like it) organic brown sugar _ cup mango pulp",
     "Instructions": "Mango (Ambe) Sauce: 1.In a saucepan over high heat, heat coconut milk until boiling. Stir occasionally. 2.Add curry powder and cumin. Turn fire low, to simmer. Stir constantly until there are no lumps (about 10 minutes), until the mixture is smooth and an even yellow color, and no little dots of color or spice remain. 3.Add brown sugar and continue to stir until the mixture is a little thicker, with the consistency of a syrup. 4.Add mango pulp and stir. Let sauce get a little thicker.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 25 minutes Total time: 35 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Mango-Chicken-Curry-dish1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Mango-Chicken-Curry-dish1.jpg"
   },
   {
     "Category": "Featured",
@@ -1864,7 +985,7 @@ var data = [
     "Ingredients": "500g sweet potato, cut into cubes 150g broccoli, cut into florets 200g can diced tomatoes 200g green beans 200g can haricots beans (or any kind of beans) 1 onion, diced finely 2 garlic cloves, minced 1 teaspoon ground cumin 1 teaspoon ground turmeric 2 green chillies, diced finely (optional) Half a cup of water 1 tablespoon olive oil Salt to taste",
     "Instructions": "Place all the ingredients in one pot and cook over low heat for about 15 minutes or until the sweet potato is cooked through, but still firm. Add a bit more water if you want the dish to be a bit soupy.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
   },
   {
     "Category": "Featured",
@@ -1873,7 +994,7 @@ var data = [
     "Ingredients": "2 cups finely ground white or yellow maize flour (corn) 4 cups water 2 tablespoons butter (optional) Salt to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 10 minutes Total time: 15 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/Soor.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/Soor.jpg"
   },
   {
     "Category": "Featured",
@@ -1882,7 +1003,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon of instant yeast _ cup sugar 2 teaspoon plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup milk Oil for cooking",
     "Instructions": "1. Blend all the ingredients together to a smooth batter. 2. Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3. Brush oil over the Aebleskiver pan and place on stove over medium heat. 4. Pour the mixture using a spoon and fill to the top. 5. Reduce the heat to low to allow the batter to cook through. You will notice tiny bubbles on the batter. This means they are cooking nicely. When brown at the bottom, use a skewer or wooden toothpick to flip and cook the other side. 6. Cook the rest of the rice cakes and place on a platter to serve.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 20 minutes Total time: 1 hour and 35 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
   },
   {
     "Category": "Featured",
@@ -1891,7 +1012,7 @@ var data = [
     "Ingredients": "� 1 _ cup basmati rice, washed and soaked for 20 minutes � 1 tablespoon sugar � 2 tablespoons butter � 25g sultanas or raisins (optional) � 100g pineapple, cut into small cubes � _ teaspoon ground cardamom � Pinch of saffron � Pinch of salt � 2 _ cups water",
     "Instructions": "1. Bring the water to a boil. 2. Place the rice and pinch of saffron and salt in the boiling water 3. Add the pineapple, butter, cardamom and sugar 4. Cover the pot and cook on low heat until the rice has absorbed all the water. This should take about 20 minutes or until all the water is fully absorbed and the rice looks fluffy. 5. Remove the rice from the pot and serve with any kind of curry.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 4",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/08/Pineapple-and-saffron-rice1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/08/Pineapple-and-saffron-rice1.jpg"
   },
   {
     "Category": "Featured",
@@ -1900,7 +1021,7 @@ var data = [
     "Ingredients": "250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
   },
   {
     "Category": "Featured",
@@ -1909,7 +1030,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 1.5 hours Cook time: 3 hours Total time: 4.5 hours Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511d4fc6b970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd257aff970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511d4fc6b970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd257aff970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1918,7 +1039,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8d59970b-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a3fd1b8dc5970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1927,7 +1048,7 @@ var data = [
     "Ingredients": 0,
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 5 minutes Total time: 10 minutes Serves: 1 - 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a73da0939d970d-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg\nhttp://somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d6e970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1936,7 +1057,7 @@ var data = [
     "Ingredients": "� 14 green cardamom pods, ground finely � 10 cloves whole � 2 quills of cinnamon, broken into small pieces � 1 teaspoon ground dry ginger � 1 teaspoon of black tea leaves � 4 _ cups of water � Sugar to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 5 minutes Cook time: 10 minutes Total time: 15 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73dac9ba5970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1945,7 +1066,7 @@ var data = [
     "Ingredients": "Three large potatoes, boiled and diced into small cubes 1 cup of cooked green peas One large onion, diced finely 1 bunch of coriander, chopped 1 tablespoon of curry powder 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon of ground chilli or two diced green chillies (optional) Salt to taste 10 sheets of spring roll pastry Oil for deep frying",
     "Instructions": "Sambuus Qudaar filling 1: Gently�cook the diced potatoes, peas, coriander, onions, salt and spices in a pan in a tablespoon of oil and cook for about five minutes. 2: Let the mixture cool.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 2 hours Total time: 2.5 hours Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1954,7 +1075,7 @@ var data = [
     "Ingredients": "1 cup of whole coffee beans _ cup vegetable oil 2 � 3 tablespoons of ghee (clarified butter)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d90999a970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1963,7 +1084,7 @@ var data = [
     "Ingredients": "2 cups white or yellow corn flour (polenta) 2 cups self-raising flour (you can substitute corn flour or semolina for wheat if you want to keep it gluten free) 1 teaspoon salt 1 sachet dry yeast 1 clove garlic, minced 1 teaspoon ground coriander seeds 1 teaspoon ground cumin seeds 1 _ cups water",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1972,7 +1093,7 @@ var data = [
     "Ingredients": "2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 10 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1981,7 +1102,7 @@ var data = [
     "Ingredients": "1 cup of hulled millet or sorghum 250g thick greek yoghurt (or any kind of thick set yoghurt) 250g mixed berries or any other kind of chopped fresh fruit 4 tablespoons honey",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 1 hour Total time: 1 hour and 10 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cba19970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cba19970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1990,7 +1111,7 @@ var data = [
     "Ingredients": "1kg shoulder of lamb, cubed into small pieces 3 onions, chopped finely 1 large tomato, cut into four pieces _ cabbage, diced finely 2 potatoes, peeled and cut into quarters _ cup of chopped fresh coriander (cilantro) 2 green chillies, diced 1 litre water Salt and ground black pepper to taste",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 45 minutes Total time: 1 hour Serves: 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b02904dd9970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b02904dd9970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -1999,7 +1120,7 @@ var data = [
     "Ingredients": "400g boiled red kidney beans (or canned beans) 2 small orange sweet potatoes 375g firm tofu A handful of mixed nuts _ cup fresh mint leaves 2 cups (120g) baby spinach leaves 1 teaspoon lemon zest Juice of one lemon _ cup olive oil 1 teaspoon�minced ginger 1 teaspoon�minced garlic 2 teaspoons ground cumin 2 teaspoons ground paprika 3 tomatoes, diced into small cubes 3 fresh green or red chillies, diced 4 teaspoons sesame seeds, lightly roasted Pinch or two of salt",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2008,7 +1129,7 @@ var data = [
     "Ingredients": "2 large apples (for the topping) 4 eggs 1 cup of sugar _ cup of oil _ cup of milk 1 teaspoon of vanilla essence 3 tablespoons of custard powder 5 tablespoons of cornflour 14 tablespoons of plain flour (1 cup) 2 teaspoons of baking powder",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 30 - 45 minutes Total time: 50 minutes to 1 hour and 5 minutes Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b00c91120970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b00c91120970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2017,7 +1138,7 @@ var data = [
     "Ingredients": "4 sabaayad flatbread or three pieces of frozen puff pastry, thawed 4 cups milk _ cup cream _ cup dessicated coconut _ cup slivered almonds _ cup chopped pistachio nuts or any other kind of nut (keep some for garnishing) _ cup raisins 1 teaspoon cardamom powder",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff5b1595970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff5b1595970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2026,7 +1147,7 @@ var data = [
     "Ingredients": "2 apples, cored and diced 3 large bananas, peeled and chopped into small pieces Juice of two lemons or limes 1 cup of apple juice _ teaspoon of ground cinnamon 1 teaspoon of chia seeds (optional)",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 10 minutes Total time: 25 minutes Serves: 4 - 5 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019affde05b0970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2035,7 +1156,7 @@ var data = [
     "Ingredients": "400g can chickpea, drained and rinsed 1 medium potato, boiled 1 medium onion, diced finely _ cup chopped coriander leaves 1 teaspoon ground coriander seeds 1 teaspoon ground cumin _ teaspoon black pepper _ cup toasted sesame seeds 1 tablespoon corn flour (this helps bind all the ingredients together. Alternatively, you can use one beaten egg.) 1-2 green chillies, diced (optional) Salt to taste Olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2044,7 +1165,7 @@ var data = [
     "Ingredients": "6 eggs 1 medium onion, chopped 1 large capsicum, diced (I used half each of green and red capsicums) 6 silverbeet leaves, finely chopped (or use spinach) 6 tomatoes, diced finely 1 tbsp tomato puree 1 tsp ground cumin 1 tsp turmeric 1 tsp minced garlic and coriander leaves _ tsp ground black pepper 1 green chilli (this is optional. Dice it if you want some heat) 2 tbsp olive oil Salt to taste",
     "Instructions": "1. Heat up the oven to medium. 2. Fry the onion in olive oil until translucent in an ovenproof pan over medium heat. 3. Add minced garlic and coriander and cook for a minute. 4. Add the greens, cumin, turmeric, black pepper, salt and chilli.� Saut� for a minute. 5. Add the diced tomatoes, tomato puree and capsicums and cook until the sauce is thick. This should take about 10 minutes.� Reduce the heat and add a little water if the sauce is drying out. 6. Slowly break in the eggs, one by one and drop them in gently.� Space them out so that they don�t run into each other. 7. Place the pan in the oven and bake for about 10 minutes if you like your eggs well done.� Otherwise cook for about 5 minutes. 8. Garnish with some fresh coriander leaves and serve with traditional Somali flatbreads such as sabaayad ,� anjero �or any other good bread.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff464983970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff464983970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2053,7 +1174,7 @@ var data = [
     "Ingredients": "150ml egg white (approximately 4 eggs) 1 cup (220g) caster (superfine) sugar 2 tablespoons cornflour (cornstarch), sifted 2 teaspoons white vinegar _ cup (1250ml) single (pouring) cream _ cup of thick Greek yoghurt _ tsp. ground cardamom 250g mixed berries � strawberries, blueberries and raspberries",
     "Instructions": "1. Preheat oven to 150�C (300�F). 2. Place the egg white in the bowl of an electric mixer and whisk until stiff peaks form.� The mixture will have tripled in volume. Gradually add the sugar, whisking well, until the mixture is stiff and glossy. 3. Add the cornflour and vinegar and whisk until just combined. Shape the mixture into an 18cm round on a baking tray lined with non-stick baking paper. 4. Reduce oven to 120�C (250�F) and bake for about 50 minutes or until the meringue is well risen and set. The top should be quite crisp. 5. Turn the oven off and allow the pavlova to cool completely in the oven. 6. Whisk the cream until soft peaks form. Add the yoghurt and ground cardamom. Spread over the pavlova, top with the mixed berries and serve immediately.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 50 minutes Total time: 65 minutes Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192acc5975d970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192acc5975d970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2062,7 +1183,7 @@ var data = [
     "Ingredients": "1 cup semolina flour 3 tablespoons chickpea flour 1 cup sugar 100g butter or subag (ghee or clarified butter) _ teaspoon ground cardamom _ cup of mixed nuts and fruit � slivered almonds, pistachio and sultanas (leave some pistachio for garnishing) 2 cups milk",
     "Instructions": "1. Add the ground cardamom and butter to the semolina flour and toast lightly on low heat to a light golden brown colour. This should take about 5 minutes. 2. Add the nuts and sultanas and mix well. 3. Add the sugar and milk. The semolina flour will absorb the milk. 4. Keep stirring the mixture on a low heat until the semolina stops sticking to the cooking pot and the spoon. This should take about 5 minutes. 5. Place on a plate and cut to desired shapes.� I like to shape the halwa using small cups, which I then turn onto a serving plate. Sprinkle some pistachio to decorate the halwa .",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0191047964e7970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0191047964e7970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2071,7 +1192,7 @@ var data = [
     "Ingredients": "1 _ cups desiccated coconut or fresh grated coconut (about two small coconuts) 1 cup sugar _ cup water (for making the syrup) _ cup water (for soaking desiccated coconut) _ tsp. ground cardamom Pinch of saffron to add colour",
     "Instructions": "1. Grate the coconut and keep aside. If using desiccated coconut, mix with _ cup water and keep aside. 2. Mix the sugar with _ cup of water and cook for about 4 minutes on low heat. Stir occasionally and make sure the sugar doesn�t burn! 3. Add cardamom and saffron, and the grated or desiccated coconut (the water should be almost all absorbed.� If not, add left over water to the sugar syrup). 4. Cook on a low heat, stirring until well mixed. 5. Pour on a greased plate. Flatten with a buttered knife and cut into the desired shapes before the sweet hardens. Alternatively, you can shape the mixture into balls once it is slightly cool. 6. Garnish with pistachio if you wish. Store in an airtight container.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 - 10 minutes Total time: 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e8321a5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e8321a5970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2080,7 +1201,7 @@ var data = [
     "Ingredients": "2 cups cooked lentils (you can use any kind of lentils) 2 tomatoes, diced 1 onion, diced 1 teaspoon mustard seeds 2 green chillies, diced (optional) 1 teaspoon�cumin powder 1 teaspoon�coriander powder 1 teaspoon�turmeric powder 1 tablespoon tamarind paste _ cup slivered almonds (leave a few for garnish) 3 teaspoons olive oil Small bunch of fresh coriander leaves (you can also add a handful of either fenugreek or thyme leaves) 1 teaspoon�sugar Salt to taste",
     "Instructions": "1. Fry the mustard seeds in the oil. As soon as they start to pop, add the onion and tomatoes and cook for about two minutes. 2. Add the lentils, ground spices, sugar, salt and fresh herbs. Cover and cook on low heat for about 10 minutes.� Stir occasionally and add a few tablespoons of water if it looks like it is drying out too much.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 12 minutes Total time: 22 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2089,7 +1210,7 @@ var data = [
     "Ingredients": "250g diced pumpkin, cut into small cubes 100g mushroom 1 small capsicum , chopped 2 small eggplant, cut into small cubes 1 small onion, chopped 2 cloves of garlic, crushed 2 small tomatoes, diced 1 teaspoon�tomato paste 2 teaspoons olive oil A handful of coriander leaves (keep some aside for garnish) 1 teaspoon ground cumin 1 diced green chilli (add more if you like it spicy) 1 cup water (you can add a bit more if you like your soup thinner) Salt to taste",
     "Instructions": "1. Heat oil in a large saucepan and saut� the onions until brown. 2. Add all the other ingredients and cook for a few minutes until well mixed. 3. Add the water and salt to taste. 4. Cook with the lid on until vegetables are tender. 5. Puree the soup in a blender to your desired consistency. 6. Garnish with the herbs for a memorable lunch or dinner!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2098,7 +1219,7 @@ var data = [
     "Ingredients": "2 cups plain white flour 1 tablespoon dry yeast 1 tablespoon yoghurt 1 _ cups water 1 tablespoon oil Oil for deep frying",
     "Instructions": "1.Heat oil in a deep fryer or a deep pan over medium heat. 2.Drop a bit of batter to taste the heat of the oil. If the batter floats up quickly then the heat is right. 3.Using your hands scoop some batter forming a small ball and drop it gently into the oil. Alternatively, you can use a spoon to scoop the batter. Keep adding batter until the pan is full. 4.Turn the balls constantly to ensure an even brown colour. Remove them from the pan when they are a light golden colour. 5.Drop the balls into the syrup. You can also roll them in sesame seed for an extra hit of flavour. If� you don�t want to use sugar syrup or honey, dust some icing sugar over the cooked luqaimat and enjoy.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e2eeea5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e2eeea5970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2107,7 +1228,7 @@ var data = [
     "Ingredients": "500g frozen or fresh okra, cut into slices and washed 2 tomatoes, diced 1 tbsp tomato paste 1 onion, diced _�teaspoon�mustard seeds 1 tsp garlic, minced 2 green chillies or 1 tsp ground red chilli powder (optional) 1�teaspoon�cumin powder 1�teaspoon�coriander powder 1�teaspoon�turmeric powder 1 tablespoon tamarind paste or lemon juice 4 tablespoons olive oil Small bunch of fresh coriander leaves and a handful of dried fenugreek leaves 1�teaspoon�sugar Salt to taste",
     "Instructions": "1.Fry the mustard seeds in the oil. As soon as they start to pop, add all the ingredients at the same time. 2.Cook for about 20 minutes, stirring occasionally until the okra is tender and the liquid has almost evaporated. Add a quarter cup of water if you like it soupier.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910391d2f3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910391d2f3970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2116,7 +1237,7 @@ var data = [
     "Ingredients": "1 kg chicken drummettes _ teaspoon ground black pepper Juice of one lemon _ teaspoon�ground coriander 1 teaspoon�ground cumin _ teaspoon�ground cinnamon _ teaspoon chilli powder (optional) A few strands of saffron Salt to taste 3 tablespoons olive oil",
     "Instructions": "1.Wash the chicken drummettes thoroughly and dry with a paper towel 2.Prick the chicken with a sharp knife. This allows the marinade to soak in nicely. 3.Mix all the dry ingredients and lemon juice�with the olive oil 4.Marinate the chicken in the mixture for at least 30 minutes. Marinate overnight if you have the time. 5.Place the chicken on a baking tray lined with aluminium foil and bake in a medium oven for 25-35 minutes or until well browned. The cooking time depends on the size of your chicken drummettes.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019102ff0da3970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2125,7 +1246,7 @@ var data = [
     "Ingredients": "_ kg pasta (spaghetti) _ kg minced meat (beef � sometimes finely diced beef is used instead) 1 onion, diced finely 2 cloves garlic, minced 5 ripe tomatoes, diced 3 tablespoons tomato puree A small bunch of coriander leaves, chopped Salt to taste 2 tablespoons olive oil",
     "Instructions": "Preparing the bolognese sauce 1.Fry the onion until lightly browned 2.Add the minced meat and brown the meat 3.Add the garlic and cook for about a minute 4.Add the diced tomatoes and tomato puree and stir continuously until thoroughly absorbed. This should take about 5 minutes. 5.Reduce to low heat and simmer for about 10 minutes to allow the sauce to thicken. 6.Add salt and coriander leaves.� Stir and remove from the pot.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901cc6dbc5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901cc6dbc5970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2134,7 +1255,7 @@ var data = [
     "Ingredients": "1kg of breast minced chicken, lamb or beef 1 small onion, minced 2 cloves of garlic, crushed 2 teaspoons curry powder. _ tablespoon tamarind paste (or lime juice) 1 tablespoon of cornstarch 2 chilies, chopped finely Small bunch of coriander leaves Olive oil Salt to taste.",
     "Instructions": "1.Mix all ingredients in a mixing bowl and marinate for one hour. 2.Add a spoon of olive oil and shape the mixture into round shape. Thread them (five per skewer or so) through a metal skewer and cook in a hot grill or barbeque until the meat is done. If using bamboo sticks soak them in water for 30 minutes before use.",
     "Prep_Detail": "Prep time: 1 hour Cook time: Total time: Serves:",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192aa2581f6970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2143,7 +1264,7 @@ var data = [
     "Ingredients": "For the pastry: 125g butter 1 cup flour _ cup icing sugar",
     "Instructions": "1.Spray two 12-cup mini muffins tins with oil. 2.Place the pastry ingredients into a food processor and mix until the pastry clumps around the blade. 3.Form the pastry into a log shape, wrap in cling film and refrigerate for 20 minutes. 4.After it is chilled, remove the pastry from the cling film and divide it evenly into 16 pieces. 5.Use your fingers to gently expand the pastry to form a larger circle or use a rolling pin to shape the pastry. 6.Place the pastry in the mini muffin tins � you could use a rolling pin to re-size. Don�t worry if the pastry tears, it is very forgiving and comes back together again. 7.Chill the pastry in the mini muffin tins for 20 minutes. 8.Divide the nuts between the pastry-lined cups, breaking the nuts in half if necessary. 9.Pre-heat oven to 180�degrees Celsius. 10.Melt the butter, whisk in the egg, and brown sugar and vanilla essence until smooth. 11.Pour a teaspoon of this mixture into each nut-filled cup and bake for 20-25 minutes until the pastry is golden brown. 12.Remove from the oven for 5 minutes and let the pies rest. 13.Life carefully from the tin when cool and serve.",
     "Prep_Detail": "Prep time: 15 minutes (resting time for dough not included) Cook time: 25 minutes Total time: 40 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901bc19e7f970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901bc19e7f970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2152,7 +1273,7 @@ var data = [
     "Ingredients": "3 cups of basmati rice, washed 1 tablespoon olive oil 2 tablespoons subag (ghee or butter) 1 teaspoon turmeric 1 teaspoon ground spices (coriander and cumin seeds) 4.5 cups of water Handful of chopped fresh coriander and mint leaves Salt to taste",
     "Instructions": "1. Heat olive oil and ghee on medium heat and stir fry the rice for two minutes. 2. Add the turmeric, ground spices and chopped herbs. 3. Add the water and cover the pot with a lid.� Reduce the heat to low and cook until the water evaporates. This should take about 10 minutes. 4. Take the rice off the heat, cover the pan with foil paper and place in a warm oven for 5 minutes. This process dries out any excess moisture and separates the rice grains. This extra step will give you a nod of approval from the discerning Somali food critic!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d431e7e2f970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d431e7e2f970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2161,7 +1282,7 @@ var data = [
     "Ingredients": "4 cups of water 2kg sugar (_ brown sugar and 1 _ white sugar. You can use white sugar if you want to achieve a golden coloured halwa .� The brown sugar gives it a deep brown colour)) 300g cornflour 250g ghee (alternatively substitute half the ghee with canola or sunflower oil if you want to cut down on costs, but the ghee gives it a superb buttery flavour) 1 teaspoon ground cardamom 1 whole nutmeg, ground Pinch of saffron for colour and flavour (you can use yellow food colour as an alternative) 1 teaspoon instant coffee (this deepens the brown colour. Don�t use it if you prefer a golden coloured halwa ) Crushed or silvered almonds and pistachio (optional)",
     "Instructions": "1.�Melt the butter 2.�Boil the water in a deep non-stick pan, and when nearly boiling add sugar over medium heat 3.�Mix cornflour and coffee with one cup of water to a smooth paste 4.�When the sugar and water are almost boiling, add the cornflour mixture, stirring continuously. 5.�Add the dry spices, ghee, nuts and saffron. Continue stirring until the halwa is thickly glutinous and the oil separates from the mixture. This should take about an hour of continuous stirring. It is extremely important to keep stirring as a momentary lapse may cause the halwa to harden. 6.�Pour the halwa onto a greased flat tray and spread. Decorate with slivered nuts and cut into square or diamond shaped pieces. Serve when cool.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 1 hour Total time: 1 hour and 10 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42b1de78970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42b1de78970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2170,7 +1291,7 @@ var data = [
     "Ingredients": "1 kg minced meat (beef or lamb) 2 onions, diced finely 2 teaspoons minced garlic 1 teaspoon ginger 1 teaspoon ground cumin 1 teaspoon ground coriander _ teaspoon turmeric powder 3 tablespoons tomato paste _ cup chopped fresh coriander 1 400g tin of chopped tomatoes (or 4 large tomatoes, diced) 3 tablespoons olive oil Salt to taste 2 cups of water",
     "Instructions": "1. Mix the minced meat with one onion, add half of the ground spices, and all of the fresh coriander. Mix well and shape into small balls. 2. Fry the second onion in the olive oil until golden brown over medium heat. Use a pan with large and flat bottom. This will allow you to place the meatballs nicely around the pan. 3. Add the rest of the ground spices and cook for one minute. 4. Add the tomato paste and chopped tomatoes. Cook until a thick sauce is formed. 5. Add the two cups of water and salt to taste. 6. Gently insert the meat balls, taking care not to move them around.� Don�t stir the meatbalss for at least 5 minutes, after which time they should be firm. 7. Cook for another 10 minutes on reduced heat and remove from the fire.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 25 minutes Total time: 40 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c381c22bc970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c381c22bc970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2179,7 +1300,7 @@ var data = [
     "Ingredients": "1 squash (you can use pumpkin or sweet potato) 2 tomatoes, diced 1 onion, chopped 250g silverbeet 1 cup of chopped mixed capsicum 1 stalk celery (you can also add a sprig or two of thyme) 2 tablespoons of olive oil Salt to taste",
     "Instructions": "1.�Heat up the wok and add oil. When hot add onions and stir until lightly browned. 2.�Add the capsicum, celery and squash. Cook for about 2 minutes. 3.�Add diced tomatoes and stir for a minute. 4.�Add silverbeet and cook for 3 minutes, stirring to ensure it cooks through evenly.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 10 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c37a46280970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c37a46280970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2188,7 +1309,7 @@ var data = [
     "Ingredients": "2 cups whole wheat flour _ salt 2 teaspoon olive oil or subag (ghee) _ cup warm water Flour for kneading and dusting",
     "Instructions": "1.�Mix the flour and salt in a large mixing bowl. 2.�Add oil and mix until all lumps are gone. 3.�Add warm water a little at a time to form a medium soft dough ball. 4.�Divide the dough into 12 small balls and let them rest for about 10 minutes. 5.�Heat up a frying pan or skittle on medium heat. 6.�Using a rolling pin, roll out each ball into a thin, medium sized circle. Dust the dough with some flour to keep it from sticking to the rolling pin. 7.�Place the dough on the frying pan and cook until it begins to rise slightly. 8.�Flip the bread and cook on the other side. It should puff up. Press it with a flat spoon. This will make it puff up some more. 9.�Wrap the kibhis in a tea towel to keep it warm. 10.�Keep cooking the rest of the dough in the same way.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 25 minutes Total time: 40 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c372cf7c6970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c372cf7c6970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2197,7 +1318,7 @@ var data = [
     "Ingredients": "I stick celery, chopped I large mango I orange I tablespoon of tamarind paste (available in most Somali or Indian grocery stores) Handful of mint 2 cups of water",
     "Instructions": "Blend all the ingredients together and serve with a garnish of mint leaves.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 5 minutes Total time: 20 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee884c032970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee884c032970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2206,7 +1327,7 @@ var data = [
     "Ingredients": "1 kg of snapper fillet, cut into medium sized chunks 2 potatoes, thinly sliced Half a capsicum, thinly sliced 1 lemon, thinly sliced A 400g can of diced tomato, or 3 large tomatoes, diced _ teaspoon salt 2 teaspoons olive oil",
     "Instructions": "1.�Heat the oven to a moderate heat (160� C or 325� F. If using a fan-forced oven, the oven temperature should be set 20� below). 2.�Blend all the ingredients of the marinade into a smooth paste. Add more olive oil if required. 3.�Coat the fish with the marinade 4.�Lightly oil a deep baking dish and spread the diced tomatoes around the dish. 5.�Arrange the sliced potatoes all around the baking dish (you can parboil the potatoes for less cooking time). 6.�Place the chunks of fish over the potatoes 7.�Top the fish with slices of capsicum and lemon 8.�Drizzle the remaining olive oil over the dish 9.�Cover the fish with aluminium foil and bake for about 25 minutes or until fish and potatoes are cooked through",
     "Prep_Detail": "Prep time: 20 minutes Cook time: 25 minutes Total time: 45 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c36788dae970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c36788dae970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2215,7 +1336,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder (the Maggi brand is the most similar to freshly grated coconut) 1 tablespoon instant yeast _ cup sugar 2 tsp plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup water (substitute milk for water for a softer cake)",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter. 2.�Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3.�Brush oil over a baking dish and bake in a hot oven for 35-40 minutes or until golden brown at the top. 4.�Remove from the oven, cool and cut into pieces for serving.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 35 minutes Total time: 1 hour and 50 minutes (includes rest time) Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2224,7 +1345,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon instant yeast _ cup sugar 2 teaspoons plain flour (optional) _ teaspoon ground cardamom 1 egg (optional) 1 cup milk Oil for cooking",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter to a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 2.�Heat a spoonful of oil in a griddle or small frying pan over medium heat. 3.�When hot, pour a small amount of the batter and spread to form a small pancake. 4.�When golden brown, flip to cook the other side. 5.�Repeat the process, adding more oil when necessary.",
     "Prep_Detail": "Prep time: 1 hour and 30 minutes (time to soak rice overnight not included) Cook time: 30 minutes Total time: 2 hours Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2233,7 +1354,7 @@ var data = [
     "Ingredients": "2 cups self raising flour and 1 cup plain flour 1 cup sugar 3 eggs 250g butter 2 teaspoons cinnamon or cardamom powder",
     "Instructions": "1.�Melt butter and mix with sugar. 2.�Beat eggs in a separate bowl. 3.�Add eggs to melted butter and sugar.� Beat very well. 4.�Sift flour and cinnamon or cardamom in a bowl. 5.�Add the eggs, butter and sugar mixture. 6.�Gently knead in a bowl until the mixture no longer sticks to the bowl. 7.�Cut to desired shapes and bake until golden brown.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/03/Buskud.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/03/Buskud.jpg"
   },
   {
     "Category": "Featured",
@@ -2242,7 +1363,7 @@ var data = [
     "Ingredients": "1 medium sized red sweet potato, cut into small cubes 125 g of reduced fat feta cheese, cut into small cubes 1 small onion, chopped finely _ teaspoon ground cumin A small bunch of fresh coriander leaves 6 eggs, lightly beaten 1 tablespoon olive oil",
     "Instructions": "1.�Preheat oven to 180�C. 2.�Coat an ovenproof pie dish with olive oil and arrange the vegetables, coriander leaves and feta cheese all over the dish. 3.�Pour the eggs over the vegetables and bake for about 20 minutes or until set and light golden in colour. 4.�Cool for about 10 minutes and serve with a salad.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c3459728a970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2251,7 +1372,7 @@ var data = [
     "Ingredients": "2 kg of lean beef or camel if you can get it (ask your butcher to cut it muqmad or odkac �style or dice it finely yourself into _ cm cubes) 500g ghee 1 cup of sultanas (optional, but it adds a sweetness that enhances the meat�s flavour) 1 small onion, finely diced 1 teaspoon cardamom powder 2 cloves garlic, minced 1 cup of vegetable oil for frying Salt to taste",
     "Instructions": "1.�Heat up the one cup of oil over medium heat and fry the meat until the meat�s natural juices has evaporated. This should take about 30 minutes. The meat will look like dried raisins or sultanas. 2.�Drain the oil and keep the meat in a large bowl to cool. Keep the oil in a container and use to cook other meals. 3.�Fry the onion, garlic and cardamom powder in the 500g of ghee over medium heat until the onion is nicely browned. 4.�Sieve the fragrant and spiced ghee over the muqmad , which is now ready to be stored in an airtight container.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 40 minutes Total time: 55 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/06/6a016303f3fe31970d01a511958d54970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2260,7 +1381,7 @@ var data = [
     "Ingredients": "1kg fish fillet (any kind of firm fleshed fish) 1 tablespoon of ground cumin 2 garlic cloves, crushed Juice of one lemon 1 tablespoon of vinegar Salt to taste Olive oil for frying",
     "Instructions": "1.�Mix ground cumin, crushed garlic, salt, lemon and vinegar to make a marinade for the fish 2.�Marinate the fish for 30 minutes 3.�Heat the olive oil in a frying pan on medium heat 4.�Fry the fish for about two minutes or until brown. Flip and cook the other side for another two minutes. 5.�Remove the fish and place them on a piece of paper towel. This will remove excess oil.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 5 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3cb6f1be970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3cb6f1be970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2269,7 +1390,7 @@ var data = [
     "Ingredients": "2 eggs _ cup sugar _ teaspoon salt 1 teaspoon�cardamom powder 3 cups of self-raising flour 3 _ cups of milk Oil for cooking ( subag or ghee gives this malawah �wonderful flavour)",
     "Instructions": "1.�Whisk or blend the eggs, sugar, milk, salt and cardamom powder until frothy 2.�Add the flour slowly and mix until you get a smooth batter 3.�Place a non-stick frying pan on medium heat 4.�Pour about quarter a cup of the batter at the centre of the pan. Use a spoon to quickly spread the batter around the pan in a circular motion. 5.�Drizzle a little bit of oil on top of the pancake, and once brown flip and cook on the other side. 6.�Remove from the pan and place on a plate. 7.�Keep cooking the rest of the batter until finished.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2278,7 +1399,7 @@ var data = [
     "Ingredients": "_ kg� lamb, diced into small cubes 1 onion, chopped 1 potato, cubed 2 tablespoons tomato paste 4 tablespoons oil 1 teaspoon crushed garlic 1 teaspoon crushed coriander seeds 1 teaspoon turmeric powder 1 teaspoon curry powder Salt to taste",
     "Instructions": "1.�Fry onions till light brown. 2.�Add meat and brown for about three minutes 3.�Add garlic, coriander and potatoes and stir for a minute 4.�Add tomato paste and the turmeric and curry powder 5.�Cook on low heat until the sauce thickens. Add a few tablespoonfuls of water if the sauce is drying out 6.�Add salt to taste 7.�Check to see if the potatoes are cooked and if so remove from the heat and serve with rice or sabaayad .",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 25 minutes Total time: 35 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0177449f53f3970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0177449f53f3970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2287,7 +1408,7 @@ var data = [
     "Ingredients": "1 cup white corn flour _ cup sorghum flour (optional) 4 cups self raising flour _ teaspoon salt 4- 4_ cups lukewarm water (you will need to reduce the water a little bit if you aren�t using the sorghum flour)",
     "Instructions": "1.�Blend all the ingredients together, adding the water slowly to make sure that you get a smooth batter. 2.�Pour the batter in a bowl, cover and let it rest for two days in a warm place. This will allow the batter to ferment nicely. 3.�Heat a non stick frying pan on medium heat. 4.�Once the pan is hot, pour a ladleful of the fermented batter and spread from the centre in a circular motion. You should aim for a circle that is about the size of a dinner plate. 5.�Cover the pan and cook until the surface is holey and the bottom a light golden brown. 6.�Remove from the pan and place on a plate. 7.�Keep cooking until you have enough� anjero . 8.�Keep any remaining batter in the fridge to cook the next day.",
     "Prep_Detail": "Prep time: 10 minutes (fermentation time not included) Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Canjeero.jpg"
   },
   {
     "Category": "Featured",
@@ -2296,7 +1417,7 @@ var data = [
     "Ingredients": "4 slices of kingfish fillets (about one inch thick) Juice of one lemon _ teaspoon of ground black pepper _ teaspoon of Ethiopian duqus pepper (you can use paprika as an alternative) Salt to taste 3 tablespoons of oil",
     "Instructions": "1.�Clean the kingfish fillets thoroughly and pat dry 2.�Season the fish with spices, lemon and salt 3.�Heat up about 1_ tablespoon of oil over medium heat in a shallow pan 4.�Shallow fry two fish fillets for five minutes on each side 5.�Repeat the frying for the remaining two fillets.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d70753970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d70753970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2305,7 +1426,7 @@ var data = [
     "Ingredients": "180gms melted unsalted butter 1.5 cups of sifted self-raising flour (you can add a pinch of baking powder, but the cake works well without) 1 cup of caster sugar 3 whole eggs _ teaspoon ground cardamom (optional) 1 whole orange",
     "Instructions": "1.�Preheat oven to 180C. 2.�Chop the orange into segments (including the orange peel), remove any seeds, and then pulse in food processor until pureed 3.�Add in the other ingredients and blend for 15 seconds 4.�Prepare your cake tin by spraying the tin with oil or brush with melted butter, then dust with flour. 5.�Pour the cake batter into the prepared cake tin, bang the tin gently on the benchtop three times to settle mixture 6.�Bake in preheated oven for 45-50 minutes.� I generally take the cake out after 45 minutes, but you may need to adjust the time for your oven. 7.�Set tin on a cake rack for 5 minutes, and then turn out of the tin to cool.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 45 minutes Total time: 1 hour Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/10/Orange-cake.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/10/Orange-cake.jpg"
   },
   {
     "Category": "Featured",
@@ -2314,7 +1435,7 @@ var data = [
     "Ingredients": "1 _ cups of chickpea flour (ask for gram or besan flour at any Indian grocery store) _ cup of water 1 teaspoon of salt _ teaspoon�of baking powder I large onion, diced finely 2 large boiled potatoes, cubed into small squares 1 bunch of chopped coriander leaves 1 tablespoon of dry fenugreek leaves (optional) Oil for frying",
     "Instructions": "1.�Mix the chickpea flour, salt, baking powder and water into a smooth batter 2.�Rest the batter for about 20 minutes 3.�Add in the cubed potatoes, coriander, fenugreek and onion and mix all the ingredients 4.�Put the oil on medium heat 5.�Drop in a spoonful of the batter to test.� The oil is hot enough if it floats up. 6.�Continue dropping in spoonfuls of the batter until you have enough to cover the frying up. Keep turning to brown evenly to a light golden colour. 7.�Remove from the frying pan and drain on absorbent paper.",
     "Prep_Detail": "Prep time: 25 minutes Cook time: 15 minutes Total time: 40 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
   },
   {
     "Category": "Featured",
@@ -2323,7 +1444,7 @@ var data = [
     "Ingredients": "200g black eye beans 1 small onion 4 sticks of spring onions 2 cloves of garlic 2 green/red chilli (optional) _ teaspoon of salt A bunch of coriander, chopped 1 teaspoon of curry powder (optional) Oil for deep frying",
     "Instructions": "1.�Soak the beans overnight in hot water. 2.�Drain it of all access water and blend all ingredients together. Do it all at once if you have a powerful blender and if not do it in little patches. 3.�Add a little bit of water if your blender can�t blend dry ingredients and gives you a hard time. 4.�Heat the oil over medium heat 5.�Shape the mixture into small balls. 6.�Deep fry in the hot oil, turning to brown evenly on both sides. 7.�Drain on self absorbent paper.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d6be2b970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017616d6be2b970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2332,7 +1453,7 @@ var data = [
     "Ingredients": "2 cups of water 1�cup of milk 2 teaspoons of tea leaves (use a strong tea like Kenyan) 6 cardamom pods 1 cinnamon stick _ teaspoon of ground ginger (you can use minced fresh ginger) 4 black peppercorns 2 cloves Sugar to taste",
     "Instructions": "1.�Grind all the spices 2.�Place the water and spices in a saucepan 3.�Add the tea leaves and bring to boil 4.�Add the milk and heat through for two to three minutes 5.�Sieve the tea into a pot and serve hot.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 3 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Somali-shaah.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/11/Somali-shaah.jpg"
   },
   {
     "Category": "Featured",
@@ -2341,7 +1462,7 @@ var data = [
     "Ingredients": "I cup plain flour 1 teaspoon salt 2 teaspoons olive oil _ cup warm water _ kilo minced meat (half lamb and half beef) One large onion 1 bunch of coriander 1 teaspoon of curry powder Salt to taste Oil for deep frying",
     "Instructions": "Samosa filling 1.�Marinate the mince meat with the curry powder. Place in the fridge for one hour. I use two meats because beef on its own can be dry while lamb on its own is too oily. So the combination gives you a lovely tasting meat. 2.�Dice the onion and chop the coriander. 3.�Saute the mince in a sauce pan until cooked through. 4.�Add the onion and coriander and cook for a minute or two. 5.�Season with salt. 6.�Let the mixture cool.",
     "Prep_Detail": "Prep time: 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0167687dd303970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0167687dd303970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2350,7 +1471,7 @@ var data = [
     "Ingredients": "4 chicken legs, skinned 4 chicken thighs, skinned 7 inch piece of fresh ginger, peeled and chopped 5 cloves of garlic, chopped Juice of one lemon 2 large tomatoes, chopped Large bunch of fresh coriander, leaves chopped 1 tablespoon of tomato puree 3 tablespoons of olive oil 250ml natural yoghurt 1 teaspoon of salt",
     "Instructions": "1.�Grind the ginger and garlic in a mortar or blend. 2.�Add lemon juice and _ teaspoon of salt 3.�Place the chicken pieces in a non-metallic bowl.� Rub the spice mixture over the chicken. Cover with gladwrap and refrigerate for 30 minutes or overnight to marinate. 4.�Blend the diced tomato, coriander, tomato puree, _ teaspoon of salt and 2 tablespoons of water into a smooth paste and set aside. 5.�Pour the the oil into a large, non-stick lidded pan over medium heat.� When hot fry the marinated chicken until lightly browned. Keep turning the chicken pieces to make sure it cooks evenly. This should take about 10 minutes. 6.�Add in the second paste (coriander mixture). Cook for about 10 minutes, stirring until the sauce is thick and clings to the chicken. The dish should be almost dry at this point so add in a few tablespoons of water to keep it from burning. 7.�Add the yoghurt and cook for about 5 minutes or until the yoghurt forms a thick sauce. 8.�Cover the pan and reduce the heat to low. Cook for another five minutes or so or until the chicken is tender.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/07/Green-coriander-chicken.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/07/Green-coriander-chicken.jpg"
   },
   {
     "Category": "Featured",
@@ -2359,7 +1480,7 @@ var data = [
     "Ingredients": "2 tomatoes 1 onion _ cup of peas 1 small broccoli _ cabbage 2 celery sticks Salt to taste 2 tablespoons of olive oil for cooking Juice of one lemon",
     "Instructions": "1.�Dice the tomatoes and cabbage 2.�Slice the onion finely 3.�Chop the rest of the vegetables into small chunks 4.�Heat the olive oil in a frying pan and fry the cabbage for about one minute 5.�Add the salt, peas, broccoli and celery and cook for five minutes 6.�Add the tomatoes and onions and lemon juice and mix well before serving.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 6 minutes Total time: 16 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Qudaar-Salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Qudaar-Salad.jpg"
   },
   {
     "Category": "Featured",
@@ -2368,7 +1489,7 @@ var data = [
     "Ingredients": "2 large onions cut into thin strips 1 kg of basmati rice 3 cardamoms 1 cinnamon stick 1 tablespoon of cumin seeds _ jalapeno chilli, diced with the seeds removed 2 tablespoons of chopped coriander 3 cloves of garlic, smashed Water � about three cups or enough to cover the rice 3 tablespoons of olive oil 1 cube of Maggi or Knorr for stock (optional and don�t include if cooking for vegetarians!)",
     "Instructions": "1.��� Wash the rice and soak in water 2.��� Fry the onions in the olive oil until brown and caramelised. Set aside. 3.��� Blend or grind the cardamom, cinnamon and cumin to a fine powder 4.��� Blend or grind the jalapeno chilli and coriander 5.��� Cook the spices, jalapeno chilli and coriander in the remaining oil for a minute. 6.��� Add the soaked rice, stock cube and add water, covering the rice three inches over. 7.��� Cover the pot and simmer on medium heat until the water is reduced. 8.��� Cook for a further 10 minutes on low heat or until the rice is cooked.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Bariis-Surbiyaan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Bariis-Surbiyaan.jpg"
   },
   {
     "Category": "Featured",
@@ -2377,7 +1498,7 @@ var data = [
     "Ingredients": "3 cups plain flour 1 cup coconut milk powder _ cup warm milk 1 teaspoon ground cardamom 1 tablespoon instant yeast _ cup warm water _ cup sugar Oil for deep frying",
     "Instructions": "1. Mix the yeast, a pinch of sugar, a pinch of plain flour and the _ cup of warm water. Leave the yeast to rise (the addition of sugar and flour helps in the rising process). 2. Knead the flour, sugar, cardamom, coconut powder, warm�milk and yeast mixture to form a smooth dough. 3. Let the dough rest in a warm place � preferably overnight or until double in size (the dough could rise in a few hours if you live in a warm climate). 4. Divide dough into 8 balls. 5. Roll each ball into a 6 inch circle and cut into quarters 6. Pour the oil in a deep frying pan on medium heat. You want the oil hot enough when you start frying the dough. 7. Drop the three to four triangles into the hot oil. If the oil is hot enough the dough will quickly float to the top and puff up. Turn the mahamri as soon as it is a light brown and turn. Cook on the other side for another minute and remove from the deep fryer with a slated spoon. The doughnuts should be a light golden brown.",
     "Prep_Detail": "Prep time: 30 minutes (resting time for dough not included) Cook time: 20 minutes Total time: 50 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42ca42f3970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2386,7 +1507,7 @@ var data = [
     "Ingredients": "6 cups of plain flour 2 teaspoons baking powder 1 cup sugar 1 cup hot melted subag (clarified ghee)�or butter or vegetable oil 2 cups warm milk 1 teaspoon cardamom powder Pinch of salt 2 eggs (optional) Oil for deep frying",
     "Instructions": "1.�Sift the flour and baking powder in a mixing bowl. 2.�Add sugar and cardamom powder. 3.�Pour hot melted subag �(clarified ghee or butter) onto the flour mixture. Mix well until you get a breadcrumb consistency. 4.�Add the warm milk and start kneading until the dough is smooth and stops sticking to your fingers. If the mixture is too sticky, add a little flour at a time. 5.�Roll out the dough into a circular shape to a thickness of about half an inch. Cut into diamond shapes. 6.�Heat the oil on medium heat. 7.�Deep fry the kac kac until brown on both sides. Remove from deep fryer when done with a sieve spoon.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 15 minutes Total time: 45 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
   },
   {
     "Category": "Featured",
@@ -2395,7 +1516,7 @@ var data = [
     "Ingredients": "1 kg of flour 1 litre of water or about 4 cups of water 1 tablespoon turmeric powder ( hurud ) _� teaspoon black cumin ( xabasuud ) which can be found in most Somali or Indian grocery shops A pinch of ground cumin 2 teaspoons fennel powder ( khamoon ) 1 crushed clove of garlic Half an onion, finely diced A teaspoon of dry yeast A pinch of saffron powder (optional) A pinch of salt Melted ghee ( subag ) or yoghurt for serving with the cambabuur Sugar for serving if using subag Oil for cooking",
     "Instructions": "Preparing the cambabuur batter You need to ferment the cambabuur so prepare the mixture the day before you want to cook the bread.",
     "Prep_Detail": "Prep time: 20 minutes (fermentation time not included) Cook time: 20 minutes Total time: 40 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Cambabuur.jpg"
   },
   {
     "Category": "Featured",
@@ -2404,7 +1525,7 @@ var data = [
     "Ingredients": "500g of lamb liver, sliced in into thin strips 1 onion, sliced finely 1 small green capsicum, sliced into thin strips 3 tablespoons of olive oil for cooking Salt to taste",
     "Instructions": "1. Heat oil in frying pan over high heat 2. Fry the sliced lamb liver with salt for about three minutes (or until the liver is cooked) 3. Stir in the capsicum and onion and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Beer.jpg"
   },
   {
     "Category": "Featured",
@@ -2413,7 +1534,7 @@ var data = [
     "Ingredients": "2 cups of basmati rice or any long grained rice 2 tomatoes diced (optional) 1 large chopped onion I cinnamon stick 5 cloves 4 cardamom pods 1 teaspoon of cumin seeds 3 cloves of garlic or 1 teaspoon of minced garlic 4 tablespoons of olive oil or subag (ghee) 1 cup of chopped mixed vegetables such as carrot, peas and corn 2 _ cups of water Salt to taste",
     "Instructions": "1. Wash the rice and soak in water 2. Fry the onion until it caramelises 3. Grind the dry spices and add with garlic, cook for a minute allowing the heat of the oil to release the aroma of the spices 4. Add the diced tomatoes, cook until it thickens 5. Add the vegetables and cook until half done 6. Drain the rice and add the water. Cover with the pan with aluminium foil. Ensure the pan is well sealed. 7. Simmer for about 15 minutes or until all the liquid has been absorbed.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Bariis-iskukaris.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Bariis-iskukaris.jpg"
   },
   {
     "Category": "Featured",
@@ -2422,7 +1543,7 @@ var data = [
     "Ingredients": "4kg of spring lamb (This is about half the lamb. Ask your butcher to cut it in big chunks) 1 teaspoon of cumin powder 1 teaspoon�of coriander powder I teaspoon�cardamom powder 5 black peppercorns, ground I large piece of fresh ginger crushed (this also tenderises the meat) 1 large garlic clove, crushed Salt to taste I large green and one red capsicum 2 large onions 1 bunch baby carrots, trimmed",
     "Instructions": "1. Marinate the meat in large dish with spices, garlic and ginger for two hours in the fridge or preferably overnight. 2. Transfer to a big sauce pan � we have a special sauce pan for just this dish!� Add all the other ingredients except for the vegetables and place on the stove. Make sure your lid is airtight. Cook for an hour on stove on low heat. It will brown and you might be worried the meat is burning during the first ten minutes, but don�t worry as this gives the meat a delicious smoky flavour.� The meat will produce steam which will add to the meat�s juices. 3. Transfer the dish to a hot oven and cook for a further two hours or until meat is tender. 4. Chop the vegetables and add 5. Uncover the pan and let the meat and vegetables cook for a further 30 minutes. Usually its own juices are enough and if dry add a little bit of water. By this time the meat should be falling off the bone.",
     "Prep_Detail": "Prep time: 15 minutes (marinating time not included) Cook time: 3 hours Total time: 3 hours and 15 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d016305d7784c970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d016305d7784c970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2431,7 +1552,7 @@ var data = [
     "Ingredients": "2 tins of brown or green lentils or 2 cups of boiled lentils _ cumin seeds or powder _ teaspoon minced ginger _ teaspoon�minced garlic _ teaspoon�mustard seeds Juice of one lemon I finely chopped onion 2 tomatoes, diced _ cup of water 1 tablespoon oil Salt to taste",
     "Instructions": "1. Fry mustard seeds in oil for a few seconds. As soon as they start to pop add the chopped onion and fry until golden. 2. Add the cumin ginger, garlic, salt and lemon juice. Cook for a minute or so and add lentils and diced tomatoes with some water. 3. Simmer on gentle heat for about 10 minutes. Add salt to taste.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Lentil-curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Lentil-curry.jpg"
   },
   {
     "Category": "Featured",
@@ -2440,7 +1561,7 @@ var data = [
     "Ingredients": "500g lamb, finely cubed 1 tablespoon olive oil 1 onion, diced 2 tablespoons tomato puree _ red capsicum, chopped into small pieces Salt",
     "Instructions": "1. Heat the olive oil over medium heat. 2. Add the lamb and a pinch of salt 3. Add the onion, tomato puree and capsicum. Stir fry the meat for a few minutes until cooked. Remove from heat.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b028cf73c970b-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2449,7 +1570,7 @@ var data = [
     "Ingredients": "Yellow or white corn on the cob, washed and cut into 10cm lengths 1 cup coconut milk powder or a cup of tinned coconut milk 1 cup water 1 large onion, diced _ cup tomato puree 1 teaspoon ground turmeric Salt to taste",
     "Instructions": "Place all the ingredients into a large saucepan and cook on a low heat for about 10 minutes. How easy is that?",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2458,7 +1579,7 @@ var data = [
     "Ingredients": "600g (hake or any other firm fish) 3 tablespoons of olive oil 1 red onion chopped 3 diced tomatoes 1 teaspoon crushed garlic 1 teaspoon�crushed ginger 1 tablespoon of garam masala * or curry powder 1 teaspoon�turmeric powder 1 tablespoon of tamarind mixed with _ cup of boiling water (you can use the juice of two lemons instead) 1 teaspoon�of salt _ cup coconut cream milk Freshly chopped coriander to garnish",
     "Instructions": "1. Cut fish into small squares and season with salt and pepper and set aside 2. Heat the oil in the sauce pan and saut� the onion to golden brown 3. Add the garlic, ginger, garam masala (or curry powder) and saut� for a minute 4. Add tomatoes and tamarind (or lemon juice). Cook until all tomatoes are crushed and turn to paste. This takes about 5 minutes on medium heat. 5. Lower the heat and add the coconut milk and simmer for about 5 minutes 6. Add salt to taste and place the fish gently in the pot. Don�t stir as the fish will flake. Simmer for about 8 minutes or until fish is cooked. 7. Remove the fire and garnish with chopped coriander.",
     "Prep_Detail": "Prep time: Cook time: Total time: Serves:",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d20854970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d20854970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2467,7 +1588,7 @@ var data = [
     "Ingredients": "200g chickpeas (soaked overnight and boiled. Canned chickpeas are great too) 1 tablespoon of oil 1 onion chopped finely 3 tomatoes, diced 4 cups chopped spinach (or frozen spinach) 2 cloves of minced garlic 2 green chillies diced finely 1 tablespoon of curry powder Salt to taste 1 tablespoon chopped coriander or chives",
     "Instructions": "1. Fry the onions in hot oil, until golden brown. 2. Add the tomatoes, garlic and chillies and cook for about 5 minutes. 3. Add the spices, stir and cook for 2 minutes. 4. Add the spinach, stir and cook for 5 minutes. 5. Add the chickpeas and cook for a further 3 minutes. 6. Serve and garnish with the chopped coriander or chives.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d101d4970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d101d4970c-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2476,7 +1597,7 @@ var data = [
     "Ingredients": "2 cups of all purpose white flour I cup of wholemeal wheat flour (called atta in Indian grocery stores) 2 tablespoonfuls of oil (use ghee or as we call it subag which you can get in Indian or Somali grocery shops) _ teaspoon of salt 1 cup of water or enough to mix for a firm and elastic dough _ cup of oil for cooking _ cup of floor for keeping the dough smooth when rolling",
     "Instructions": "1. Mix all the flour together with the salt. Add the oil and mix in thoroughly. Add in the water slowly as you knead the dough. When you are satisfied that you have a firm and elastic dough you know you�ve got it right. Let the dough rest for about half an hour. 2. Cut the dough into eight equal portions. Roll out each portion into a circle. Spread one teaspoon of oil and rub it gently all over the surface of the dough. To make the sabaayad square shaped, use a rolling pin to roll the circle and fold it into a square. This will allow you to achieve a square shape when you roll the dough. If the dough is sticky pat it with some flour. 3. Heat up a frying pan or griddle on the stove. When hot place the thinly rolled dough and let it cook for a minute or so. Once it starts to puff up flip the sabaayad and immediately spread a teaspoon of oil on top. Use a spatula to press down the bread all around. This makes it puff up more evenly. Flip and cook on the other side. 4. Remove from the heat and place on a plate. To show off the flakiness of the bread my grandmother used to gently smash the sabaayad from two ends before wrapping it up in a cloth to keep it warm. Serve while hot.",
     "Prep_Detail": "Prep time: 40 minutes Cook time: 20 minutes Total time: I hour Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0079a09c970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2485,7 +1606,7 @@ var data = [
     "Ingredients": "3 tablespoons of tamarind paste 3 diced tomatoes 6 green chillies or red if you like Two or three cloves of garlic Salt to taste I tablespoon of olive oil",
     "Instructions": "Blend all the ingredients (except the oil) thoroughly for a couple of minutes. Heat up the oil in a pan and cook the blended mixture for about 5 minutes. Make sure you cover the pan as the shidni does sputter.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d17168970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d17168970d-800wi.jpg"
   },
   {
     "Category": "Featured",
@@ -2494,7 +1615,7 @@ var data = [
     "Ingredients": "100 grams of vermicelli _ cup of raisins 2 tablespoonfuls of olive oil, butter or ghee _ teaspoon crushed cardamom Sugar to taste or honey 1 cup of water Slivered almonds or any other kind of nut",
     "Instructions": "Fry the vermicelli in the oil (ghee or butter gives it a particularly delicious flavour) until lightly browned. Don�t take your eyes off the pot as the vermicelli browns very quickly.� Add water, honey or sugar, cardamom, raisins and slivered almonds.� Keep stirring until the mix thickens.� Add more water slowly to ensure it cooks through and does not stick to the pan. Cook until the water evaporates and the vermicelli is soft.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/04/Cadriyad1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/04/Cadriyad1.jpg"
   },
   {
     "Category": "Rice",
@@ -2503,7 +1624,7 @@ var data = [
     "Ingredients": "2 cups of brown rice 8-10 pods cardamom pods 1 tablespoon ground cumin 1 tablespoon of turmeric powder 5 whole black peppercorns 2 tablespoons of coconut oil (olive or any other vegetable oil is fine) 1 teaspoon fenugreek seeds 1 teaspoon coriander seeds 1 onion, chopped finely 150g cubed sweet potato (you can use pumpkin or carrot or combine all these vegetables) 20g sultanas or raisins (optional) 20g fresh coriander, chopped Salt to taste",
     "Instructions": "1. Boil three cups of water and keep aside (ratio of 1.5 cups of water to one cup rice) 2. Saute the onion over medium heat in oil until it turns translucent 3. Add rice and spices and mix well. Make sure the spices don�t burn! 4. Add in four cups of water and salt. Cover and cook for about five minutes. 5. Add in the vegetables, reduce heat to low and cover again. Cook for about 15 minutes and keep checking to see if you need to add more water. 6. Turn off the heat and let the rice sit in the covered pot for another 10 minutes. This should result in a slightly chewy rice texture, which is just the way I like it.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20-25 minutes Total time: 35 minutes Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
   },
   {
     "Category": "Rice",
@@ -2512,7 +1633,7 @@ var data = [
     "Ingredients": "� 1 _ cup basmati rice, washed and soaked for 20 minutes � 1 tablespoon sugar � 2 tablespoons butter � 25g sultanas or raisins (optional) � 100g pineapple, cut into small cubes � _ teaspoon ground cardamom � Pinch of saffron � Pinch of salt � 2 _ cups water",
     "Instructions": "1. Bring the water to a boil. 2. Place the rice and pinch of saffron and salt in the boiling water 3. Add the pineapple, butter, cardamom and sugar 4. Cover the pot and cook on low heat until the rice has absorbed all the water. This should take about 20 minutes or until all the water is fully absorbed and the rice looks fluffy. 5. Remove the rice from the pot and serve with any kind of curry.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 4",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/08/Pineapple-and-saffron-rice1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/08/Pineapple-and-saffron-rice1.jpg"
   },
   {
     "Category": "Rice",
@@ -2521,7 +1642,7 @@ var data = [
     "Ingredients": "3 cups of basmati rice, washed 1 tablespoon olive oil 2 tablespoons subag (ghee or butter) 1 teaspoon turmeric 1 teaspoon ground spices (coriander and cumin seeds) 4.5 cups of water Handful of chopped fresh coriander and mint leaves Salt to taste",
     "Instructions": "1. Heat olive oil and ghee on medium heat and stir fry the rice for two minutes. 2. Add the turmeric, ground spices and chopped herbs. 3. Add the water and cover the pot with a lid.� Reduce the heat to low and cook until the water evaporates. This should take about 10 minutes. 4. Take the rice off the heat, cover the pan with foil paper and place in a warm oven for 5 minutes. This process dries out any excess moisture and separates the rice grains. This extra step will give you a nod of approval from the discerning Somali food critic!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d431e7e2f970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d431e7e2f970c-800wi.jpg"
   },
   {
     "Category": "Rice",
@@ -2530,7 +1651,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder (the Maggi brand is the most similar to freshly grated coconut) 1 tablespoon instant yeast _ cup sugar 2 tsp plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup water (substitute milk for water for a softer cake)",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter. 2.�Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3.�Brush oil over a baking dish and bake in a hot oven for 35-40 minutes or until golden brown at the top. 4.�Remove from the oven, cool and cut into pieces for serving.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 35 minutes Total time: 1 hour and 50 minutes (includes rest time) Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
   },
   {
     "Category": "Rice",
@@ -2539,7 +1660,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon instant yeast _ cup sugar 2 teaspoons plain flour (optional) _ teaspoon ground cardamom 1 egg (optional) 1 cup milk Oil for cooking",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter to a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 2.�Heat a spoonful of oil in a griddle or small frying pan over medium heat. 3.�When hot, pour a small amount of the batter and spread to form a small pancake. 4.�When golden brown, flip to cook the other side. 5.�Repeat the process, adding more oil when necessary.",
     "Prep_Detail": "Prep time: 1 hour and 30 minutes (time to soak rice overnight not included) Cook time: 30 minutes Total time: 2 hours Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
   },
   {
     "Category": "Rice",
@@ -2548,7 +1669,7 @@ var data = [
     "Ingredients": "2 large onions cut into thin strips 1 kg of basmati rice 3 cardamoms 1 cinnamon stick 1 tablespoon of cumin seeds _ jalapeno chilli, diced with the seeds removed 2 tablespoons of chopped coriander 3 cloves of garlic, smashed Water � about three cups or enough to cover the rice 3 tablespoons of olive oil 1 cube of Maggi or Knorr for stock (optional and don�t include if cooking for vegetarians!)",
     "Instructions": "1.��� Wash the rice and soak in water 2.��� Fry the onions in the olive oil until brown and caramelised. Set aside. 3.��� Blend or grind the cardamom, cinnamon and cumin to a fine powder 4.��� Blend or grind the jalapeno chilli and coriander 5.��� Cook the spices, jalapeno chilli and coriander in the remaining oil for a minute. 6.��� Add the soaked rice, stock cube and add water, covering the rice three inches over. 7.��� Cover the pot and simmer on medium heat until the water is reduced. 8.��� Cook for a further 10 minutes on low heat or until the rice is cooked.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Bariis-Surbiyaan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Bariis-Surbiyaan.jpg"
   },
   {
     "Category": "Rice",
@@ -2557,52 +1678,52 @@ var data = [
     "Ingredients": "2 cups of basmati rice or any long grained rice 2 tomatoes diced (optional) 1 large chopped onion I cinnamon stick 5 cloves 4 cardamom pods 1 teaspoon of cumin seeds 3 cloves of garlic or 1 teaspoon of minced garlic 4 tablespoons of olive oil or subag (ghee) 1 cup of chopped mixed vegetables such as carrot, peas and corn 2 _ cups of water Salt to taste",
     "Instructions": "1. Wash the rice and soak in water 2. Fry the onion until it caramelises 3. Grind the dry spices and add with garlic, cook for a minute allowing the heat of the oil to release the aroma of the spices 4. Add the diced tomatoes, cook until it thickens 5. Add the vegetables and cook until half done 6. Drain the rice and add the water. Cover with the pan with aluminium foil. Ensure the pan is well sealed. 7. Simmer for about 15 minutes or until all the liquid has been absorbed.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 35 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Bariis-iskukaris.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Bariis-iskukaris.jpg"
   },
   {
-    "Category": "Salads",
+    "Category": "Salad",
     "Name": "Black Quinoa, Hulled Millet, Artichoke and Pomegranate Salad",
     "Description": "The inspiration for this recipe came from one of my favourite chefs, vegan guru Tal Ronen who likes to use ancient grains. Tapping into my own ancient Horn of Africa heritage with its African and Middle Eastern influences I have used hulled millet, pomegranate and added ingredients that I don�t usually use such as black quinoa and artichokes. Millet is a common food in much of Africa where it is eaten as a breakfast food in the form of porridge. It is also cooked into a stiff polenta like dish that is served with either vegetables or a meat based sauce.�While many rave about quinoa, millet is not as well known in the western world, but it should be. It is a smart carb that is low GI and has been shown to produce lower blood sugar levels than wheat or rice. (Kamari and Sumathi, 2002). I also used artichokes in this recipe, a vegetable that I am not very familiar with. I have included pictures of how they look like before and after preparation below. Slice about 3/4 inch to an inch off the tip of the artichoke. Pull off any smaller leaves towards the base and on the stem. Wash them in cold water and boil them for about 30 minutes in water. See picture below for what the artichokes should look like once prepared. And this is what your dish could look like once cooked and all the ingredients assembled on the serving plate. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Black Quinoa, Hulled Millet, Artichoke and Pomegranate Salad  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients _ black quinoa _ cup hulled millet 150g red and gold perino tomatoes, cut into halves 1 small cucumber, thinly sliced 10 baby artichokes, top and bottom trimmed Seeds from half a pomegranate 1 tablespoon pomegranate molasses 2 teaspoons white vinegar 2 tablespoons olive oil _ teaspoon minced garlic 2-3 cups of water Salt to taste Instructions 1. Toast the millet on medium heat for four minutes or until golden brown. This will enhance the nutty flavour of millet. 2. Wash and boil the quinoa in one cup of water for about 15 minutes with salt to taste. 3. Boil the millet in one cup water for about 30 minutes with salt to taste or until well cooked. Add more water if required. 4. Slice about 3/4 inch to an inch off the tip of the artichoke. Pull off any smaller leaves towards the base and on the stem. 5. Rinse the artichokes in running cold water and cook in a large pot with a cup of water. Cover and cook over low heat for about 30 minutes. 6. To make the pomegranate vinaigrette, thoroughly mix pomegranate molasses, garlic, salt to taste with olive oil and white vinegar. Toss the vinaigrette through the vegetables. 7. Lay out the sliced cucumbers on a large plate. Pile the quinoa and millet in the centre of the plate and arrange the tomatoes and artichokes around the plate. 8. Drizzle any left over vinaigrette and fresh pomegranate seeds on the salad and serve. Prep time: 10 minutes Cook time: 40 minutes Total time: 40 minutes Serves: 2 - 4 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "_ black quinoa _ cup hulled millet 150g red and gold perino tomatoes, cut into halves 1 small cucumber, thinly sliced 10 baby artichokes, top and bottom trimmed Seeds from half a pomegranate 1 tablespoon pomegranate molasses 2 teaspoons white vinegar 2 tablespoons olive oil _ teaspoon minced garlic 2-3 cups of water Salt to taste",
     "Instructions": "1. Toast the millet on medium heat for four minutes or until golden brown. This will enhance the nutty flavour of millet. 2. Wash and boil the quinoa in one cup of water for about 15 minutes with salt to taste. 3. Boil the millet in one cup water for about 30 minutes with salt to taste or until well cooked. Add more water if required. 4. Slice about 3/4 inch to an inch off the tip of the artichoke. Pull off any smaller leaves towards the base and on the stem. 5. Rinse the artichokes in running cold water and cook in a large pot with a cup of water. Cover and cook over low heat for about 30 minutes. 6. To make the pomegranate vinaigrette, thoroughly mix pomegranate molasses, garlic, salt to taste with olive oil and white vinegar. Toss the vinaigrette through the vegetables. 7. Lay out the sliced cucumbers on a large plate. Pile the quinoa and millet in the centre of the plate and arrange the tomatoes and artichokes around the plate. 8. Drizzle any left over vinaigrette and fresh pomegranate seeds on the salad and serve.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 40 minutes Total time: 40 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/01/Black-quinoa-and-hulled-millet.jpg"
   },
   {
-    "Category": "Salads",
+    "Category": "Salad",
     "Name": "Cumin and Walnut Lentil Salad",
     "Description": "This is a wonderfully earthy salad�filling and nutritious. The flavour combinations are unexpected but work beautifully together. I love the deliciously nutty flavour of lentils, enhanced with the addition of walnuts. The cumin adds a hint of spicy warmth and the lemon and sesame oil add a zing to the salad. � If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Cumin and Walnut Lentil Salad  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 400g tin of cooked brown lentils 1 large onion, diced 50g chopped walnuts 1 teaspoon ground cumin 150g, cherry tomatoes, cut in half 50g chopped fresh coriander 2 cloves of garlic, minced 1 tablespoon olive oil Salt to taste Dressing 1 tablespoon sesame oil Pinch or two of ground black pepper Juice of half a lemon 1 tablespoon white vinegar Pinch of salt Instructions 1. Fry the onion in the olive oil until soft 2. Add garlic and cook for one minute 3. Add cumin and lentils and cook for about 5 minutes on low heat and remove from the stove. 4. Mix the sesame oil, ground black pepper, lemon juice, white vinegar and salt and add to the lentils and mix through. 5. Add the walnuts and chopped fresh coriander and mix through. Prep time: 10 minutes Cook time: 7 minutes (if using tinned lentils) Total time: 17 minutes Serves: 2 - 4 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "400g tin of cooked brown lentils 1 large onion, diced 50g chopped walnuts 1 teaspoon ground cumin 150g, cherry tomatoes, cut in half 50g chopped fresh coriander 2 cloves of garlic, minced 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry the onion in the olive oil until soft 2. Add garlic and cook for one minute 3. Add cumin and lentils and cook for about 5 minutes on low heat and remove from the stove. 4. Mix the sesame oil, ground black pepper, lemon juice, white vinegar and salt and add to the lentils and mix through. 5. Add the walnuts and chopped fresh coriander and mix through.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 minutes (if using tinned lentils) Total time: 17 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
   },
   {
-    "Category": "Salads",
+    "Category": "Salad",
     "Name": "Cabbage and Carrot Curry",
     "Description": "I love the way the simple addition of turmeric, ginger and mustard seeds turns the humble cabbage into a colourful and aromatic dish. This dish is delicious served hot or cold, as a side dish, with bread or eaten by itself. It�s great as a warm salad or for brunch. You can cook any kind of cabbage, even bok choy, in this manner. Cabbage is also rich in antioxidants, vitamin C, and other essential vitamins. It�s also cholesterol lowering and full of fibre, so what�s not to love about cabbage? If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Cabbage and Carrot Curry  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 1 small cabbage, finely sliced 3 carrots, grated 1 large onion, diced finely 1 teaspoon mustard seeds 1 teaspoon turmeric powder _ teaspoon minced fresh ginger or ground dried ginger One or two green chillies, diced 1 tablespoon of olive oil Salt to taste Instructions 1. Heat the oil in a pan and when hot fry the mustard seeds until they start to pop. Make sure they don�t burn. 2. Add the onions and cook until they start to brown. 3. Add the ginger, salt and chillies and cook for a minute. 4. Add the cabbage and carrots. Mix well, cover the pot and cook for about 10 minutes or until cooked through. I like the vegetables crunchy. Cook for another five minutes if you like your cabbage softer. Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "1 small cabbage, finely sliced 3 carrots, grated 1 large onion, diced finely 1 teaspoon mustard seeds 1 teaspoon turmeric powder _ teaspoon minced fresh ginger or ground dried ginger One or two green chillies, diced 1 tablespoon of olive oil Salt to taste",
     "Instructions": "1. Heat the oil in a pan and when hot fry the mustard seeds until they start to pop. Make sure they don�t burn. 2. Add the onions and cook until they start to brown. 3. Add the ginger, salt and chillies and cook for a minute. 4. Add the cabbage and carrots. Mix well, cover the pot and cook for about 10 minutes or until cooked through. I like the vegetables crunchy. Cook for another five minutes if you like your cabbage softer.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
   },
   {
-    "Category": "Salads",
+    "Category": "Salad",
     "Name": "Spicy Mango, Tofu and Pumpkin Salad",
     "Description": "The sweetness of the mango, the crunch of the fresh vegetables, and the heat of the chilli combine into a delicious salad. What more would you ask for? � If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . Print  Spicy Mango, Tofu and Pumpkin Salad  Author:  Abderazzaq Noor  Recipe by:  Abderazzaq Noor Ingredients 250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil Instructions",
     "Ingredients": "250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
   },
   {
-    "Category": "Salads",
+    "Category": "Salad",
     "Name": "Qudaar (Salad)",
     "Description": "I learnt this simple recipe from my aunt, Eedo Rabica who loves salads. We eat this salad after the main lunch.� I always wondered why we eat the salad last and not first like everyone else. Then I learnt that we inherited this habit from the Italians who colonised Somalia. Eating the salad last cleans your palate and it is a refreshing way to end lunch or dinner.� Urbanised Somalis would sometimes have this type of salad ( insalata ) as a contorni or side dish, as it called in Italian. If you�ve read this far then you should keep in touch!� Like The Somali Kitchen on�Facebook . Add me to your� Google+ circle , follow on� Twitter , like on� Instagram �or pin on� Pinterest . � Print  Qudaar (Salad)  Author:  Abderazzaq Noor  Recipe by:  Abshiro Farah Ingredients 2 tomatoes 1 onion _ cup of peas 1 small broccoli _ cabbage 2 celery sticks Salt to taste 2 tablespoons of olive oil for cooking Juice of one lemon Instructions 1.�Dice the tomatoes and cabbage 2.�Slice the onion finely 3.�Chop the rest of the vegetables into small chunks 4.�Heat the olive oil in a frying pan and fry the cabbage for about one minute 5.�Add the salt, peas, broccoli and celery and cook for five minutes 6.�Add the tomatoes and onions and lemon juice and mix well before serving. � Prep time: 10 minutes Cook time: 6 minutes Total time: 16 minutes Serves: 4 - 6 people Share this recipe: Facebook Pinterest Google+ Twitter Email You might also like",
     "Ingredients": "2 tomatoes 1 onion _ cup of peas 1 small broccoli _ cabbage 2 celery sticks Salt to taste 2 tablespoons of olive oil for cooking Juice of one lemon",
     "Instructions": "1.�Dice the tomatoes and cabbage 2.�Slice the onion finely 3.�Chop the rest of the vegetables into small chunks 4.�Heat the olive oil in a frying pan and fry the cabbage for about one minute 5.�Add the salt, peas, broccoli and celery and cook for five minutes 6.�Add the tomatoes and onions and lemon juice and mix well before serving.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 6 minutes Total time: 16 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Qudaar-Salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/06/Qudaar-Salad.jpg"
   },
   {
     "Category": "Desserts",
@@ -2611,7 +1732,7 @@ var data = [
     "Ingredients": "Shushumow dough 1 _ cups all-purpose flour 3 tablespoon of sugar _ teaspoon salt _ teaspoon baking powder 1/3 cup of canola oil 1 large egg 3 tablespoon of warm water (more or less) 2 cups of canola oil (for frying)",
     "Instructions": "Preparing the shushumow 1. In an electric mixer mix all dough ingredients together except the water (and frying oil of course!) 2. Add the water slowly until you get soft dough. Mix for about 4-5 minutes. 3. Then let the dough rest for about 30 minutes. 4. Next cut the dough into small pieces roughly 1 inch x 1 inch. This should give you about 30 shushumow . 5. Shape them one at a time by pressing the dough on the back of the fork and curl it out toward the opposite side (away from you) 6. Preheat oil on medium heat. Fry the shushumow in the preheated oil a few at time, until golden brown. Make sure you turn the pastry frequently so that it cooks evenly. 7. Take them out and place them on a few layers of paper towels. This helps drain the oil from pastry.",
     "Prep_Detail": "Prep time: 45 minutes to 1 hour Cook time: 20 minutes Total time: 1 hour and 20 minutes Serves: 30 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/02/Shushumow-.jpg"
   },
   {
     "Category": "Desserts",
@@ -2620,7 +1741,7 @@ var data = [
     "Ingredients": "4 cups flour 2 cups sugar 1 cup nutmeal (peanut, almond or hazelnut) 2 cups warm melted butter or ghee 2 teaspoons ground cardamom powder A little milk if the dough requires more binding.",
     "Instructions": "1.�Grease a biscuit pan with some of the melted butter 2. Mix all the dry ingredients together 3. Make a hole in the middle and pour in the warm butter slowly, adding it a little at a time to make a soft dough. Add a little milk if the dough needs more binding. 4. Shape the dough into small balls with your hands and flatten into a small disc shape. 5. Bake for about 15-20 minutes in a medium heat oven or until golden brown.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 20+ people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/01/Icun-ama-qureebaad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/01/Icun-ama-qureebaad.jpg"
   },
   {
     "Category": "Desserts",
@@ -2629,7 +1750,7 @@ var data = [
     "Ingredients": "250g fine desiccated coconut 100g fine desiccated coconut (keep aside to coat the sweet) 395g can of sweet condensed milk 1 teaspoon ground cardamom 1 teaspoon ground pistachio (or any other kind of nut) A few strands of saffron",
     "Instructions": "1. Soak the saffron in a tablespoon of milk and let it sit for about 10 minutes to infuse 2. Mix all the ingredients together and cook over low heat for about five minutes. 3. Cool and shape into small balls. 4. Roll the balls one by one in the desiccated coconut.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 10+ people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Kashatacaano1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/12/Kashatacaano1.jpg"
   },
   {
     "Category": "Desserts",
@@ -2638,7 +1759,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon of instant yeast _ cup sugar 2 teaspoon plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup milk Oil for cooking",
     "Instructions": "1. Blend all the ingredients together to a smooth batter. 2. Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3. Brush oil over the Aebleskiver pan and place on stove over medium heat. 4. Pour the mixture using a spoon and fill to the top. 5. Reduce the heat to low to allow the batter to cook through. You will notice tiny bubbles on the batter. This means they are cooking nicely. When brown at the bottom, use a skewer or wooden toothpick to flip and cook the other side. 6. Cook the rest of the rice cakes and place on a platter to serve.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 20 minutes Total time: 1 hour and 35 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
   },
   {
     "Category": "Desserts",
@@ -2647,7 +1768,7 @@ var data = [
     "Ingredients": "2 large apples (for the topping) 4 eggs 1 cup of sugar _ cup of oil _ cup of milk 1 teaspoon of vanilla essence 3 tablespoons of custard powder 5 tablespoons of cornflour 14 tablespoons of plain flour (1 cup) 2 teaspoons of baking powder",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 30 - 45 minutes Total time: 50 minutes to 1 hour and 5 minutes Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b00c91120970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b00c91120970c-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2656,7 +1777,7 @@ var data = [
     "Ingredients": "4 sabaayad flatbread or three pieces of frozen puff pastry, thawed 4 cups milk _ cup cream _ cup dessicated coconut _ cup slivered almonds _ cup chopped pistachio nuts or any other kind of nut (keep some for garnishing) _ cup raisins 1 teaspoon cardamom powder",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff5b1595970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff5b1595970c-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2665,7 +1786,7 @@ var data = [
     "Ingredients": "150ml egg white (approximately 4 eggs) 1 cup (220g) caster (superfine) sugar 2 tablespoons cornflour (cornstarch), sifted 2 teaspoons white vinegar _ cup (1250ml) single (pouring) cream _ cup of thick Greek yoghurt _ tsp. ground cardamom 250g mixed berries � strawberries, blueberries and raspberries",
     "Instructions": "1. Preheat oven to 150�C (300�F). 2. Place the egg white in the bowl of an electric mixer and whisk until stiff peaks form.� The mixture will have tripled in volume. Gradually add the sugar, whisking well, until the mixture is stiff and glossy. 3. Add the cornflour and vinegar and whisk until just combined. Shape the mixture into an 18cm round on a baking tray lined with non-stick baking paper. 4. Reduce oven to 120�C (250�F) and bake for about 50 minutes or until the meringue is well risen and set. The top should be quite crisp. 5. Turn the oven off and allow the pavlova to cool completely in the oven. 6. Whisk the cream until soft peaks form. Add the yoghurt and ground cardamom. Spread over the pavlova, top with the mixed berries and serve immediately.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 50 minutes Total time: 65 minutes Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192acc5975d970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192acc5975d970d-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2674,7 +1795,7 @@ var data = [
     "Ingredients": "1 cup semolina flour 3 tablespoons chickpea flour 1 cup sugar 100g butter or subag (ghee or clarified butter) _ teaspoon ground cardamom _ cup of mixed nuts and fruit � slivered almonds, pistachio and sultanas (leave some pistachio for garnishing) 2 cups milk",
     "Instructions": "1. Add the ground cardamom and butter to the semolina flour and toast lightly on low heat to a light golden brown colour. This should take about 5 minutes. 2. Add the nuts and sultanas and mix well. 3. Add the sugar and milk. The semolina flour will absorb the milk. 4. Keep stirring the mixture on a low heat until the semolina stops sticking to the cooking pot and the spoon. This should take about 5 minutes. 5. Place on a plate and cut to desired shapes.� I like to shape the halwa using small cups, which I then turn onto a serving plate. Sprinkle some pistachio to decorate the halwa .",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0191047964e7970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0191047964e7970c-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2683,7 +1804,7 @@ var data = [
     "Ingredients": "1 _ cups desiccated coconut or fresh grated coconut (about two small coconuts) 1 cup sugar _ cup water (for making the syrup) _ cup water (for soaking desiccated coconut) _ tsp. ground cardamom Pinch of saffron to add colour",
     "Instructions": "1. Grate the coconut and keep aside. If using desiccated coconut, mix with _ cup water and keep aside. 2. Mix the sugar with _ cup of water and cook for about 4 minutes on low heat. Stir occasionally and make sure the sugar doesn�t burn! 3. Add cardamom and saffron, and the grated or desiccated coconut (the water should be almost all absorbed.� If not, add left over water to the sugar syrup). 4. Cook on a low heat, stirring until well mixed. 5. Pour on a greased plate. Flatten with a buttered knife and cut into the desired shapes before the sweet hardens. Alternatively, you can shape the mixture into balls once it is slightly cool. 6. Garnish with pistachio if you wish. Store in an airtight container.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 - 10 minutes Total time: 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e8321a5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e8321a5970b-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2692,7 +1813,7 @@ var data = [
     "Ingredients": "2 cups plain white flour 1 tablespoon dry yeast 1 tablespoon yoghurt 1 _ cups water 1 tablespoon oil Oil for deep frying",
     "Instructions": "1.Heat oil in a deep fryer or a deep pan over medium heat. 2.Drop a bit of batter to taste the heat of the oil. If the batter floats up quickly then the heat is right. 3.Using your hands scoop some batter forming a small ball and drop it gently into the oil. Alternatively, you can use a spoon to scoop the batter. Keep adding batter until the pan is full. 4.Turn the balls constantly to ensure an even brown colour. Remove them from the pan when they are a light golden colour. 5.Drop the balls into the syrup. You can also roll them in sesame seed for an extra hit of flavour. If� you don�t want to use sugar syrup or honey, dust some icing sugar over the cooked luqaimat and enjoy.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 30 minutes Total time: 1 hour Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e2eeea5970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901e2eeea5970b-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2701,7 +1822,7 @@ var data = [
     "Ingredients": "For the pastry: 125g butter 1 cup flour _ cup icing sugar",
     "Instructions": "1.Spray two 12-cup mini muffins tins with oil. 2.Place the pastry ingredients into a food processor and mix until the pastry clumps around the blade. 3.Form the pastry into a log shape, wrap in cling film and refrigerate for 20 minutes. 4.After it is chilled, remove the pastry from the cling film and divide it evenly into 16 pieces. 5.Use your fingers to gently expand the pastry to form a larger circle or use a rolling pin to shape the pastry. 6.Place the pastry in the mini muffin tins � you could use a rolling pin to re-size. Don�t worry if the pastry tears, it is very forgiving and comes back together again. 7.Chill the pastry in the mini muffin tins for 20 minutes. 8.Divide the nuts between the pastry-lined cups, breaking the nuts in half if necessary. 9.Pre-heat oven to 180�degrees Celsius. 10.Melt the butter, whisk in the egg, and brown sugar and vanilla essence until smooth. 11.Pour a teaspoon of this mixture into each nut-filled cup and bake for 20-25 minutes until the pastry is golden brown. 12.Remove from the oven for 5 minutes and let the pies rest. 13.Life carefully from the tin when cool and serve.",
     "Prep_Detail": "Prep time: 15 minutes (resting time for dough not included) Cook time: 25 minutes Total time: 40 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901bc19e7f970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01901bc19e7f970b-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2710,7 +1831,7 @@ var data = [
     "Ingredients": "4 cups of water 2kg sugar (_ brown sugar and 1 _ white sugar. You can use white sugar if you want to achieve a golden coloured halwa .� The brown sugar gives it a deep brown colour)) 300g cornflour 250g ghee (alternatively substitute half the ghee with canola or sunflower oil if you want to cut down on costs, but the ghee gives it a superb buttery flavour) 1 teaspoon ground cardamom 1 whole nutmeg, ground Pinch of saffron for colour and flavour (you can use yellow food colour as an alternative) 1 teaspoon instant coffee (this deepens the brown colour. Don�t use it if you prefer a golden coloured halwa ) Crushed or silvered almonds and pistachio (optional)",
     "Instructions": "1.�Melt the butter 2.�Boil the water in a deep non-stick pan, and when nearly boiling add sugar over medium heat 3.�Mix cornflour and coffee with one cup of water to a smooth paste 4.�When the sugar and water are almost boiling, add the cornflour mixture, stirring continuously. 5.�Add the dry spices, ghee, nuts and saffron. Continue stirring until the halwa is thickly glutinous and the oil separates from the mixture. This should take about an hour of continuous stirring. It is extremely important to keep stirring as a momentary lapse may cause the halwa to harden. 6.�Pour the halwa onto a greased flat tray and spread. Decorate with slivered nuts and cut into square or diamond shaped pieces. Serve when cool.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 1 hour Total time: 1 hour and 10 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42b1de78970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42b1de78970c-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2719,7 +1840,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder (the Maggi brand is the most similar to freshly grated coconut) 1 tablespoon instant yeast _ cup sugar 2 tsp plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup water (substitute milk for water for a softer cake)",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter. 2.�Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3.�Brush oil over a baking dish and bake in a hot oven for 35-40 minutes or until golden brown at the top. 4.�Remove from the oven, cool and cut into pieces for serving.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 35 minutes Total time: 1 hour and 50 minutes (includes rest time) Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017ee7923f49970d-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2728,7 +1849,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon instant yeast _ cup sugar 2 teaspoons plain flour (optional) _ teaspoon ground cardamom 1 egg (optional) 1 cup milk Oil for cooking",
     "Instructions": "1.�Blend all the ingredients together to a smooth batter to a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 2.�Heat a spoonful of oil in a griddle or small frying pan over medium heat. 3.�When hot, pour a small amount of the batter and spread to form a small pancake. 4.�When golden brown, flip to cook the other side. 5.�Repeat the process, adding more oil when necessary.",
     "Prep_Detail": "Prep time: 1 hour and 30 minutes (time to soak rice overnight not included) Cook time: 30 minutes Total time: 2 hours Serves: 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c35615e56970b-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2737,7 +1858,7 @@ var data = [
     "Ingredients": "2 cups self raising flour and 1 cup plain flour 1 cup sugar 3 eggs 250g butter 2 teaspoons cinnamon or cardamom powder",
     "Instructions": "1.�Melt butter and mix with sugar. 2.�Beat eggs in a separate bowl. 3.�Add eggs to melted butter and sugar.� Beat very well. 4.�Sift flour and cinnamon or cardamom in a bowl. 5.�Add the eggs, butter and sugar mixture. 6.�Gently knead in a bowl until the mixture no longer sticks to the bowl. 7.�Cut to desired shapes and bake until golden brown.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/03/Buskud.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2016/03/Buskud.jpg"
   },
   {
     "Category": "Desserts",
@@ -2746,7 +1867,7 @@ var data = [
     "Ingredients": "2 eggs _ cup sugar _ teaspoon salt 1 teaspoon�cardamom powder 3 cups of self-raising flour 3 _ cups of milk Oil for cooking ( subag or ghee gives this malawah �wonderful flavour)",
     "Instructions": "1.�Whisk or blend the eggs, sugar, milk, salt and cardamom powder until frothy 2.�Add the flour slowly and mix until you get a smooth batter 3.�Place a non-stick frying pan on medium heat 4.�Pour about quarter a cup of the batter at the centre of the pan. Use a spoon to quickly spread the batter around the pan in a circular motion. 5.�Drizzle a little bit of oil on top of the pancake, and once brown flip and cook on the other side. 6.�Remove from the pan and place on a plate. 7.�Keep cooking the rest of the batter until finished.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d3c5eaaeb970c-800wi.jpg"
   },
   {
     "Category": "Desserts",
@@ -2755,7 +1876,7 @@ var data = [
     "Ingredients": "180gms melted unsalted butter 1.5 cups of sifted self-raising flour (you can add a pinch of baking powder, but the cake works well without) 1 cup of caster sugar 3 whole eggs _ teaspoon ground cardamom (optional) 1 whole orange",
     "Instructions": "1.�Preheat oven to 180C. 2.�Chop the orange into segments (including the orange peel), remove any seeds, and then pulse in food processor until pureed 3.�Add in the other ingredients and blend for 15 seconds 4.�Prepare your cake tin by spraying the tin with oil or brush with melted butter, then dust with flour. 5.�Pour the cake batter into the prepared cake tin, bang the tin gently on the benchtop three times to settle mixture 6.�Bake in preheated oven for 45-50 minutes.� I generally take the cake out after 45 minutes, but you may need to adjust the time for your oven. 7.�Set tin on a cake rack for 5 minutes, and then turn out of the tin to cool.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 45 minutes Total time: 1 hour Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/10/Orange-cake.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/10/Orange-cake.jpg"
   },
   {
     "Category": "Desserts",
@@ -2764,7 +1885,7 @@ var data = [
     "Ingredients": "6 cups of plain flour 2 teaspoons baking powder 1 cup sugar 1 cup hot melted subag (clarified ghee)�or butter or vegetable oil 2 cups warm milk 1 teaspoon cardamom powder Pinch of salt 2 eggs (optional) Oil for deep frying",
     "Instructions": "1.�Sift the flour and baking powder in a mixing bowl. 2.�Add sugar and cardamom powder. 3.�Pour hot melted subag �(clarified ghee or butter) onto the flour mixture. Mix well until you get a breadcrumb consistency. 4.�Add the warm milk and start kneading until the dough is smooth and stops sticking to your fingers. If the mixture is too sticky, add a little flour at a time. 5.�Roll out the dough into a circular shape to a thickness of about half an inch. Cut into diamond shapes. 6.�Heat the oil on medium heat. 7.�Deep fry the kac kac until brown on both sides. Remove from deep fryer when done with a sieve spoon.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 15 minutes Total time: 45 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Kackac1.jpg"
   },
   {
     "Category": "Desserts",
@@ -2773,7 +1894,7 @@ var data = [
     "Ingredients": "100 grams of vermicelli _ cup of raisins 2 tablespoonfuls of olive oil, butter or ghee _ teaspoon crushed cardamom Sugar to taste or honey 1 cup of water Slivered almonds or any other kind of nut",
     "Instructions": "Fry the vermicelli in the oil (ghee or butter gives it a particularly delicious flavour) until lightly browned. Don�t take your eyes off the pot as the vermicelli browns very quickly.� Add water, honey or sugar, cardamom, raisins and slivered almonds.� Keep stirring until the mix thickens.� Add more water slowly to ensure it cooks through and does not stick to the pan. Cook until the water evaporates and the vermicelli is soft.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/04/Cadriyad1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/04/Cadriyad1.jpg"
   },
   {
     "Category": "Vegan",
@@ -2782,7 +1903,7 @@ var data = [
     "Ingredients": "400g tin of cooked brown lentils 1 large onion, diced 50g chopped walnuts 1 teaspoon ground cumin 150g, cherry tomatoes, cut in half 50g chopped fresh coriander 2 cloves of garlic, minced 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry the onion in the olive oil until soft 2. Add garlic and cook for one minute 3. Add cumin and lentils and cook for about 5 minutes on low heat and remove from the stove. 4. Mix the sesame oil, ground black pepper, lemon juice, white vinegar and salt and add to the lentils and mix through. 5. Add the walnuts and chopped fresh coriander and mix through.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 minutes (if using tinned lentils) Total time: 17 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
   },
   {
     "Category": "Vegan",
@@ -2791,7 +1912,7 @@ var data = [
     "Ingredients": "400g can of fava beans (washed and drained) or cooked beans 1 large onion, minced 1 large tomato, diced 1 large clove garlic, minced 1 tablespoon berbere _ tsp cumin 1 tablespoon fresh coriander for garnish 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry onion and garlic until soft, about 4 minutes 2. Add the diced tomato and cook for about 5 minutes 3. Add berbere, cumin and fava beans and cook for about 10 minutes. 4. Serve with good crusty bread or anjero �bread.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes (if using canned fava beans) Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
   },
   {
     "Category": "Vegan",
@@ -2800,7 +1921,7 @@ var data = [
     "Ingredients": "1 small cabbage, finely sliced 3 carrots, grated 1 large onion, diced finely 1 teaspoon mustard seeds 1 teaspoon turmeric powder _ teaspoon minced fresh ginger or ground dried ginger One or two green chillies, diced 1 tablespoon of olive oil Salt to taste",
     "Instructions": "1. Heat the oil in a pan and when hot fry the mustard seeds until they start to pop. Make sure they don�t burn. 2. Add the onions and cook until they start to brown. 3. Add the ginger, salt and chillies and cook for a minute. 4. Add the cabbage and carrots. Mix well, cover the pot and cook for about 10 minutes or until cooked through. I like the vegetables crunchy. Cook for another five minutes if you like your cabbage softer.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
   },
   {
     "Category": "Vegan",
@@ -2809,7 +1930,7 @@ var data = [
     "Ingredients": "2 cups of brown rice 8-10 pods cardamom pods 1 tablespoon ground cumin 1 tablespoon of turmeric powder 5 whole black peppercorns 2 tablespoons of coconut oil (olive or any other vegetable oil is fine) 1 teaspoon fenugreek seeds 1 teaspoon coriander seeds 1 onion, chopped finely 150g cubed sweet potato (you can use pumpkin or carrot or combine all these vegetables) 20g sultanas or raisins (optional) 20g fresh coriander, chopped Salt to taste",
     "Instructions": "1. Boil three cups of water and keep aside (ratio of 1.5 cups of water to one cup rice) 2. Saute the onion over medium heat in oil until it turns translucent 3. Add rice and spices and mix well. Make sure the spices don�t burn! 4. Add in four cups of water and salt. Cover and cook for about five minutes. 5. Add in the vegetables, reduce heat to low and cover again. Cook for about 15 minutes and keep checking to see if you need to add more water. 6. Turn off the heat and let the rice sit in the covered pot for another 10 minutes. This should result in a slightly chewy rice texture, which is just the way I like it.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20-25 minutes Total time: 35 minutes Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/05/Brown-rice-veganb.jpg"
   },
   {
     "Category": "Vegan",
@@ -2818,7 +1939,7 @@ var data = [
     "Ingredients": "150g Tofu 6 stalks of green onions, cleaned and sliced 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon fenugreek seeds 2 tablespoons olive oil 100g mixed red and gold Perino tomatoes, cut in halves Juice of one lime Salt to taste 1 cup of washed rocket leaves 1 teaspoon fresh or dry fenugreek leaves (optional) 1 lime halved for garnish Rind of one lime for garnish",
     "Instructions": "Saut� vegetables",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
   },
   {
     "Category": "Vegan",
@@ -2827,7 +1948,7 @@ var data = [
     "Ingredients": "1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste.",
     "Instructions": "1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
   },
   {
     "Category": "Vegan",
@@ -2836,7 +1957,7 @@ var data = [
     "Ingredients": "500g sweet potato, cut into cubes 150g broccoli, cut into florets 200g can diced tomatoes 200g green beans 200g can haricots beans (or any kind of beans) 1 onion, diced finely 2 garlic cloves, minced 1 teaspoon ground cumin 1 teaspoon ground turmeric 2 green chillies, diced finely (optional) Half a cup of water 1 tablespoon olive oil Salt to taste",
     "Instructions": "Place all the ingredients in one pot and cook over low heat for about 15 minutes or until the sweet potato is cooked through, but still firm. Add a bit more water if you want the dish to be a bit soupy.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
   },
   {
     "Category": "Vegan",
@@ -2845,7 +1966,7 @@ var data = [
     "Ingredients": "2 cups basmati rice (soak overnight) _ cup coconut powder 1 tablespoon of instant yeast _ cup sugar 2 teaspoon plain flour (optional) _ teaspoon ground cardamom 1 � 1 _ cup milk Oil for cooking",
     "Instructions": "1. Blend all the ingredients together to a smooth batter. 2. Add _ cup water if the mixture looks too thick. You need a pancake like consistency. Let the batter rest until it doubles in size. This should take about an hour or so. 3. Brush oil over the Aebleskiver pan and place on stove over medium heat. 4. Pour the mixture using a spoon and fill to the top. 5. Reduce the heat to low to allow the batter to cook through. You will notice tiny bubbles on the batter. This means they are cooking nicely. When brown at the bottom, use a skewer or wooden toothpick to flip and cook the other side. 6. Cook the rest of the rice cakes and place on a platter to serve.",
     "Prep_Detail": "Prep time: 1 hour and 15 minutes Cook time: 20 minutes Total time: 1 hour and 35 minutes Serves: 10 + people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/10/Macsharo-yariis.jpg"
   },
   {
     "Category": "Vegan",
@@ -2854,7 +1975,7 @@ var data = [
     "Ingredients": "250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
   },
   {
     "Category": "Vegan",
@@ -2863,7 +1984,7 @@ var data = [
     "Ingredients": "Three large potatoes, boiled and diced into small cubes 1 cup of cooked green peas One large onion, diced finely 1 bunch of coriander, chopped 1 tablespoon of curry powder 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon of ground chilli or two diced green chillies (optional) Salt to taste 10 sheets of spring roll pastry Oil for deep frying",
     "Instructions": "Sambuus Qudaar filling 1: Gently�cook the diced potatoes, peas, coriander, onions, salt and spices in a pan in a tablespoon of oil and cook for about five minutes. 2: Let the mixture cool.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 2 hours Total time: 2.5 hours Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2872,7 +1993,7 @@ var data = [
     "Ingredients": "2 cups white or yellow corn flour (polenta) 2 cups self-raising flour (you can substitute corn flour or semolina for wheat if you want to keep it gluten free) 1 teaspoon salt 1 sachet dry yeast 1 clove garlic, minced 1 teaspoon ground coriander seeds 1 teaspoon ground cumin seeds 1 _ cups water",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 30 minutes Cook time: 20 minutes Total time: 50 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a3fcc73713970b-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2881,7 +2002,7 @@ var data = [
     "Ingredients": "2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 10 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2890,7 +2011,7 @@ var data = [
     "Ingredients": "400g boiled red kidney beans (or canned beans) 2 small orange sweet potatoes 375g firm tofu A handful of mixed nuts _ cup fresh mint leaves 2 cups (120g) baby spinach leaves 1 teaspoon lemon zest Juice of one lemon _ cup olive oil 1 teaspoon�minced ginger 1 teaspoon�minced garlic 2 teaspoons ground cumin 2 teaspoons ground paprika 3 tomatoes, diced into small cubes 3 fresh green or red chillies, diced 4 teaspoons sesame seeds, lightly roasted Pinch or two of salt",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2899,7 +2020,7 @@ var data = [
     "Ingredients": "400g can chickpea, drained and rinsed 1 medium potato, boiled 1 medium onion, diced finely _ cup chopped coriander leaves 1 teaspoon ground coriander seeds 1 teaspoon ground cumin _ teaspoon black pepper _ cup toasted sesame seeds 1 tablespoon corn flour (this helps bind all the ingredients together. Alternatively, you can use one beaten egg.) 1-2 green chillies, diced (optional) Salt to taste Olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2908,7 +2029,7 @@ var data = [
     "Ingredients": "2 cups cooked lentils (you can use any kind of lentils) 2 tomatoes, diced 1 onion, diced 1 teaspoon mustard seeds 2 green chillies, diced (optional) 1 teaspoon�cumin powder 1 teaspoon�coriander powder 1 teaspoon�turmeric powder 1 tablespoon tamarind paste _ cup slivered almonds (leave a few for garnish) 3 teaspoons olive oil Small bunch of fresh coriander leaves (you can also add a handful of either fenugreek or thyme leaves) 1 teaspoon�sugar Salt to taste",
     "Instructions": "1. Fry the mustard seeds in the oil. As soon as they start to pop, add the onion and tomatoes and cook for about two minutes. 2. Add the lentils, ground spices, sugar, salt and fresh herbs. Cover and cook on low heat for about 10 minutes.� Stir occasionally and add a few tablespoons of water if it looks like it is drying out too much.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 12 minutes Total time: 22 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
   },
   {
     "Category": "Vegan",
@@ -2917,7 +2038,7 @@ var data = [
     "Ingredients": "250g diced pumpkin, cut into small cubes 100g mushroom 1 small capsicum , chopped 2 small eggplant, cut into small cubes 1 small onion, chopped 2 cloves of garlic, crushed 2 small tomatoes, diced 1 teaspoon�tomato paste 2 teaspoons olive oil A handful of coriander leaves (keep some aside for garnish) 1 teaspoon ground cumin 1 diced green chilli (add more if you like it spicy) 1 cup water (you can add a bit more if you like your soup thinner) Salt to taste",
     "Instructions": "1. Heat oil in a large saucepan and saut� the onions until brown. 2. Add all the other ingredients and cook for a few minutes until well mixed. 3. Add the water and salt to taste. 4. Cook with the lid on until vegetables are tender. 5. Puree the soup in a blender to your desired consistency. 6. Garnish with the herbs for a memorable lunch or dinner!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2926,7 +2047,7 @@ var data = [
     "Ingredients": "400g tin of cooked brown lentils 1 large onion, diced 50g chopped walnuts 1 teaspoon ground cumin 150g, cherry tomatoes, cut in half 50g chopped fresh coriander 2 cloves of garlic, minced 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry the onion in the olive oil until soft 2. Add garlic and cook for one minute 3. Add cumin and lentils and cook for about 5 minutes on low heat and remove from the stove. 4. Mix the sesame oil, ground black pepper, lemon juice, white vinegar and salt and add to the lentils and mix through. 5. Add the walnuts and chopped fresh coriander and mix through.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 7 minutes (if using tinned lentils) Total time: 17 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/12/Cumin-and-walnut-lentil-salad.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2935,7 +2056,7 @@ var data = [
     "Ingredients": "400g can of fava beans (washed and drained) or cooked beans 1 large onion, minced 1 large tomato, diced 1 large clove garlic, minced 1 tablespoon berbere _ tsp cumin 1 tablespoon fresh coriander for garnish 1 tablespoon olive oil Salt to taste",
     "Instructions": "1. Fry onion and garlic until soft, about 4 minutes 2. Add the diced tomato and cook for about 5 minutes 3. Add berbere, cumin and fava beans and cook for about 10 minutes. 4. Serve with good crusty bread or anjero �bread.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 20 minutes (if using canned fava beans) Serves: 2 - 3 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Ful-sahan.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2944,7 +2065,7 @@ var data = [
     "Ingredients": "1 small cabbage, finely sliced 3 carrots, grated 1 large onion, diced finely 1 teaspoon mustard seeds 1 teaspoon turmeric powder _ teaspoon minced fresh ginger or ground dried ginger One or two green chillies, diced 1 tablespoon of olive oil Salt to taste",
     "Instructions": "1. Heat the oil in a pan and when hot fry the mustard seeds until they start to pop. Make sure they don�t burn. 2. Add the onions and cook until they start to brown. 3. Add the ginger, salt and chillies and cook for a minute. 4. Add the cabbage and carrots. Mix well, cover the pot and cook for about 10 minutes or until cooked through. I like the vegetables crunchy. Cook for another five minutes if you like your cabbage softer.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/06/Cabbage-and-Carrot-Curry.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2953,7 +2074,7 @@ var data = [
     "Ingredients": "150g Tofu 6 stalks of green onions, cleaned and sliced 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon fenugreek seeds 2 tablespoons olive oil 100g mixed red and gold Perino tomatoes, cut in halves Juice of one lime Salt to taste 1 cup of washed rocket leaves 1 teaspoon fresh or dry fenugreek leaves (optional) 1 lime halved for garnish Rind of one lime for garnish",
     "Instructions": "Saut� vegetables",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 5 minutes Total time: 15 minutes Serves: 2 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/04/FenugreekTofu1.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2962,7 +2083,7 @@ var data = [
     "Ingredients": "2 medium sized sweet potatoes, cut into round discs of about 1 cm thickness 200g cherry tomatoes, cut into halves 800g cooked lentils (or two 400g tinned lentils. I prefer brown lentils) 120g rocket salad leaves 1 diced capsicum (I like to use half a red and half a green capsicum for the colour effect) 1 tablespoon olive oil 1 teaspoon ground turmeric 1 teaspoon ground cumin 20g chopped coriander leaves _ teaspoon salt",
     "Instructions": "1. Coat the sweet potato in olive oil and roast for about 10 minutes on medium heat or until cooked through 2. Prepare the dressing by mixing all the lemon juice, onion, garlic, salt and sugar together and rest for about 5 minutes. This takes away the bite from the raw onion. Add in the yoghurt and tahini and mix into a smooth paste. 3. Mix the lentils, tomatoes, rocket salad leaves, capsicum, tomatoes coriander leaves, spices and salt together. 4. Spread the yoghurt and tahini dressing on a large serving plate. 5. Start arranging the salad in layers, starting with placing the roasted sweet potato discs on top of the dressing. Pile the rest of the salad ingredients on top of the sweet potatoes. 6. Serve with some good bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/03/Lentil-and-Sweet-Potato-Salad3.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2971,7 +2092,7 @@ var data = [
     "Ingredients": "1 400g tin of cooked red kidney beans 1 small onion chopped finely 1 teaspoon olive oil 2 finely diced tomatoes (or half a tin of diced tomato) 1 teaspoon minced ginger 1 teaspoon minced garlic 1 teaspoon ground cumin 1 chopped green chilli or _ teaspoon red chilli powder (optional) Salt to taste.",
     "Instructions": "1. Fry onion in one teaspoon of oil until lightly browned. 2. Add tomato, ginger, garlic, cumin and chilli. Cook for a few minutes. 3. Add red kidney beans and salt to taste. Cover and simmer for about 10 minutes. 4. Blend into a smooth puree when cool. Serve with bread.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 2 - 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/02/Red-Kidney-Bean-Dip.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2980,7 +2101,7 @@ var data = [
     "Ingredients": "500g sweet potato, cut into cubes 150g broccoli, cut into florets 200g can diced tomatoes 200g green beans 200g can haricots beans (or any kind of beans) 1 onion, diced finely 2 garlic cloves, minced 1 teaspoon ground cumin 1 teaspoon ground turmeric 2 green chillies, diced finely (optional) Half a cup of water 1 tablespoon olive oil Salt to taste",
     "Instructions": "Place all the ingredients in one pot and cook over low heat for about 15 minutes or until the sweet potato is cooked through, but still firm. Add a bit more water if you want the dish to be a bit soupy.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/11/One-pot-veggies.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2989,7 +2110,7 @@ var data = [
     "Ingredients": "250g pumpkin, cubed I large ripe mango, cubed 450g firm tofu, cubed 400g brown lentils, cooked (or use canned lentils) 1 large onion, sliced finely into rings 200g cherry tomatoes, cut into halves 1 large red capsicum, diced 20g fresh coriander(cilantro), chopped finely 20g fresh mint leaves, chopped finely 20g almond slivers 1 tablespoon ground cumin 6 green chillies, diced (use less if you don�t like it spicy) 2 teaspoons sriracha chili sauce Salt to taste 3 tablespoons olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/07/6a016303f3fe31970d01a3fcde2cef970b-800wi1.jpg"
   },
   {
     "Category": "Vegetables",
@@ -2998,7 +2119,7 @@ var data = [
     "Ingredients": "Three large potatoes, boiled and diced into small cubes 1 cup of cooked green peas One large onion, diced finely 1 bunch of coriander, chopped 1 tablespoon of curry powder 1 teaspoon ground cumin 1 teaspoon ground coriander seeds _ teaspoon of ground chilli or two diced green chillies (optional) Salt to taste 10 sheets of spring roll pastry Oil for deep frying",
     "Instructions": "Sambuus Qudaar filling 1: Gently�cook the diced potatoes, peas, coriander, onions, salt and spices in a pan in a tablespoon of oil and cook for about five minutes. 2: Let the mixture cool.",
     "Prep_Detail": "Prep time: 30 minutes Cook time: 2 hours Total time: 2.5 hours Serves: 8 - 10 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff55fbf5970d-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3007,7 +2128,7 @@ var data = [
     "Ingredients": "2 cups fresh boiled chickpeas (boiled in one teaspoon of baking soda) or 800g can of chickpeas (garbanzo beans). _ cup tahini Juice of one large lemon 2 garlic cloves, minced 1 teaspoon cumin seeds (alternatively use 1_ teaspoons of ground cumin) _ teaspoon salt 2 tablespoons extra virgin olive oil One teaspoon baking soda",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 20 minutes Cook time: 10 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01a73d6ed487970d-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3016,7 +2137,7 @@ var data = [
     "Ingredients": "400g boiled red kidney beans (or canned beans) 2 small orange sweet potatoes 375g firm tofu A handful of mixed nuts _ cup fresh mint leaves 2 cups (120g) baby spinach leaves 1 teaspoon lemon zest Juice of one lemon _ cup olive oil 1 teaspoon�minced ginger 1 teaspoon�minced garlic 2 teaspoons ground cumin 2 teaspoons ground paprika 3 tomatoes, diced into small cubes 3 fresh green or red chillies, diced 4 teaspoons sesame seeds, lightly roasted Pinch or two of salt",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 15 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b0119bdb7970b-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3025,7 +2146,7 @@ var data = [
     "Ingredients": "400g can chickpea, drained and rinsed 1 medium potato, boiled 1 medium onion, diced finely _ cup chopped coriander leaves 1 teaspoon ground coriander seeds 1 teaspoon ground cumin _ teaspoon black pepper _ cup toasted sesame seeds 1 tablespoon corn flour (this helps bind all the ingredients together. Alternatively, you can use one beaten egg.) 1-2 green chillies, diced (optional) Salt to taste Olive oil",
     "Instructions": 0,
     "Prep_Detail": "Prep time: 15 minutes Cook time: 30 minutes Total time: 45 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019aff7a7bc2970d-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3034,7 +2155,7 @@ var data = [
     "Ingredients": "2 cups cooked lentils (you can use any kind of lentils) 2 tomatoes, diced 1 onion, diced 1 teaspoon mustard seeds 2 green chillies, diced (optional) 1 teaspoon�cumin powder 1 teaspoon�coriander powder 1 teaspoon�turmeric powder 1 tablespoon tamarind paste _ cup slivered almonds (leave a few for garnish) 3 teaspoons olive oil Small bunch of fresh coriander leaves (you can also add a handful of either fenugreek or thyme leaves) 1 teaspoon�sugar Salt to taste",
     "Instructions": "1. Fry the mustard seeds in the oil. As soon as they start to pop, add the onion and tomatoes and cook for about two minutes. 2. Add the lentils, ground spices, sugar, salt and fresh herbs. Cover and cook on low heat for about 10 minutes.� Stir occasionally and add a few tablespoons of water if it looks like it is drying out too much.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 12 minutes Total time: 22 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910467c3f0970c-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3043,7 +2164,7 @@ var data = [
     "Ingredients": "250g diced pumpkin, cut into small cubes 100g mushroom 1 small capsicum , chopped 2 small eggplant, cut into small cubes 1 small onion, chopped 2 cloves of garlic, crushed 2 small tomatoes, diced 1 teaspoon�tomato paste 2 teaspoons olive oil A handful of coriander leaves (keep some aside for garnish) 1 teaspoon ground cumin 1 diced green chilli (add more if you like it spicy) 1 cup water (you can add a bit more if you like your soup thinner) Salt to taste",
     "Instructions": "1. Heat oil in a large saucepan and saut� the onions until brown. 2. Add all the other ingredients and cook for a few minutes until well mixed. 3. Add the water and salt to taste. 4. Cook with the lid on until vegetables are tender. 5. Puree the soup in a blender to your desired consistency. 6. Garnish with the herbs for a memorable lunch or dinner!",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d0192ac0f7fab970d-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3052,7 +2173,7 @@ var data = [
     "Ingredients": "500g frozen or fresh okra, cut into slices and washed 2 tomatoes, diced 1 tbsp tomato paste 1 onion, diced _�teaspoon�mustard seeds 1 tsp garlic, minced 2 green chillies or 1 tsp ground red chilli powder (optional) 1�teaspoon�cumin powder 1�teaspoon�coriander powder 1�teaspoon�turmeric powder 1 tablespoon tamarind paste or lemon juice 4 tablespoons olive oil Small bunch of fresh coriander leaves and a handful of dried fenugreek leaves 1�teaspoon�sugar Salt to taste",
     "Instructions": "1.Fry the mustard seeds in the oil. As soon as they start to pop, add all the ingredients at the same time. 2.Cook for about 20 minutes, stirring occasionally until the okra is tender and the liquid has almost evaporated. Add a quarter cup of water if you like it soupier.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 20 minutes Total time: 30 minutes Serves: 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910391d2f3970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d01910391d2f3970c-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3061,7 +2182,7 @@ var data = [
     "Ingredients": "1 squash (you can use pumpkin or sweet potato) 2 tomatoes, diced 1 onion, chopped 250g silverbeet 1 cup of chopped mixed capsicum 1 stalk celery (you can also add a sprig or two of thyme) 2 tablespoons of olive oil Salt to taste",
     "Instructions": "1.�Heat up the wok and add oil. When hot add onions and stir until lightly browned. 2.�Add the capsicum, celery and squash. Cook for about 2 minutes. 3.�Add diced tomatoes and stir for a minute. 4.�Add silverbeet and cook for 3 minutes, stirring to ensure it cooks through evenly.",
     "Prep_Detail": "Prep time: 15 minutes Cook time: 10 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c37a46280970b-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017c37a46280970b-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3070,7 +2191,7 @@ var data = [
     "Ingredients": "1 _ cups of chickpea flour (ask for gram or besan flour at any Indian grocery store) _ cup of water 1 teaspoon of salt _ teaspoon�of baking powder I large onion, diced finely 2 large boiled potatoes, cubed into small squares 1 bunch of chopped coriander leaves 1 tablespoon of dry fenugreek leaves (optional) Oil for frying",
     "Instructions": "1.�Mix the chickpea flour, salt, baking powder and water into a smooth batter 2.�Rest the batter for about 20 minutes 3.�Add in the cubed potatoes, coriander, fenugreek and onion and mix all the ingredients 4.�Put the oil on medium heat 5.�Drop in a spoonful of the batter to test.� The oil is hot enough if it floats up. 6.�Continue dropping in spoonfuls of the batter until you have enough to cover the frying up. Keep turning to brown evenly to a light golden colour. 7.�Remove from the frying pan and drain on absorbent paper.",
     "Prep_Detail": "Prep time: 25 minutes Cook time: 15 minutes Total time: 40 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2015/07/Bhajia.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3079,7 +2200,7 @@ var data = [
     "Ingredients": "2 tins of brown or green lentils or 2 cups of boiled lentils _ cumin seeds or powder _ teaspoon minced ginger _ teaspoon�minced garlic _ teaspoon�mustard seeds Juice of one lemon I finely chopped onion 2 tomatoes, diced _ cup of water 1 tablespoon oil Salt to taste",
     "Instructions": "1. Fry mustard seeds in oil for a few seconds. As soon as they start to pop add the chopped onion and fry until golden. 2. Add the cumin ginger, garlic, salt and lemon juice. Cook for a minute or so and add lentils and diced tomatoes with some water. 3. Simmer on gentle heat for about 10 minutes. Add salt to taste.",
     "Prep_Detail": "Prep time: 5 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 4 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Lentil-curry.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2012/05/Lentil-curry.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3088,7 +2209,7 @@ var data = [
     "Ingredients": "Yellow or white corn on the cob, washed and cut into 10cm lengths 1 cup coconut milk powder or a cup of tinned coconut milk 1 cup water 1 large onion, diced _ cup tomato puree 1 teaspoon ground turmeric Salt to taste",
     "Instructions": "Place all the ingredients into a large saucepan and cook on a low heat for about 10 minutes. How easy is that?",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 10 minutes Total time: 20 minutes Serves: 4 - 6 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d017d42e3f233970c-800wi.jpg"
   },
   {
     "Category": "Vegetables",
@@ -3097,110 +2218,17 @@ var data = [
     "Ingredients": "200g chickpeas (soaked overnight and boiled. Canned chickpeas are great too) 1 tablespoon of oil 1 onion chopped finely 3 tomatoes, diced 4 cups chopped spinach (or frozen spinach) 2 cloves of minced garlic 2 green chillies diced finely 1 tablespoon of curry powder Salt to taste 1 tablespoon chopped coriander or chives",
     "Instructions": "1. Fry the onions in hot oil, until golden brown. 2. Add the tomatoes, garlic and chillies and cook for about 5 minutes. 3. Add the spices, stir and cook for 2 minutes. 4. Add the spinach, stir and cook for 5 minutes. 5. Add the chickpeas and cook for a further 3 minutes. 6. Serve and garnish with the chopped coriander or chives.",
     "Prep_Detail": "Prep time: 10 minutes Cook time: 15 minutes Total time: 25 minutes Serves: 6 - 8 people",
-    "image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d101d4970c-800wi.jpg"
+    "Image_src": "http://www.somalikitchen.com/wp-content/uploads/2014/05/6a016303f3fe31970d019b01d101d4970c-800wi.jpg"
   }
 ]
-console.log(data.length)
-var newData = [];
-        for(var i = 0; i < data.length; i++){
-          if(data[i].Category === "Appetizers"){
-            data[i]['CategoryImg'] = "https://i.ytimg.com/vi/OWkzaLWtAhw/maxresdefault.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Breakfast"){
-            data[i]['CategoryImg'] = "https://kitchenkemistry.files.wordpress.com/2012/02/chapati.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Desserts"){
-            data[i]['CategoryImg'] = "http://www.mysomalifood.com/wp-content/uploads/2014/12/bundtcake1.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Grains & Legumes"){
-            data[i]['CategoryImg'] = "http://i0.wp.com/www.treatswithatwist.com/wp/wp-content/uploads/2014/02/Creamy-Millet-Porridge-4.jpg?resize=586%2C391"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Main Courses"){
-            data[i]['CategoryImg'] = "https://c2.staticflickr.com/8/7126/6936775300_dfd376ca10_b.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Soups"){
-            data[i]['CategoryImg'] = "http://restaurant-atlantic.com/en/wp-content/uploads/2015/04/soups.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Vegetables"){
-            data[i]['CategoryImg'] = "https://akkiskitchen.files.wordpress.com/2013/10/hp1b9131.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Side-Dishes"){
-            data[i]['CategoryImg'] = "http://www.bonappetit.com/wp-content/uploads/2012/01/duck-confit-casserole-646.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Bread"){
-            data[i]['CategoryImg'] = "http://www.kingarthurflour.com/blog/files/2015/08/6-great-breads-900x600.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Meat"){
-            data[i]['CategoryImg'] = "http://www.adn.com/sites/default/files/styles/ad_slideshow_normal/public/legacy/2013/03/1d1EKa.So.7.jpeg?itok=aTK9z3LU"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Fish"){
-            data[i]['CategoryImg'] = "http://www.bonappetit.com/wp-content/uploads/2013/09/roast-salmon-and-broccoli-with-chile-caper-vinaigrette-840x536.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Eggs"){
-            data[i]['CategoryImg'] = "http://media2.onsugar.com/files/2013/06/12/847/n/1922729/c7e883c031e307fd_baked-eggs-in-avocado-shell.xxxlarge.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Featured"){
-            data[i]['CategoryImg'] = "http://www.idbeef.org/CMImages/IdahoBC/banner_recipes_featured.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Vegan"){
-            data[i]['CategoryImg'] = "http://www.seriouseats.com/images/2012/07/20120730216565-chilaquiles-pumpkin-seed-salsa-verde-1.jpeg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Rice"){
-            data[i]['CategoryImg'] = "http://www.simplecomfortfood.com/wp-content/uploads/2012/05/chorizo-fried-rice.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-
-          if(data[i].Category === "Salads"){
-            data[i]['CategoryImg'] = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cold_meat_salad.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
-            newData.push(data[i])
-          }
-      }
-
-  res.send(newData)
+  var a = data
+  function uniq(a) {
+    return a.sort().filter(function(item, pos, ary) {
+        return !pos || item != ary[pos - 1];
+    })
+  }
+  data = uniq(a);
+  res.send(data)
 
 });
 
