@@ -3158,7 +3158,7 @@ var newData = [];
           }
 
           if(data[i].Category === "Meat"){
-            data[i]['CategoryImg'] = "http://www.adn.com/sites/default/files/styles/ad_slideshow_normal/public/legacy/2013/03/1d1EKa.So.7.jpeg?itok=aTK9z3LU"
+            data[i]['CategoryImg'] = "http://www.olympichotelsochi.com/modules/imageresizer/17e/5fd/8110478456/1680x1120.jpg"
             data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
             newData.push(data[i])
           }
@@ -3176,7 +3176,7 @@ var newData = [];
           }
 
           if(data[i].Category === "Featured"){
-            data[i]['CategoryImg'] = "http://www.idbeef.org/CMImages/IdahoBC/banner_recipes_featured.jpg"
+            data[i]['CategoryImg'] = "http://www.thefreshmarket.com/media/wysiwyg/about-us/4FeaturedRecipes_Header.jpg"
             data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
             newData.push(data[i])
           }
