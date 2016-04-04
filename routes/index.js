@@ -3104,98 +3104,98 @@ console.log(data.length)
 var newData = [];
         for(var i = 0; i < data.length; i++){
           if(data[i].Category === "Appetizers"){
-            data[i]['CategoryImg'] = "https://i.ytimg.com/vi/OWkzaLWtAhw/maxresdefault.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/appetizers.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Breakfast"){
-            data[i]['CategoryImg'] = "https://kitchenkemistry.files.wordpress.com/2012/02/chapati.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/breakfast.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Desserts"){
-            data[i]['CategoryImg'] = "http://www.mysomalifood.com/wp-content/uploads/2014/12/bundtcake1.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/desserts.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Grains & Legumes"){
-            data[i]['CategoryImg'] = "http://i0.wp.com/www.treatswithatwist.com/wp/wp-content/uploads/2014/02/Creamy-Millet-Porridge-4.jpg?resize=586%2C391"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/grains.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Main Courses"){
-            data[i]['CategoryImg'] = "https://c2.staticflickr.com/8/7126/6936775300_dfd376ca10_b.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/main-course.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Soups"){
-            data[i]['CategoryImg'] = "http://restaurant-atlantic.com/en/wp-content/uploads/2015/04/soups.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/soups.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Vegetables"){
-            data[i]['CategoryImg'] = "https://akkiskitchen.files.wordpress.com/2013/10/hp1b9131.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/vegetables.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Side-Dishes"){
-            data[i]['CategoryImg'] = "http://www.bonappetit.com/wp-content/uploads/2012/01/duck-confit-casserole-646.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/side-dishes.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Bread"){
-            data[i]['CategoryImg'] = "http://www.kingarthurflour.com/blog/files/2015/08/6-great-breads-900x600.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/bread.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Meat"){
-            data[i]['CategoryImg'] = "http://www.olympichotelsochi.com/modules/imageresizer/17e/5fd/8110478456/1680x1120.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/meat.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Fish"){
-            data[i]['CategoryImg'] = "http://www.bonappetit.com/wp-content/uploads/2013/09/roast-salmon-and-broccoli-with-chile-caper-vinaigrette-840x536.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/fish.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Eggs"){
-            data[i]['CategoryImg'] = "http://media2.onsugar.com/files/2013/06/12/847/n/1922729/c7e883c031e307fd_baked-eggs-in-avocado-shell.xxxlarge.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/eggs.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Featured"){
-            data[i]['CategoryImg'] = "http://www.thefreshmarket.com/media/wysiwyg/about-us/4FeaturedRecipes_Header.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/featured.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Vegan"){
-            data[i]['CategoryImg'] = "http://www.seriouseats.com/images/2012/07/20120730216565-chilaquiles-pumpkin-seed-salsa-verde-1.jpeg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/vegan.jpeg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Rice"){
-            data[i]['CategoryImg'] = "http://www.simplecomfortfood.com/wp-content/uploads/2012/05/chorizo-fried-rice.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/rice.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Salads"){
-            data[i]['CategoryImg'] = "https://upload.wikimedia.org/wikipedia/commons/d/dc/Cold_meat_salad.jpg"
-            data[i]['FavoritesImg'] = "http://eclecticrecipes.com/wp-content/uploads/2012/10/chicken-marsala-2.jpg"
+            data[i]['CategoryImg'] = "img/Salads.jpg"
+            data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
       }
