@@ -31,7 +31,6 @@ router.post('/create', function(req, res, next) {
 	db.user.create({ email: req.body.email, firebaseId: req.body.firebaseId}).then(function(data) {
 	  // you can now access the newly created task via the variable data
 	  console.log(data)
-  		res.send('firebase login');
 	}, function(err){
 		res.send(err);
 	});
