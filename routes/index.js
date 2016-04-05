@@ -3017,7 +3017,7 @@ var newData = [];
           }
 
           if(data[i].Category === "Desserts"){
-            data[i]['CategoryImg'] = "img/desserts.jpg"
+            data[i]['CategoryImg'] = "img/Desserts.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
@@ -3059,7 +3059,7 @@ var newData = [];
           }
 
           if(data[i].Category === "Meat"){
-            data[i]['CategoryImg'] = "img/meat.jpg"
+            data[i]['CategoryImg'] = "img/Meat.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
@@ -3071,25 +3071,25 @@ var newData = [];
           }
 
           if(data[i].Category === "Eggs"){
-            data[i]['CategoryImg'] = "img/eggs.jpg"
+            data[i]['CategoryImg'] = "img/Eggs.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Featured"){
-            data[i]['CategoryImg'] = "img/featured.jpg"
+            data[i]['CategoryImg'] = "img/Featured.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Vegan"){
-            data[i]['CategoryImg'] = "img/vegan.jpeg"
+            data[i]['CategoryImg'] = "img/Vegan.jpeg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
 
           if(data[i].Category === "Rice"){
-            data[i]['CategoryImg'] = "img/rice.jpg"
+            data[i]['CategoryImg'] = "img/Rice.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
             newData.push(data[i])
           }
