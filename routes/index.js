@@ -3002,11 +3002,17 @@ var data = [
   }
 ]
 console.log(data.length)
+var test;
 var newData = [];
         for(var i = 0; i < data.length; i++){
           if(data[i].Category === "Appetizers"){
             data[i]['CategoryImg'] = "img/appetizers.jpg"
             data[i]['FavoritesImg'] = "img/favorites.jpg"
+            newData.push(data[i])
+          }
+
+          if(data[i].Prep_Detail){
+            data[i]['Credit'] = "The Somali Kitchen"
             newData.push(data[i])
           }
 
