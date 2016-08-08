@@ -39,7 +39,7 @@ router.post('/create', function(req, res, next) {
 router.post('/facebook', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*'); 
 	console.log(req.body)
-	db.user.findOrCreate({where: {firebaseId: req.body.firebaseId}}).spread(function(user, created) {
+	db.user.findOrCreate({where: {email: req.body.firebaseId, firebaseId: req.body.firebaseId}}).spread(function(user, created) {
   	res.send('facebook user created or found');
 	}, function(err){
 		res.send(err);
